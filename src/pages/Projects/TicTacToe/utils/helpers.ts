@@ -11,8 +11,8 @@ import { winningMoves, winningSums } from './constants'
 // }
 
 export const getWinner = (currentPlayer: PlayerI, previousPlayer: PlayerI): PlayerI | null => {
-  let currentPlayerObj = currentPlayer
-  let previousPlayerObj = previousPlayer
+  const currentPlayerObj = currentPlayer
+  const previousPlayerObj = previousPlayer
 
   //   const sumOfCurrentPlayer = getSumOfPlayerMoves(currentPlayer.moves)
   //   const sumOfPreviousPlayer = getSumOfPlayerMoves(previousPlayer.moves)

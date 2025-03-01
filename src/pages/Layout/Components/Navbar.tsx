@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Box, Tabs, Tab } from '@mui/material'
+import { Box, Tab, Tabs } from '@mui/material'
 import { navbarTabsConst } from '../constants'
-import { useNavigate, useLocation } from 'react-router-dom'
-import { PATH_ROUTES } from '@/modules/Router/constants'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { PATH_ROUTES } from '@/pages/Router/constants'
 
 const currentPathDefault = (pathname: string[]) => {
   let defaultValue = '/'

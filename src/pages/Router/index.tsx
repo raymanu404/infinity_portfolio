@@ -1,12 +1,10 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from '../Layout/index'
 import { PATH_ROUTES } from './constants'
 import { RedirectRouter } from './Components/RedirectRouter'
-import React from 'react'
-import NotFoundPage from '../NotFound/NotFoundPage'
-import { convertToPathURI } from '../Shared/Utils/utilsFct'
-import { Spinner } from '../Shared'
+import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
+import { NotFoundPage, Spinner } from '../../Shared/Components'
 
 const Home = lazy(() => import('../Home/Home'))
 const Monsters = lazy(() => import('../Projects/index').then((module) => ({ default: module.Monsters })))

@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import Navbar from './Components/Navbar'
 import Header from './Components/Header'
 import React from 'react'
-import { COLORS } from '@/modules/Shared/constants'
+import { COLORS } from '@/Shared/constants'
 
 const Layout = ({ children }: { children: JSX.Element | React.ReactNode }) => {
   return (

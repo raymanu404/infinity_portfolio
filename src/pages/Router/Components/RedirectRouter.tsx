@@ -1,7 +1,6 @@
+import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
-import { PATH_ROUTES } from '@/modules/Router/constants'
-import React from 'react'
+import { PATH_ROUTES } from '@/pages/Router/constants'
 
 interface PropsI {
   children: JSX.Element
@@ -29,8 +28,6 @@ const RedirectRouter = (props: PropsI) => {
         navigate(`/${PATH_ROUTES.NOT_FOUND}`)
       }
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   return <>{children}</>

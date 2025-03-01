@@ -1,5 +1,5 @@
 import React from 'react'
-import { CustomRouter } from './modules/Router'
+import { CustomRouter } from './pages/Router'
 
 const App = () => {
   return <CustomRouter />

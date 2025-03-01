@@ -1,4 +1,4 @@
-import { PATH_ROUTES } from '@/modules/Router/constants'
+import { PATH_ROUTES } from '@/pages/Router/constants'
 
 export interface ProjectI {
   title: string
