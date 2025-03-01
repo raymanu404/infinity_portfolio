@@ -14,9 +14,12 @@ export default [
       'no-duplicate-imports': 'error',
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
+      'react/jsx-uses-react': 'off', // Disable the old rule
+      'react/react-in-jsx-scope': 'off', // Disable the old rule
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  { plugins: ['react', 'react-hooks'] },
 ]

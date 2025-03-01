@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react", // Ensure React is the JSX import source
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

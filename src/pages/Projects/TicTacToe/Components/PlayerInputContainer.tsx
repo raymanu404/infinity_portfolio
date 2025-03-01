@@ -3,7 +3,6 @@ import CustomTextField from '../../Components/CustomTextField'
 import { PlayerStartDataI } from '../utils/interfaces'
 import { useState } from 'react'
 import { DEFAULT_USER_INPUT, MAXIMUM_PLAYERS_ALLOWED } from '../utils/constants'
-import React from 'react'
 
 interface PropsI {
   title?: string

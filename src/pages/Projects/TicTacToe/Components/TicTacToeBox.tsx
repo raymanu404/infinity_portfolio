@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { MoveI } from '../utils/interfaces'
-import React from 'react'
 
 interface PropsI {
   value: MoveI

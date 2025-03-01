@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
+import { Card, CardActionArea, CardContent, Typography } from '@mui/material'
 import React from 'react'
 
 interface CardPropsI {
