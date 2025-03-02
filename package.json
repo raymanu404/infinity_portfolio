@@ -21,7 +21,6 @@
     "vite": "^5.0.7",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.2.2",
-    //add tanstack query
     "web-vitals": "^2.1.4"
   },
   "scripts": {
