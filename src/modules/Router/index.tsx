@@ -1,18 +1,22 @@
 import { Suspense, lazy } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { Layout } from '../Layout/index'
 import { PATH_ROUTES } from './constants'
 import { RedirectRouter } from './Components/RedirectRouter'
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
 import { NotFoundPage, Spinner } from '../../Shared/Components'
+import { Layout } from '@/modules/Layout'
 
-const Home = lazy(() => import('../Home/Home'))
-const Monsters = lazy(() => import('../Projects/index').then((module) => ({ default: module.Monsters })))
-const Projects = lazy(() => import('../Projects/index').then((module) => ({ default: module.ProjectsContainer })))
-const TicTacToe = lazy(() => import('../Projects/index').then((module) => ({ default: module.TicTacToe })))
-const Sandbox = lazy(() => import('../Projects/index').then((module) => ({ default: module.Sandbox })))
-const SpecialTodo = lazy(() => import('../Projects/index').then((module) => ({ default: module.SpecialTodo })))
-const OnlineShopping = lazy(() => import('../Projects/index').then((module) => ({ default: module.OnlineShopping })))
+const Home = lazy(() => import('../../pages/Home/Home'))
+const Monsters = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.Monsters })))
+const Projects = lazy(() =>
+  import('../../pages/Projects/index').then((module) => ({ default: module.ProjectsContainer }))
+)
+const TicTacToe = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.TicTacToe })))
+const Sandbox = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.Sandbox })))
+const SpecialTodo = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.SpecialTodo })))
+const OnlineShopping = lazy(() =>
+  import('../../pages/Projects/index').then((module) => ({ default: module.OnlineShopping }))
+)
 
 const CustomRouter = () => {
   return (

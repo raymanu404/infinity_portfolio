@@ -1,8 +1,7 @@
 import { Box } from '@mui/material'
-import Navbar from './Components/Navbar'
-import Header from './Components/Header'
-import React from 'react'
 import { COLORS } from '@/Shared/constants'
+import Header from './Header'
+import Navbar from './Navbar'
 
 const Layout = ({ children }: { children: JSX.Element | React.ReactNode }) => {
   return (

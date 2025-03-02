@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { PATH_ROUTES } from '@/pages/Router/constants'
+import { PATH_ROUTES } from '@/modules/Router/constants'
 
 interface PropsI {
   children: JSX.Element

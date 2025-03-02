@@ -1,6 +1,6 @@
 import { NavbarTabI } from './interfaces'
-import { PATH_ROUTES } from '../Router/constants'
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
+import { PATH_ROUTES } from '@/modules/Router/constants'
 
 export const navbarTabsConst = [
   { path: '/', displayName: PATH_ROUTES.HOME },

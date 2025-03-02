@@ -1,5 +1,5 @@
 import { TextField, TextFieldProps } from '@mui/material'
-import React, { HTMLInputTypeAttribute } from 'react'
+import { HTMLInputTypeAttribute } from 'react'
 
 interface CustomPropsI {
   value?: string

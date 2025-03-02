@@ -1,5 +1,4 @@
 import { Card, CardActionArea, CardContent, Typography } from '@mui/material'
-import React from 'react'
 
 interface CardPropsI {
   title: string

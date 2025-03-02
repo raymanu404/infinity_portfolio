@@ -1,4 +1,4 @@
-import { PATH_ROUTES } from '@/pages/Router/constants'
+import { PATH_ROUTES } from '@/modules/Router/constants'
 import { ProjectI } from './interfaces'
 import { v4 } from 'uuid'
 
