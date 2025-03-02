@@ -1,6 +1,3 @@
 export { default as TicTacToe } from './TicTacToe/TicTacToe'
 export { default as ProjectsContainer } from './Container/ProjectsContainer'
-export { default as Sandbox } from './Sandbox/Sandbox'
-export { default as OnlineShopping } from './OnlineShopping/OnlineShopping'
 export { default as Monsters } from './Monsters/Monsters'
-export { default as SpecialTodo } from './SpecialTodo/container/SpecialTodo'

@@ -12,11 +12,6 @@ const Projects = lazy(() =>
   import('../../pages/Projects/index').then((module) => ({ default: module.ProjectsContainer }))
 )
 const TicTacToe = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.TicTacToe })))
-const Sandbox = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.Sandbox })))
-const SpecialTodo = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.SpecialTodo })))
-const OnlineShopping = lazy(() =>
-  import('../../pages/Projects/index').then((module) => ({ default: module.OnlineShopping }))
-)
 
 const CustomRouter = () => {
   return (
@@ -30,15 +25,6 @@ const CustomRouter = () => {
               <Route path="*" element={<Navigate to={'not-found'} replace />} />
               <Route path={convertToPathURI(PATH_ROUTES.PROJECTS)} element={<Projects />} />
               <Route path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])} element={<Monsters />} />
-              <Route
-                path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.SPECIAL_TODO])}
-                element={<SpecialTodo />}
-              />
-              <Route
-                path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.ONLINE_SHOPPING])}
-                element={<OnlineShopping />}
-              />
-              <Route path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.SANDBOX])} element={<Sandbox />} />
 
               {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
               <Route path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.TIC_TAC_TOE])} element={<TicTacToe />} />

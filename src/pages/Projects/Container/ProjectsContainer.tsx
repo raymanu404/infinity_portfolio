@@ -3,7 +3,6 @@ import CardContainer from '../Components/CardContainer'
 import { useNavigate } from 'react-router-dom'
 import { PROJECTS_CONST } from './constants'
 import { theme } from '@/theme'
-import React from 'react'
 
 const ProjectsContainer = () => {
   const navigate = useNavigate()
