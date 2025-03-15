@@ -8,7 +8,7 @@ const theme = createTheme({
       dark: '#7400B8',
       '100': '#5E60CE',
       '200': '#5390D9',
-      '300': '4EA8DE',
+      '300': '#4EA8DE',
     },
     common: {
       black: '#000000',
