@@ -4,7 +4,7 @@ import { PATH_ROUTES } from './constants'
 import { RedirectRouter } from './Components/RedirectRouter'
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
 import { NotFoundPage, Spinner } from '../../Shared/Components'
-import { Layout } from '@/modules/Layout'
+import { Layout } from '../Layout/Layout'
 
 const Home = lazy(() => import('../../pages/Home/Home'))
 const Monsters = lazy(() => import('../../pages/Projects/index').then((module) => ({ default: module.Monsters })))

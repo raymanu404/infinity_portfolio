@@ -1,22 +1,42 @@
-import { createTheme } from '@mui/material/styles'
+import {
+  createTheme,
+  Palette,
+  PaletteColor,
+  PaletteColorOptions,
+  PaletteOptions,
+  ThemeOptions,
+} from '@mui/material/styles'
 
-const theme = createTheme({
+declare module '@mui/material/styles' {
+  interface PaletteOptions {
+    extraColors?: {
+      warningLight?: string
+      successDark?: string
+    }
+  }
+}
+
+const customTheme: ThemeOptions = {
   palette: {
     primary: {
-      main: '#48BFE3',
-      '400': '#DDDDDF',
-      light: '#219ebc',
-      dark: '#7400B8',
-      '100': '#5E60CE',
-      '200': '#5390D9',
-      '300': '#4EA8DE',
+      main: '#90CAF9',
+      light: '#BBDEFB',
     },
-
+    secondary: {
+      main: '#42A5F5',
+      '100': '#2196F3',
+      '200': '#1E88E5',
+      '300': '#1976D2',
+      '400': '#1565C0',
+      '500': '#0D47A1',
+    },
     common: {
       black: '#000000',
       white: '#FFFFFF',
     },
   },
-})
+}
+
+const theme = createTheme(customTheme)
 
 export { theme }

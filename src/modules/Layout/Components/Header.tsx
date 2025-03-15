@@ -2,11 +2,7 @@ import { Box } from '@mui/material'
 import { theme } from '@/theme'
 
 const Header = () => {
-  return (
-    <Box height={'50px'} position={'sticky'} sx={{ backgroundColor: theme.palette.primary.main }}>
-      <Box></Box>
-    </Box>
-  )
+  return <Box sx={{ backgroundColor: theme.palette.primary.dark, position: 'sticky', height: '40px' }}></Box>
 }
 
 export default Header
