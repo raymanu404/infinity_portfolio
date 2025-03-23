@@ -9,14 +9,9 @@ const ProjectsContainer = () => {
 
   return (
     <Box
-      width={'100%'}
-      height={'100%'}
       sx={{
-        backgroundColor: theme.palette.primary.light,
         display: 'flex',
         justifyContent: 'center',
-        position: 'absolute',
-        left: '0',
       }}
     >
       <Box

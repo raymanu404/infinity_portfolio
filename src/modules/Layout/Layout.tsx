@@ -12,7 +12,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       sx={() => ({
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.custom.specialPalette.typographyColors?.variant[100],
         minHeight: '100vh',
       })}
     >

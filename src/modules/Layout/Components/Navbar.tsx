@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Box, Tab, Tabs } from '@mui/material'
-import { navbarTabsConst } from '../constants'
+import { navbarTabsConst, tabsSx, tabSx } from '../constants'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PATH_ROUTES } from '@/modules/Router/constants'
+import { theme } from '@/theme'
 
 const currentPathDefault = (pathname: string[]) => {
   let defaultValue = '/'
@@ -10,7 +11,7 @@ const currentPathDefault = (pathname: string[]) => {
   return defaultValue
 }
 
-const Navbar = () => {
+export const Navbar = () => {
   const { pathname } = useLocation()
 
   const [value, setValue] = useState<string>(currentPathDefault(pathname.split('/')))
@@ -22,23 +23,22 @@ const Navbar = () => {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-          sx={{
-            '& .Mui-selected': {
-              color: '#FBFEF9',
-            },
-          }}
-        >
-          {navbarTabsConst.map((x) => {
-            return <Tab label={x.displayName} key={x.path} value={x.path} />
-          })}
-        </Tabs>
-      </Box>
+    <Box
+      sx={{
+        width: '100%',
+        backgroundColor: theme.custom.specialPalette.typographyColors?.variant[200],
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        borderRadius: '0 0 10px 10px',
+        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+      }}
+    >
+      <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ ...tabsSx }}>
+        {navbarTabsConst.map((x) => {
+          return <Tab label={x.displayName} key={x.path} value={x.path} sx={{ ...tabSx }} />
+        })}
+      </Tabs>
     </Box>
   )
 }
