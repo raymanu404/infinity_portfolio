@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Box
       sx={{
-        backgroundColor: theme.custom.specialPalette.typographyColors?.variant[400],
+        backgroundColor: theme.custom.specialPalette?.variant[400],
         height: '40px',
       }}
     ></Box>

@@ -25,8 +25,6 @@ export const Navbar = () => {
   return (
     <Box
       sx={{
-        width: '100%',
-        backgroundColor: theme.custom.specialPalette.typographyColors?.variant[200],
         position: 'sticky',
         top: 0,
         zIndex: 1,

@@ -1,15 +1,12 @@
 import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components'
-import { Box } from '@mui/material'
 import React from 'react'
+import SectionContentList from './SectionContentList'
+import { theme } from '@/theme'
 
-interface MainContentProps {
-  // Define props here
-}
-
-const MainContent: React.FC<MainContentProps> = (props) => {
+const MainContent: React.FC = () => {
   return (
-    <BoxCardContent sx={{ flexBasis: '85%', backgroundColor: 'blue', minHeight: '160vh' }}>
-      <h1>MainContent</h1>
+    <BoxCardContent sx={{ flexBasis: '80%' }}>
+      <SectionContentList />
     </BoxCardContent>
   )
 }

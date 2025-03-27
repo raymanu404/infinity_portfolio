@@ -6,7 +6,7 @@ const Footer = () => {
     <Box
       component={'footer'}
       sx={{
-        backgroundColor: theme.custom.specialPalette.typographyColors?.variant[500],
+        backgroundColor: theme.custom.specialPalette?.variant[500],
         height: '80px',
         width: '100%',
       }}

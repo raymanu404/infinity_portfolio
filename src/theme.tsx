@@ -5,7 +5,7 @@ declare module '@mui/material/styles' {}
 
 interface CustomThemeOptions {
   extraColors?: ExtraActionsPalette
-  typographyColors?: BasicPalette
+  specialPalette?: BasicPalette
 }
 
 interface VariantColor {
@@ -31,16 +31,13 @@ interface ExtraActionsPalette {
   warningLight?: string
   successDark?: string
 }
-interface CustomTheme extends Theme {
-  specialPalette: CustomThemeOptions
-}
+interface CustomTheme extends Theme, CustomThemeOptions {}
 
 const localTheme: ThemeOptions = {
   palette: {
     primary: {
       main: '#74C69D',
       light: '#D8F3DC',
-
       dark: '#081C15',
     },
     secondary: {
@@ -64,22 +61,20 @@ const localTheme: ThemeOptions = {
 
 const customTheme: CustomTheme = {
   specialPalette: {
-    typographyColors: {
-      variantMain: '#E9ECEF',
-      variantMainLight: '#DEE2E6',
-      variantMainDark: '#CED4DA',
-      variantSecondary: '#495057',
-      variantSecondaryLight: '#6C757D',
-      variantSecondaryDark: '#343A40',
-      variant: {
-        100: '#D8F3DC',
-        200: '#B7E4C7',
-        300: '#95D5B2',
-        400: '#52B788',
-        500: '#40916C',
-        600: '#2D6A4F',
-        700: '#1B4332',
-      },
+    variantMain: '#E9ECEF',
+    variantMainLight: '#F8F9FA',
+    variantMainDark: '#CED4DA',
+    variantSecondary: '#495057',
+    variantSecondaryLight: '#6C757D',
+    variantSecondaryDark: '#343A40',
+    variant: {
+      100: '#D8F3DC',
+      200: '#B7E4C7',
+      300: '#95D5B2',
+      400: '#52B788',
+      500: '#40916C',
+      600: '#2D6A4F',
+      700: '#1B4332',
     },
   },
 }

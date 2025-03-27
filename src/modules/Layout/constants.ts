@@ -13,27 +13,26 @@ const navbarTabsConst = [
 ] as NavbarTabI[]
 
 const tabsSx: SxProps<Theme> = {
-  color: theme.custom.specialPalette.typographyColors?.variant[100],
-  backgroundColor: theme.custom.specialPalette.typographyColors?.variant[300],
+  color: `${theme.custom.specialPalette?.variant[200]} !important`,
+  backgroundColor: theme.custom.specialPalette?.variant[300],
   ':hover': {
-    color: theme.custom.specialPalette.typographyColors?.variant[700],
+    color: theme.custom.specialPalette?.variant[700],
   },
   '[aria-selected="false"]': {
-    color: theme.custom.specialPalette.typographyColors?.variant[700],
+    color: theme.custom.specialPalette?.variant[700],
     borderBottom: 0,
     ':hover': {
-      color: theme.custom.specialPalette.typographyColors?.variantSecondary,
-      backgroundColor: theme.custom.specialPalette.typographyColors?.variant[300],
+      backgroundColor: theme.custom.specialPalette?.variant[300],
     },
   },
   '& .Mui-selected': {
-    backgroundColor: theme.custom.specialPalette.typographyColors?.variant[500],
-    color: theme.custom.specialPalette.typographyColors?.variantMain,
+    backgroundColor: theme.custom.specialPalette?.variant[500],
+    color: `${theme.custom.specialPalette?.variantMain} !important`,
   },
 }
 
 const tabSx: SxProps<Theme> = {
-  borderColor: theme.custom.specialPalette.typographyColors?.variant[100],
+  borderColor: theme.custom.specialPalette?.variant[100],
 }
 
 export { navbarTabsConst, tabsSx, tabSx }
