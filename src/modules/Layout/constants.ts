@@ -3,7 +3,6 @@ import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
 import { PATH_ROUTES } from '@/modules/Router/constants'
 import { SxProps, Theme } from '@mui/material'
 import { theme } from '@/theme'
-import { Navbar } from './Components/Navbar'
 
 const navbarTabsConst = [
   { path: '/', displayName: PATH_ROUTES.HOME },
@@ -29,7 +28,7 @@ const tabsSx: SxProps<Theme> = {
   },
   '& .Mui-selected': {
     backgroundColor: theme.custom.specialPalette.typographyColors?.variant[500],
-    color: theme.custom.specialPalette.typographyColors?.variantMainLight,
+    color: theme.custom.specialPalette.typographyColors?.variantMain,
   },
 }
 

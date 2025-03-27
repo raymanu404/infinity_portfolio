@@ -4,4 +4,5 @@ export enum PATH_ROUTES {
   TIC_TAC_TOE = 'tic-tac-toe',
   PROJECTS = 'projects',
   NOT_FOUND = 'not-found',
+  KNOWLEDGE_HUB = 'knowledge_hub',
 }

@@ -11,8 +11,6 @@ const Monsters = () => {
   const [searchedValue, setSearchedValue] = useState<string>('')
   const [isLoading, setIsLoading] = useState(true)
 
-  console.log('render from monsters')
-
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
