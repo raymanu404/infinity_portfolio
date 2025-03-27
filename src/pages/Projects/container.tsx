@@ -1,8 +1,7 @@
 import { Box, Grid } from '@mui/material'
-import CardContainer from '../Components/CardContainer'
+import CardContainer from './Components/CardContainer'
 import { useNavigate } from 'react-router-dom'
-import { PROJECTS_CONST } from './constants'
-import { theme } from '@/theme'
+import { PROJECTS_CONST } from './Container/constants'
 
 const ProjectsContainer = () => {
   const navigate = useNavigate()

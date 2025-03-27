@@ -1,9 +1,14 @@
-import { Box, styled } from '@mui/material'
+import { theme } from '@/theme'
+import { Box, Container, styled } from '@mui/material'
 
-const CenteredBox = styled(Box)`
+const CenteredBox = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-export { CenteredBox }
+const BoxCardContent = styled(Box)`
+  padding: ${theme.spacing(1)};
+`
+
+export { CenteredBox, BoxCardContent }
