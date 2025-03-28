@@ -3,11 +3,6 @@ import { createTheme, PaletteOptions, ThemeOptions } from '@mui/material/styles'
 
 declare module '@mui/material/styles' {}
 
-interface CustomThemeOptions {
-  extraColors?: ExtraActionsPalette
-  specialPalette?: BasicPalette
-}
-
 interface VariantColor {
   200?: string
   100?: string
@@ -27,11 +22,24 @@ interface BasicPalette {
   variantSecondaryDark?: string
   variant: VariantColor
 }
+
 interface ExtraActionsPalette {
   warningLight?: string
   successDark?: string
 }
-interface CustomTheme extends Theme, CustomThemeOptions {}
+
+type Variant = 'main' | 'secondary' | 'tertiary'
+
+type VariantT = {
+  [key in Variant]?: string
+}
+
+interface CustomTheme extends Theme {
+  extraColors?: ExtraActionsPalette
+  specialPalette?: BasicPalette
+  boxShadows?: VariantT
+  borderRadiusContainer?: VariantT
+}
 
 const localTheme: ThemeOptions = {
   palette: {
@@ -76,6 +84,12 @@ const customTheme: CustomTheme = {
       600: '#2D6A4F',
       700: '#1B4332',
     },
+  },
+  boxShadows: {
+    main: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+  },
+  borderRadiusContainer: {
+    main: '1rem',
   },
 }
 

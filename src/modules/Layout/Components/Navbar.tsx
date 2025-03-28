@@ -29,7 +29,7 @@ export const Navbar = () => {
         top: 0,
         zIndex: 1,
         borderRadius: '0 0 10px 10px',
-        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+        boxShadow: theme.custom.boxShadows?.main,
       }}
     >
       <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ ...tabsSx }}>
