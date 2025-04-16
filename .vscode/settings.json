@@ -1,4 +1,11 @@
 {
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
+  "editor.formatOnSave": true,                        // Automatically format on save
+  "editor.formatOnPaste": true,                       // Format on paste
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
