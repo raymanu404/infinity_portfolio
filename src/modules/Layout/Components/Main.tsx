@@ -1,4 +1,3 @@
-import { theme } from '@/theme';
 import { Box } from '@mui/material';
 import { PropsWithChildren } from 'react';
 

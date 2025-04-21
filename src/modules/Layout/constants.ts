@@ -1,8 +1,8 @@
-import { NavbarTabI } from './interfaces';
-import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
 import { PATH_ROUTES } from '@/modules/Router/constants';
-import { SxProps, Theme } from '@mui/material';
 import { theme } from '@/theme';
+import { SxProps, Theme } from '@mui/material';
+import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
+import { NavbarTabI } from './interfaces';
 
 const navbarTabsConst = [
   { path: '/', displayName: PATH_ROUTES.HOME },

@@ -1,5 +1,4 @@
 import { PlayerI } from './interfaces';
-import { winningMoves, winningSums } from './constants';
 
 // const getSumOfPlayerMoves = (numbersArray: number[]): number =>
 //   numbersArray.reduce((prevValue, currentValue) => prevValue + currentValue, 0)

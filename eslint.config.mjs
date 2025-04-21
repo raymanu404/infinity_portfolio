@@ -1,10 +1,10 @@
-import globals from 'globals'
-import pluginJs from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import pluginReact from 'eslint-plugin-react'
+import pluginJs from '@eslint/js';
+import pluginReact from 'eslint-plugin-react';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import { defineConfig } from 'vite';
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { ignores: ['./node_modules'] },
   { languageOptions: { globals: globals.browser } },
@@ -14,12 +14,9 @@ export default [
       'no-duplicate-imports': 'error',
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
-      'react/jsx-uses-react': 'off', // Disable the old rule
-      'react/react-in-jsx-scope': 'off', // Disable the old rule
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  { plugins: ['react', 'react-hooks'] },
-]
+]);

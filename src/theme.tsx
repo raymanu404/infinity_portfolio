@@ -1,5 +1,5 @@
 import { Theme } from '@emotion/react';
-import { createTheme, PaletteOptions, ThemeOptions } from '@mui/material/styles';
+import { createTheme, ThemeOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {}
 

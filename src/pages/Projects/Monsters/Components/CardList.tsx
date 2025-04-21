@@ -1,8 +1,8 @@
+import { NoResult } from '@/Shared/Components';
 import { Box, Grid } from '@mui/material';
 import { MonsterI } from '../interfaces';
 import './cardList.style.css';
 import MonsterCard from './MonsterCard';
-import { NoResult } from '@/Shared/Components';
 
 interface PropsI {
   monsters: MonsterI[];

@@ -1,7 +1,6 @@
 import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
 import React from 'react';
 import SectionContentList from './SectionContentList';
-import { theme } from '@/theme';
 
 const MainContent: React.FC = () => {
   return (

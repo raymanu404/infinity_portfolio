@@ -1,10 +1,10 @@
+import { Spinner } from '@/Shared/Components';
 import { Box } from '@mui/material';
 import { ChangeEvent, useEffect, useState } from 'react';
 import CardList from './Components/CardList';
-import { MonsterI } from './interfaces';
-import SearchBox from './Components/SearchBox';
 import HeaderMonsters from './Components/HeaderMonsters';
-import { Spinner } from '@/Shared/Components';
+import SearchBox from './Components/SearchBox';
+import { MonsterI } from './interfaces';
 
 const Monsters = () => {
   const [monsters, setMonsters] = useState<MonsterI[]>([]);

@@ -1,11 +1,11 @@
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { PATH_ROUTES } from './constants';
-import { RedirectRouter } from './Components/RedirectRouter';
-import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
-import { NotFoundPage, Spinner } from '../../Shared/Components';
-import { Layout } from '../Layout/Layout';
 import { CenteredBox } from '@/Shared/Utils/Helpers/styled-components';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { NotFoundPage, Spinner } from '../../Shared/Components';
+import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
+import { Layout } from '../Layout/Layout';
+import { RedirectRouter } from './Components/RedirectRouter';
+import { PATH_ROUTES } from './constants';
 
 const Home = lazy(() => import('../../pages/Home/Home'));
 const Projects = lazy(() =>

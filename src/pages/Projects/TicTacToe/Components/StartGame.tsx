@@ -1,11 +1,10 @@
-import { Box, IconButton } from '@mui/material';
-import { PlayerInputContainer } from './PlayerInputContainer';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { useMemo, useState } from 'react';
-import { GameStatus, PlayerStartDataI } from '../utils/interfaces';
-import { DEFAULT_USER_INPUT, MAXIMUM_PLAYERS_ALLOWED } from '../utils/constants';
+import { Box, IconButton } from '@mui/material';
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import { DEFAULT_USER_INPUT, MAXIMUM_PLAYERS_ALLOWED } from '../utils/constants';
+import { GameStatus, PlayerStartDataI } from '../utils/interfaces';
+import { PlayerInputContainer } from './PlayerInputContainer';
 
 interface PropsI {
   gameStatus: GameStatus;

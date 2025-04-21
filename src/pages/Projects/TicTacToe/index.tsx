@@ -1,11 +1,9 @@
-import { Backdrop, Box, Fade, IconButton, Modal } from '@mui/material';
-import StartGame from './Components/StartGame';
+import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { GameStatus } from './utils/interfaces';
-import Game from './Components/Game';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useLocation } from 'react-router-dom';
-import React from 'react';
+import Game from './Components/Game';
+import StartGame from './Components/StartGame';
+import { GameStatus } from './utils/interfaces';
 
 const style = {
   // position: 'absolute' as 'absolute',

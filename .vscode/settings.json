@@ -1,11 +1,34 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter
-  "editor.formatOnSave": true,                        // Automatically format on save
-  "editor.formatOnPaste": true,                       // Format on paste
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // 🧠 Format using Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // ✅ Enable Prettier only if config file is present
+  "prettier.requireConfig": true,
+
+  // ⚙️ Auto-fix ESLint + organize imports
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+  // 🌐 Format per language (optional but explicit)
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.formatOnSave": true
   }
 }

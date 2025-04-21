@@ -1,6 +1,5 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { MonsterI } from '../interfaces';
-import React from 'react';
 
 interface PropsI {
   monster: MonsterI;

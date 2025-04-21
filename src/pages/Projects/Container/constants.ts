@@ -1,6 +1,6 @@
 import { PATH_ROUTES } from '@/modules/Router/constants';
-import { ProjectI } from './interfaces';
 import { v4 } from 'uuid';
+import { ProjectI } from './interfaces';
 
 export const PROJECTS_CONST = [
   {

@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
-import Header from './Components/Header';
-import Navbar from './Components/Navbar';
 import { theme } from '@/theme';
-import Footer from './Components/Footer';
+import { Box } from '@mui/material';
 import { PropsWithChildren } from 'react';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
 import Main from './Components/Main';
+import Navbar from './Components/Navbar';
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (

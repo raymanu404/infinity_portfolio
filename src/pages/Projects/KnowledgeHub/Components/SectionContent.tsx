@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
@@ -7,9 +7,9 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ContentI } from '../interfaces';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ContentI } from '../interfaces';
 
 interface SectionContentProps {
   content: ContentI;

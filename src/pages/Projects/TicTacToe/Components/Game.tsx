@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
-import TicTacToeBox from './TicTacToeBox';
-import { MoveI, PlayerI, ValueEnum, ValueOnBoardI } from '../utils/interfaces';
 import { useState } from 'react';
+import { MoveI, PlayerI, ValueEnum, ValueOnBoardI } from '../utils/interfaces';
+import TicTacToeBox from './TicTacToeBox';
 
 interface PropsI {
   player1: PlayerI;
