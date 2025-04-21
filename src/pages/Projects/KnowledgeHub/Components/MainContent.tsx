@@ -1,16 +1,16 @@
-import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components'
-import React from 'react'
-import SectionContentList from './SectionContentList'
-import { theme } from '@/theme'
+import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
+import React from 'react';
+import SectionContentList from './SectionContentList';
+import { theme } from '@/theme';
 
 const MainContent: React.FC = () => {
   return (
     <BoxCardContent sx={{ flexBasis: '80%' }}>
       <SectionContentList />
     </BoxCardContent>
-  )
-}
+  );
+};
 
-MainContent.displayName = 'MainContent'
+MainContent.displayName = 'MainContent';
 
-export default MainContent
+export default MainContent;

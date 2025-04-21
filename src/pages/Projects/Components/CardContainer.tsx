@@ -1,13 +1,13 @@
-import { Card, CardActionArea, CardContent, Typography } from '@mui/material'
+import { Card, CardActionArea, CardContent, Typography } from '@mui/material';
 
 interface CardPropsI {
-  title: string
-  description: string
-  onClickHandler?: () => void
+  title: string;
+  description: string;
+  onClickHandler?: () => void;
 }
 
 const CardContainer = (props: CardPropsI) => {
-  const { title, description, onClickHandler } = props
+  const { title, description, onClickHandler } = props;
 
   return (
     <CardActionArea
@@ -37,7 +37,7 @@ const CardContainer = (props: CardPropsI) => {
         </CardContent>
       </Card>
     </CardActionArea>
-  )
-}
+  );
+};
 
-export default CardContainer
+export default CardContainer;

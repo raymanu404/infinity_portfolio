@@ -1,8 +1,8 @@
-import { Box, Stack } from '@mui/material'
-import React from 'react'
-import MainContent from './Components/MainContent'
-import SideNavigation from './Components/SideNavigation'
-import { theme } from '@/theme'
+import { Box, Stack } from '@mui/material';
+import React from 'react';
+import MainContent from './Components/MainContent';
+import SideNavigation from './Components/SideNavigation';
+import { theme } from '@/theme';
 
 const KnowledgeHub: React.FC = () => {
   return (
@@ -12,9 +12,9 @@ const KnowledgeHub: React.FC = () => {
         <SideNavigation />
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-KnowledgeHub.displayName = 'KnowledgeHub'
+KnowledgeHub.displayName = 'KnowledgeHub';
 
-export default KnowledgeHub
+export default KnowledgeHub;

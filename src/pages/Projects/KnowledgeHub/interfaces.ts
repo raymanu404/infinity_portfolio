@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react';
 
 interface ContentI extends PropsWithChildren {
-  title: string
-  subTitle?: string
-  elementId: string
+  title: string;
+  subTitle?: string;
+  elementId: string;
 }
 
-export type { ContentI }
+export type { ContentI };

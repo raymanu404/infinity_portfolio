@@ -1,5 +1,5 @@
-import { PlayerI } from './interfaces'
-import { winningMoves, winningSums } from './constants'
+import { PlayerI } from './interfaces';
+import { winningMoves, winningSums } from './constants';
 
 // const getSumOfPlayerMoves = (numbersArray: number[]): number =>
 //   numbersArray.reduce((prevValue, currentValue) => prevValue + currentValue, 0)
@@ -11,8 +11,8 @@ import { winningMoves, winningSums } from './constants'
 // }
 
 export const getWinner = (currentPlayer: PlayerI, previousPlayer: PlayerI): PlayerI | null => {
-  const currentPlayerObj = currentPlayer
-  const previousPlayerObj = previousPlayer
+  const currentPlayerObj = currentPlayer;
+  const previousPlayerObj = previousPlayer;
 
   //   const sumOfCurrentPlayer = getSumOfPlayerMoves(currentPlayer.moves)
   //   const sumOfPreviousPlayer = getSumOfPlayerMoves(previousPlayer.moves)
@@ -30,5 +30,5 @@ export const getWinner = (currentPlayer: PlayerI, previousPlayer: PlayerI): Play
   //     return previousPlayerObj
   //   }
 
-  return null
-}
+  return null;
+};

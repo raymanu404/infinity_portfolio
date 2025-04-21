@@ -48,36 +48,21 @@ const CustomRouter = () => {
           >
             <Routes>
               <Route index element={<Home />} />
-              <Route
-                element={<NotFoundPage />}
-                path={convertToPathURI(PATH_ROUTES.NOT_FOUND)}
-              />
+              <Route element={<NotFoundPage />} path={convertToPathURI(PATH_ROUTES.NOT_FOUND)} />
               <Route path="*" element={<Navigate to={'not-found'} replace />} />
+              <Route path={convertToPathURI(PATH_ROUTES.PROJECTS)} element={<Projects />} />
               <Route
-                path={convertToPathURI(PATH_ROUTES.PROJECTS)}
-                element={<Projects />}
-              />
-              <Route
-                path={convertToPathURI([
-                  PATH_ROUTES.PROJECTS,
-                  PATH_ROUTES.MONSTERS,
-                ])}
+                path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])}
                 element={<Monsters />}
               />
               <Route
-                path={convertToPathURI([
-                  PATH_ROUTES.PROJECTS,
-                  PATH_ROUTES.KNOWLEDGE_HUB,
-                ])}
+                path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB])}
                 element={<KnowledgeHub />}
               />
 
               {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
               <Route
-                path={convertToPathURI([
-                  PATH_ROUTES.PROJECTS,
-                  PATH_ROUTES.TIC_TAC_TOE,
-                ])}
+                path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.TIC_TAC_TOE])}
                 element={<TicTacToe />}
               />
             </Routes>

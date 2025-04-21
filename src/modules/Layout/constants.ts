@@ -1,8 +1,8 @@
-import { NavbarTabI } from './interfaces'
-import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils'
-import { PATH_ROUTES } from '@/modules/Router/constants'
-import { SxProps, Theme } from '@mui/material'
-import { theme } from '@/theme'
+import { NavbarTabI } from './interfaces';
+import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
+import { PATH_ROUTES } from '@/modules/Router/constants';
+import { SxProps, Theme } from '@mui/material';
+import { theme } from '@/theme';
 
 const navbarTabsConst = [
   { path: '/', displayName: PATH_ROUTES.HOME },
@@ -10,7 +10,7 @@ const navbarTabsConst = [
     path: convertToPathURI([PATH_ROUTES.PROJECTS]),
     displayName: PATH_ROUTES.PROJECTS,
   },
-] as NavbarTabI[]
+] as NavbarTabI[];
 
 const tabsSx: SxProps<Theme> = {
   color: `${theme.custom.specialPalette?.variant[200]} !important`,
@@ -29,13 +29,13 @@ const tabsSx: SxProps<Theme> = {
     backgroundColor: theme.custom.specialPalette?.variant[500],
     color: `${theme.custom.specialPalette?.variantMain} !important`,
   },
-}
+};
 
 const tabSx: SxProps<Theme> = {
   borderColor: theme.custom.specialPalette?.variant[100],
-}
+};
 
-export { navbarTabsConst, tabsSx, tabSx }
+export { navbarTabsConst, tabsSx, tabSx };
 
 // export const navbarTabsConst = [
 //   { path: '/', displayName: PATH_ROUTES.HOME },

@@ -1,28 +1,32 @@
-import { Box, Grid } from '@mui/material'
-import TicTacToeBox from './TicTacToeBox'
-import { MoveI, PlayerI, ValueEnum, ValueOnBoardI } from '../utils/interfaces'
-import { useState } from 'react'
+import { Box, Grid } from '@mui/material';
+import TicTacToeBox from './TicTacToeBox';
+import { MoveI, PlayerI, ValueEnum, ValueOnBoardI } from '../utils/interfaces';
+import { useState } from 'react';
 
 interface PropsI {
-  player1: PlayerI
-  player2: PlayerI
+  player1: PlayerI;
+  player2: PlayerI;
 }
 
 const Game = (props: PropsI) => {
-  const { player1, player2 } = props
+  const { player1, player2 } = props;
   //in this case we replace props from parent, with props from useContext global state about game(just game not in entirely app) state
-  const [currentPlayer, setCurrentPlayer] = useState<PlayerI | null>(player1)
-  const [valueOnBoard, setValueOnBoard] = useState<ValueOnBoardI[]>([])
+  const [currentPlayer, setCurrentPlayer] = useState<PlayerI | null>(player1);
+  const [valueOnBoard, setValueOnBoard] = useState<ValueOnBoardI[]>([]);
 
   const onClickHandler = (ev: React.MouseEvent<HTMLDivElement, MouseEvent>, value: MoveI) => {
-    console.log(value)
+    console.log(value);
 
     //to be refactored
     if (currentPlayer?.idPlayer === player1.idPlayer) {
       setValueOnBoard([
         ...valueOnBoard,
-        { value: ValueEnum.X, position: { col: value.col, row: value.row }, currentPlayerId: currentPlayer.idPlayer },
-      ])
+        {
+          value: ValueEnum.X,
+          position: { col: value.col, row: value.row },
+          currentPlayerId: currentPlayer.idPlayer,
+        },
+      ]);
     }
     if (currentPlayer?.idPlayer === player2.idPlayer) {
       setValueOnBoard([
@@ -32,9 +36,9 @@ const Game = (props: PropsI) => {
           position: { col: value.col, row: value.row },
           currentPlayerId: currentPlayer.idPlayer,
         },
-      ])
+      ]);
     }
-  }
+  };
   return (
     <>
       <Grid container>
@@ -51,7 +55,7 @@ const Game = (props: PropsI) => {
                           (x) =>
                             x.currentPlayerId === currentPlayer?.idPlayer &&
                             x.position.col === index &&
-                            x.position.row === i
+                            x.position.row === i,
                         )?.value ?? ''
                       }
                       onClickHandler={onClickHandler}
@@ -59,12 +63,12 @@ const Game = (props: PropsI) => {
                   </Grid>
                 ))}
               </Box>
-            )
+            );
           })}
         </Box>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export default Game
+export default Game;

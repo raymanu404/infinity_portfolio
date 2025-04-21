@@ -1,10 +1,10 @@
-import { Box, Grid } from '@mui/material'
-import CardContainer from './Components/CardContainer'
-import { useNavigate } from 'react-router-dom'
-import { PROJECTS_CONST } from './Container/constants'
+import { Box, Grid } from '@mui/material';
+import CardContainer from './Components/CardContainer';
+import { useNavigate } from 'react-router-dom';
+import { PROJECTS_CONST } from './Container/constants';
 
 const ProjectsContainer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -30,12 +30,12 @@ const ProjectsContainer = () => {
                   onClickHandler={() => navigate(`${project.route}`)}
                 />
               </Grid>
-            )
+            );
           })}
         </Grid>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ProjectsContainer
+export default ProjectsContainer;

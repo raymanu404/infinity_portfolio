@@ -1,14 +1,14 @@
-import { Box, Typography } from '@mui/material'
-import { MoveI } from '../utils/interfaces'
+import { Box, Typography } from '@mui/material';
+import { MoveI } from '../utils/interfaces';
 
 interface PropsI {
-  value: MoveI
-  onClickHandler?: (ev: React.MouseEvent<HTMLDivElement, MouseEvent>, value: MoveI) => void
-  currentValueOnBoard: string
+  value: MoveI;
+  onClickHandler?: (ev: React.MouseEvent<HTMLDivElement, MouseEvent>, value: MoveI) => void;
+  currentValueOnBoard: string;
 }
 
 const TicTacToeBox = (props: PropsI) => {
-  const { value, onClickHandler, currentValueOnBoard } = props
+  const { value, onClickHandler, currentValueOnBoard } = props;
   return (
     <Box
       sx={{
@@ -26,7 +26,7 @@ const TicTacToeBox = (props: PropsI) => {
     >
       <Typography variant="h1">{currentValueOnBoard}</Typography>
     </Box>
-  )
-}
+  );
+};
 
-export default TicTacToeBox
+export default TicTacToeBox;

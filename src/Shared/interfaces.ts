@@ -1,3 +1,3 @@
 export interface CustomColorI {
-  [key: string]: string
+  [key: string]: string;
 }

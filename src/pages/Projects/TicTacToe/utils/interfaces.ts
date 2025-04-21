@@ -1,31 +1,31 @@
 export interface PlayerI {
-  moves: number[]
-  name?: string
-  winningLines?: number[] | null
-  isWinner?: boolean
-  isFirst?: boolean
-  idPlayer: string
+  moves: number[];
+  name?: string;
+  winningLines?: number[] | null;
+  isWinner?: boolean;
+  isFirst?: boolean;
+  idPlayer: string;
 }
 
 export interface UserInputI {
-  nickname: string
-  color: string
+  nickname: string;
+  color: string;
 }
 
 export interface PlayerStartDataI {
-  userInput: UserInputI
-  idPlayer: string
+  userInput: UserInputI;
+  idPlayer: string;
 }
 
 export interface MoveI {
-  row: number
-  col: number
+  row: number;
+  col: number;
 }
 
 export interface ValueOnBoardI {
-  value: ValueEnum
-  position: MoveI
-  currentPlayerId: string
+  value: ValueEnum;
+  position: MoveI;
+  currentPlayerId: string;
 }
 
 export enum GameStatus {

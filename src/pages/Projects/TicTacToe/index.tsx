@@ -1,11 +1,11 @@
-import { Backdrop, Box, Fade, IconButton, Modal } from '@mui/material'
-import StartGame from './Components/StartGame'
-import { useEffect, useState } from 'react'
-import { GameStatus } from './utils/interfaces'
-import Game from './Components/Game'
-import RestartAltIcon from '@mui/icons-material/RestartAlt'
-import { useLocation } from 'react-router-dom'
-import React from 'react'
+import { Backdrop, Box, Fade, IconButton, Modal } from '@mui/material';
+import StartGame from './Components/StartGame';
+import { useEffect, useState } from 'react';
+import { GameStatus } from './utils/interfaces';
+import Game from './Components/Game';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 const style = {
   // position: 'absolute' as 'absolute',
@@ -17,24 +17,24 @@ const style = {
   // border: '2px solid #000',
   // boxShadow: 24,
   // p: 4,
-}
+};
 
 const TicTacToe = () => {
-  const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.NEW)
-  const [open, setOpen] = useState(true)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-  const location = useLocation()
+  const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.NEW);
+  const [open, setOpen] = useState(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const location = useLocation();
 
   useEffect(() => {
-    console.log(location.search)
+    console.log(location.search);
     if (location.search.includes('?gameSession=1')) {
-      handleOpen()
+      handleOpen();
     }
     // if (gameStatus === GameStatus.IN_PROGRESS) {
     //   handleOpen()
     // }
-  }, [location])
+  }, [location]);
 
   //Maybe this piece of code will be removed after we develop useContext scope of game
   // useEffect(() => {
@@ -82,7 +82,9 @@ const TicTacToe = () => {
           </Box>
         )} */}
 
-        {gameStatus === GameStatus.NEW && <StartGame gameStatus={gameStatus} setGameStatus={setGameStatus} />}
+        {gameStatus === GameStatus.NEW && (
+          <StartGame gameStatus={gameStatus} setGameStatus={setGameStatus} />
+        )}
         {gameStatus === GameStatus.IN_PROGRESS && (
           <>
             {/* 
@@ -95,7 +97,7 @@ const TicTacToe = () => {
         )}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default TicTacToe
+export default TicTacToe;

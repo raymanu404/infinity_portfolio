@@ -1,5 +1,5 @@
-import ComponentsSection from './Contents/ComponentsSection'
-import { ContentI } from './interfaces'
+import ComponentsSection from './Contents/ComponentsSection';
+import { ContentI } from './interfaces';
 
 const LEARNING_SECTIONS: ContentI[] = [
   {
@@ -18,6 +18,6 @@ const LEARNING_SECTIONS: ContentI[] = [
     elementId: 'conditional-rendering-section',
     children: <ComponentsSection />,
   },
-]
+];
 
-export { LEARNING_SECTIONS }
+export { LEARNING_SECTIONS };

@@ -1,14 +1,14 @@
-import { Box, Grid } from '@mui/material'
-import { MonsterI } from '../interfaces'
-import './cardList.style.css'
-import MonsterCard from './MonsterCard'
-import { NoResult } from '@/Shared/Components'
+import { Box, Grid } from '@mui/material';
+import { MonsterI } from '../interfaces';
+import './cardList.style.css';
+import MonsterCard from './MonsterCard';
+import { NoResult } from '@/Shared/Components';
 
 interface PropsI {
-  monsters: MonsterI[]
+  monsters: MonsterI[];
 }
 const CardList = (props: PropsI) => {
-  const { monsters } = props
+  const { monsters } = props;
 
   return (
     <Grid container gap={'1.25rem'} sx={{ padding: '30px', justifyContent: 'center' }}>
@@ -21,10 +21,10 @@ const CardList = (props: PropsI) => {
                 <MonsterCard monster={el} />
               </Grid>
             </Box>
-          )
+          );
         })}
     </Grid>
-  )
-}
+  );
+};
 
-export default CardList
+export default CardList;

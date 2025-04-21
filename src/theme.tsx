@@ -1,44 +1,44 @@
-import { Theme } from '@emotion/react'
-import { createTheme, PaletteOptions, ThemeOptions } from '@mui/material/styles'
+import { Theme } from '@emotion/react';
+import { createTheme, PaletteOptions, ThemeOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {}
 
 interface VariantColor {
-  200?: string
-  100?: string
-  300?: string
-  400?: string
-  500?: string
-  600?: string
-  700?: string
+  200?: string;
+  100?: string;
+  300?: string;
+  400?: string;
+  500?: string;
+  600?: string;
+  700?: string;
 }
 
 interface BasicPalette {
-  variantMain?: string
-  variantMainLight?: string
-  variantMainDark?: string
-  variantSecondary?: string
-  variantSecondaryLight?: string
-  variantSecondaryDark?: string
-  variant: VariantColor
+  variantMain?: string;
+  variantMainLight?: string;
+  variantMainDark?: string;
+  variantSecondary?: string;
+  variantSecondaryLight?: string;
+  variantSecondaryDark?: string;
+  variant: VariantColor;
 }
 
 interface ExtraActionsPalette {
-  warningLight?: string
-  successDark?: string
+  warningLight?: string;
+  successDark?: string;
 }
 
-type Variant = 'main' | 'secondary' | 'tertiary'
+type Variant = 'main' | 'secondary' | 'tertiary';
 
 type VariantT = {
-  [key in Variant]?: string
-}
+  [key in Variant]?: string;
+};
 
 interface CustomTheme extends Theme {
-  extraColors?: ExtraActionsPalette
-  specialPalette?: BasicPalette
-  boxShadows?: VariantT
-  borderRadiusContainer?: VariantT
+  extraColors?: ExtraActionsPalette;
+  specialPalette?: BasicPalette;
+  boxShadows?: VariantT;
+  borderRadiusContainer?: VariantT;
 }
 
 const localTheme: ThemeOptions = {
@@ -65,7 +65,7 @@ const localTheme: ThemeOptions = {
       white: '#FFFFFF',
     },
   },
-}
+};
 
 const customTheme: CustomTheme = {
   specialPalette: {
@@ -91,8 +91,8 @@ const customTheme: CustomTheme = {
   borderRadiusContainer: {
     main: '1rem',
   },
-}
+};
 
-const theme = { ...createTheme(localTheme), custom: customTheme }
+const theme = { ...createTheme(localTheme), custom: customTheme };
 
-export { theme }
+export { theme };

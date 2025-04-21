@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
-import { theme } from '@/theme'
+import { Box } from '@mui/material';
+import { theme } from '@/theme';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         height: '40px',
       }}
     ></Box>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,7 +1,7 @@
-import { Stack } from '@mui/material'
-import React from 'react'
-import { LEARNING_SECTIONS } from '../constants'
-import SectionContent from './SectionContent'
+import { Stack } from '@mui/material';
+import React from 'react';
+import { LEARNING_SECTIONS } from '../constants';
+import SectionContent from './SectionContent';
 
 const SectionContentList: React.FC = () => {
   return (
@@ -10,9 +10,9 @@ const SectionContentList: React.FC = () => {
         <SectionContent content={item} key={item.elementId} />
       ))}
     </Stack>
-  )
-}
+  );
+};
 
-SectionContentList.displayName = 'SectionContentList'
+SectionContentList.displayName = 'SectionContentList';
 
-export default SectionContentList
+export default SectionContentList;

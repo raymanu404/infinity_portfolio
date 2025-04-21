@@ -1,16 +1,16 @@
-import { TextField, TextFieldProps } from '@mui/material'
-import { HTMLInputTypeAttribute } from 'react'
+import { TextField, TextFieldProps } from '@mui/material';
+import { HTMLInputTypeAttribute } from 'react';
 
 interface CustomPropsI {
-  value?: string
-  placeholder?: string
-  type?: HTMLInputTypeAttribute
+  value?: string;
+  placeholder?: string;
+  type?: HTMLInputTypeAttribute;
 }
 
-type PropsI = CustomPropsI & TextFieldProps
+type PropsI = CustomPropsI & TextFieldProps;
 
 const CustomTextField = (props: PropsI) => {
-  const { value, placeholder, type, ...rest } = props
+  const { value, placeholder, type, ...rest } = props;
   return (
     <>
       <TextField
@@ -20,7 +20,7 @@ const CustomTextField = (props: PropsI) => {
         {...rest}
       />
     </>
-  )
-}
+  );
+};
 
-export default CustomTextField
+export default CustomTextField;

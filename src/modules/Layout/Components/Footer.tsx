@@ -1,5 +1,5 @@
-import { theme } from '@/theme'
-import { Box, Typography } from '@mui/material'
+import { theme } from '@/theme';
+import { Box, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
@@ -11,11 +11,14 @@ const Footer = () => {
         width: '100%',
       }}
     >
-      <Typography variant="body1" sx={{ color: theme.palette.common.white, padding: theme.spacing(3) }}>
+      <Typography
+        variant="body1"
+        sx={{ color: theme.palette.common.white, padding: theme.spacing(3) }}
+      >
         Im a footer
       </Typography>
     </Box>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

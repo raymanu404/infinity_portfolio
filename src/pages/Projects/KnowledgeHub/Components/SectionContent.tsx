@@ -1,31 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { ContentI } from '../interfaces'
-import { useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Stack,
+  Typography,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ContentI } from '../interfaces';
+import { useLocation } from 'react-router-dom';
 
 interface SectionContentProps {
-  content: ContentI
+  content: ContentI;
 }
 
 const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
-  const { elementId, title, children, subTitle } = content
-  const { hash } = useLocation()
-  const [isOpen, setIsOpen] = useState(hash.includes(elementId))
+  const { elementId, title, children, subTitle } = content;
+  const { hash } = useLocation();
+  const [isOpen, setIsOpen] = useState(hash.includes(elementId));
 
   useEffect(() => {
-    const value = hash.includes(elementId)
+    const value = hash.includes(elementId);
     if (value) {
-      setIsOpen(hash.includes(elementId))
+      setIsOpen(hash.includes(elementId));
     }
-  }, [hash])
+  }, [hash]);
 
   return (
     <Box id={elementId}>
       <Accordion
         expanded={isOpen}
         onChange={() => {
-          setIsOpen((prev) => !prev)
+          setIsOpen((prev) => !prev);
         }}
       >
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${title}-content`}>
@@ -37,9 +44,9 @@ const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
         <AccordionDetails>{children}</AccordionDetails>
       </Accordion>
     </Box>
-  )
-}
+  );
+};
 
-SectionContent.displayName = 'SectionContent'
+SectionContent.displayName = 'SectionContent';
 
-export default SectionContent
+export default SectionContent;

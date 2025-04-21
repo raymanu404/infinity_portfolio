@@ -1,4 +1,4 @@
 export interface NavbarTabI {
-  path: string
-  displayName: string
+  path: string;
+  displayName: string;
 }
