@@ -1,8 +1,8 @@
 import pluginJs from '@eslint/js';
 import pluginReact from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import { defineConfig } from 'vite';
 
 export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -15,8 +15,14 @@ export default defineConfig([
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
     },
+    extends: ['eslint:recommended', 'plugin:react/recommended'],
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  pluginReact.configs.recommended,
 ]);
