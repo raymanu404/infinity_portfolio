@@ -14,7 +14,7 @@ const CardList = (props: PropsI) => {
     <Grid container gap={'1.25rem'} sx={{ padding: '30px', justifyContent: 'center' }}>
       {monsters.length === 0 && <NoResult />}
       {monsters &&
-        monsters.map((el) => {
+        monsters.map(el => {
           return (
             <Box key={el.id}>
               <Grid item xs={6}>

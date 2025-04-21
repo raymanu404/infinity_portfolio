@@ -9,22 +9,22 @@ import { CenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 
 const Home = lazy(() => import('../../pages/Home/Home'));
 const Projects = lazy(() =>
-  import('../../pages/Projects/index').then((module) => ({
+  import('../../pages/Projects/index').then(module => ({
     default: module.ProjectsContainer,
   })),
 );
 const TicTacToe = lazy(() =>
-  import('../../pages/Projects/index').then((module) => ({
+  import('../../pages/Projects/index').then(module => ({
     default: module.TicTacToe,
   })),
 );
 const Monsters = lazy(() =>
-  import('../../pages/Projects/index').then((module) => ({
+  import('../../pages/Projects/index').then(module => ({
     default: module.Monsters,
   })),
 );
 const KnowledgeHub = lazy(() =>
-  import('../../pages/Projects/index').then((module) => ({
+  import('../../pages/Projects/index').then(module => ({
     default: module.KnowledgeHub,
   })),
 );

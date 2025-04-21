@@ -13,7 +13,7 @@ const Monsters = () => {
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((users: MonsterI[]) => setMonsters(users))
       .then(() => setIsLoading(false))
       .catch(() => setIsLoading(false));
@@ -25,9 +25,7 @@ const Monsters = () => {
     setSearchedValue(searchedValue);
   };
 
-  const filteredMonsters = monsters.filter((x) =>
-    x.name.toLocaleLowerCase().includes(searchedValue),
-  );
+  const filteredMonsters = monsters.filter(x => x.name.toLocaleLowerCase().includes(searchedValue));
 
   return (
     <Box

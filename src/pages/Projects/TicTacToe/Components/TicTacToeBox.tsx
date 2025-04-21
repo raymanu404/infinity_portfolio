@@ -22,7 +22,7 @@ const TicTacToeBox = (props: PropsI) => {
         justifyContent: 'center',
         alignItems: 'center',
       }}
-      onClick={(ev) => onClickHandler?.(ev, value)}
+      onClick={ev => onClickHandler?.(ev, value)}
     >
       <Typography variant="h1">{currentValueOnBoard}</Typography>
     </Box>

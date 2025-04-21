@@ -21,7 +21,7 @@ const StartGame = (props: PropsI) => {
     () =>
       userInput.length === MAXIMUM_PLAYERS_ALLOWED &&
       userInput.every(
-        (x) =>
+        x =>
           x.userInput.nickname !== DEFAULT_USER_INPUT.NICKNAME &&
           x.userInput.color !== DEFAULT_USER_INPUT.COLOR,
       ),

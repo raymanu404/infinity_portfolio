@@ -15,8 +15,8 @@ const RedirectRouter = (props: PropsI) => {
   useEffect(() => {
     const prefixPaths = ['', '/', PATH_ROUTES.PROJECTS];
     const restPaths = Object.values(PATH_ROUTES)
-      .filter((x) => x !== PATH_ROUTES.PROJECTS)
-      .map((x) => x.toLocaleLowerCase());
+      .filter(x => x !== PATH_ROUTES.PROJECTS)
+      .map(x => x.toLocaleLowerCase());
     const userPaths = pathname.split('/');
 
     if (!prefixPaths.includes(userPaths[1])) {

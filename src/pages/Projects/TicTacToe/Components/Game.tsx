@@ -52,7 +52,7 @@ const Game = (props: PropsI) => {
                       value={{ row: i, col: index }}
                       currentValueOnBoard={
                         valueOnBoard.find(
-                          (x) =>
+                          x =>
                             x.currentPlayerId === currentPlayer?.idPlayer &&
                             x.position.col === index &&
                             x.position.row === i,

@@ -27,17 +27,17 @@ const PlayerInputContainer = (props: PropsI) => {
   const onChangeHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = ev.target;
 
-    setData((prev) => ({ ...prev, [name]: value }));
+    setData(prev => ({ ...prev, [name]: value }));
   };
 
   const onBlurHandler = (_: React.FocusEvent<HTMLInputElement>) => {
     if (
       data.nickname !== DEFAULT_USER_INPUT.NICKNAME &&
       data.color !== DEFAULT_USER_INPUT.COLOR &&
-      userInput.filter((x) => x.idPlayer !== idPlayer).length < MAXIMUM_PLAYERS_ALLOWED &&
+      userInput.filter(x => x.idPlayer !== idPlayer).length < MAXIMUM_PLAYERS_ALLOWED &&
       userInput.length < MAXIMUM_PLAYERS_ALLOWED
     ) {
-      setUserInput((prev) => {
+      setUserInput(prev => {
         return [...prev, { idPlayer: idPlayer, userInput: data }];
       });
     }

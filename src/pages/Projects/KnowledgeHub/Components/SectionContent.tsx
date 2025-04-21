@@ -32,7 +32,7 @@ const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
       <Accordion
         expanded={isOpen}
         onChange={() => {
-          setIsOpen((prev) => !prev);
+          setIsOpen(prev => !prev);
         }}
       >
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${title}-content`}>

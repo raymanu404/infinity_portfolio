@@ -6,7 +6,7 @@ import SectionContent from './SectionContent';
 const SectionContentList: React.FC = () => {
   return (
     <Stack direction={'column'} spacing={3}>
-      {LEARNING_SECTIONS.map((item) => (
+      {LEARNING_SECTIONS.map(item => (
         <SectionContent content={item} key={item.elementId} />
       ))}
     </Stack>

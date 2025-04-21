@@ -39,7 +39,7 @@ export const Navbar = () => {
         aria-label="basic tabs example"
         sx={{ ...tabsSx }}
       >
-        {navbarTabsConst.map((x) => {
+        {navbarTabsConst.map(x => {
           return <Tab label={x.displayName} key={x.path} value={x.path} sx={{ ...tabSx }} />;
         })}
       </Tabs>
