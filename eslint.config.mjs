@@ -1,28 +1,23 @@
-import pluginJs from '@eslint/js';
-import pluginReact from 'eslint-plugin-react';
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { ignores: ['./node_modules'] },
-  { languageOptions: { globals: globals.browser } },
+  {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
+    ignores: ['./node_modules'],
+  },
+  tseslint.configs.recommended,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat['jsx-runtime'],
   {
     rules: {
-      'prefer-const': 'error',
-      'no-duplicate-imports': 'error',
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
-    },
-    extends: ['eslint:recommended', 'plugin:react/recommended'],
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
+      '@typescript-eslint/no-unused-vars': ['warn'],
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.recommended,
 ]);
