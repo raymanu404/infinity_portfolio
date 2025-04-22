@@ -1,5 +1,5 @@
 export const convertToPathURI = (path: string | string[]): string => {
-  let result: string = '';
+  let result = '';
 
   if (Array.isArray(path)) {
     result = path.join('/');

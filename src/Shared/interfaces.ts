@@ -1,3 +1,1 @@
-export interface CustomColorI {
-  [key: string]: string;
-}
+export type CustomColorI = Record<string, string>;

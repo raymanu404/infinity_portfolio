@@ -30,9 +30,7 @@ interface ExtraActionsPalette {
 
 type Variant = 'main' | 'secondary' | 'tertiary';
 
-type VariantT = {
-  [key in Variant]?: string;
-};
+type VariantT = Partial<Record<Variant, string>>;
 
 interface CustomTheme extends Theme {
   extraColors?: ExtraActionsPalette;

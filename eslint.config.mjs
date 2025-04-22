@@ -13,6 +13,7 @@ export default defineConfig([
     ignores: ['./node_modules'],
   },
   tseslint.configs.recommended,
+  tseslint.configs.stylistic,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
   //overrides
