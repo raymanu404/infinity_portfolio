@@ -15,6 +15,7 @@ export default defineConfig([
   tseslint.configs.recommended,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
+  //overrides
   {
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn'],
