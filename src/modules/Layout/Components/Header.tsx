@@ -1,12 +1,15 @@
-import { Box } from '@mui/material'
-import { theme } from '@/theme'
+import { theme } from '@/theme';
+import { Box } from '@mui/material';
 
 const Header = () => {
   return (
-    <Box height={'50px'} position={'sticky'} sx={{ backgroundColor: theme.palette.primary.main }}>
-      <Box></Box>
-    </Box>
-  )
-}
+    <Box
+      sx={{
+        backgroundColor: theme.custom.specialPalette?.variant[400],
+        height: '40px',
+      }}
+    ></Box>
+  );
+};
 
-export default Header
+export default Header;

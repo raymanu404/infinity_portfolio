@@ -1,4 +1,4 @@
-import { MoveI } from './interfaces'
+import { MoveI } from './interfaces';
 
 export const winningMoves = [
   //per diagonal
@@ -116,13 +116,13 @@ export const winningMoves = [
       col: 2,
     },
   ],
-] as MoveI[][]
+] as MoveI[][];
 
-export const winningSums = [0, 3, 6, 9]
+export const winningSums = [0, 3, 6, 9];
 
 export const DEFAULT_USER_INPUT = {
   NICKNAME: '',
   COLOR: '#FFFFFF',
-}
+};
 
-export const MAXIMUM_PLAYERS_ALLOWED = 2
+export const MAXIMUM_PLAYERS_ALLOWED = 2;

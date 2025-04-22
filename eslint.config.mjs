@@ -1,25 +1,25 @@
-import globals from 'globals'
-import pluginJs from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import pluginReact from 'eslint-plugin-react'
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { ignores: ['./node_modules'] },
-  { languageOptions: { globals: globals.browser } },
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
+    ignores: ['./node_modules'],
+  },
+  tseslint.configs.recommended,
+  tseslint.configs.stylistic,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat['jsx-runtime'],
+  //overrides
   {
     rules: {
-      'prefer-const': 'error',
-      'no-duplicate-imports': 'error',
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
-      'react/jsx-uses-react': 'off', // Disable the old rule
-      'react/react-in-jsx-scope': 'off', // Disable the old rule
+      '@typescript-eslint/no-unused-vars': ['warn'],
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  { plugins: ['react', 'react-hooks'] },
-]
+]);

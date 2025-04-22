@@ -1,1 +1,1 @@
-export { convertToPathURI } from './Helpers/global-utils'
+export { convertToPathURI } from './Helpers/global-utils';

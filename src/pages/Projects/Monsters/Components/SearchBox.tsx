@@ -1,14 +1,14 @@
-import { Box, TextField } from '@mui/material'
-import React from 'react'
+import { Box, TextField } from '@mui/material';
+import React from 'react';
 
 interface PropsI {
-  className?: string
-  placeholder?: string
-  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
+  className?: string;
+  placeholder?: string;
+  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SearchBox = (props: PropsI) => {
-  const { onChangeHandler, ...rest } = props
+  const { onChangeHandler, ...rest } = props;
 
   return (
     <Box sx={{}}>
@@ -22,7 +22,7 @@ const SearchBox = (props: PropsI) => {
         {...rest}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default SearchBox
+export default SearchBox;

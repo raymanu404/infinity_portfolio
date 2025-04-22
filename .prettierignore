@@ -2,5 +2,7 @@ node_modules
 dist
 build
 coverage
-public/assets
+public
 .env
+package.json
+package-lock.json
