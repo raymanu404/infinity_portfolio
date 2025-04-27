@@ -23,6 +23,7 @@ const SideNavigation: React.FC = () => {
         top: `calc(40px + ${theme.spacing(4)})`,
         flexBasis: '20%',
         padding: `${theme.spacing(2)} 0`,
+        margin: 0,
       }}
     >
       {LEARNING_SECTIONS.map(({ elementId, title }) => (

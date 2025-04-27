@@ -1,3 +1,4 @@
+import { theme } from '@/theme';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
@@ -35,13 +36,35 @@ const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
           setIsOpen(prev => !prev);
         }}
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${title}-content`}>
-          <Stack direction={'row'} spacing={4}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls={`${title}-content`}
+          sx={{ backgroundColor: theme.custom.specialPalette?.variant[300] }}
+        >
+          <Stack
+            direction={'row'}
+            spacing={4}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+            }}
+          >
             <Typography variant="body1">{title}</Typography>
-            <Typography variant="subtitle2">{subTitle}</Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{
+                color: theme.custom.specialPalette?.variantSecondaryLight,
+                letterSpacing: '2px',
+              }}
+            >
+              {subTitle}
+            </Typography>
           </Stack>
         </AccordionSummary>
-        <AccordionDetails>{children}</AccordionDetails>
+        <AccordionDetails sx={{ backgroundColor: theme.custom.specialPalette?.variant[200] }}>
+          {children}
+        </AccordionDetails>
       </Accordion>
     </Box>
   );

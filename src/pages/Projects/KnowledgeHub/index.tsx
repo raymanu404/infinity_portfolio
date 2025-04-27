@@ -6,10 +6,23 @@ import SideNavigation from './Components/SideNavigation';
 
 const KnowledgeHub: React.FC = () => {
   return (
-    <Box sx={{ padding: `${theme.spacing(2)}`, margin: `0 ${theme.spacing(2)}` }}>
-      <Stack spacing={{ xs: 1, sm: 2, md: 4 }} direction={{ xs: 'column-reverse', sm: 'row' }}>
+    <Box
+      sx={{
+        padding: `${theme.spacing(2)}`,
+        margin: `0 ${theme.spacing(2)}`,
+      }}
+    >
+      <Stack
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: '100%',
+          gap: `${theme.spacing(4)}`,
+          margin: 0,
+        }}
+        direction={{ xs: 'column-reverse', sm: 'row' }}
+      >
         <MainContent />
-
         <SideNavigation />
       </Stack>
     </Box>

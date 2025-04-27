@@ -1,12 +1,12 @@
-import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
+import { Box } from '@mui/material';
 import React from 'react';
 import SectionContentList from './SectionContentList';
 
 const MainContent: React.FC = () => {
   return (
-    <BoxCardContent sx={{ flexBasis: '80%' }}>
+    <Box sx={{ flexBasis: '100%' }}>
       <SectionContentList />
-    </BoxCardContent>
+    </Box>
   );
 };
 

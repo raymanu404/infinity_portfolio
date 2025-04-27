@@ -8,7 +8,7 @@ const CenteredBox = styled(Container)`
 `;
 
 const BoxCardContent = styled(Box)`
-  padding: ${theme.spacing(2)} ${theme.spacing(2.5)};
+  padding: 0 ${theme.spacing(2)};
 `;
 
-export { CenteredBox, BoxCardContent };
+export { BoxCardContent, CenteredBox };

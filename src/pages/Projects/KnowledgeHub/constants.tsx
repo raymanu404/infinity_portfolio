@@ -1,22 +1,12 @@
-import ComponentsSection from './Contents/ComponentsSection';
+import { HooksSection } from './Contents';
 import { ContentI } from './interfaces';
 
 const LEARNING_SECTIONS: ContentI[] = [
   {
-    title: 'Components',
-    elementId: 'components-section',
-    children: <ComponentsSection />,
-    subTitle: 'We need to understand the components',
-  },
-  {
-    title: 'Props Vs State',
-    elementId: 'props-vs-state-section',
-    children: <ComponentsSection />,
-  },
-  {
-    title: 'Conditional Rendering',
-    elementId: 'conditional-rendering-section',
-    children: <ComponentsSection />,
+    title: 'Hooks',
+    elementId: 'hooks',
+    children: <HooksSection />,
+    subTitle: 'All Hooks',
   },
 ];
 
