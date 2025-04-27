@@ -2,12 +2,14 @@ import { Box, Tab, Tabs, tabsClasses, Typography } from '@mui/material';
 import React from 'react';
 import { idAttributeProps } from '../../helpful';
 
+//TODO:export
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
 
+//TODO:Export, refactor to be shared
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -27,6 +29,8 @@ function TabPanel(props: TabPanelProps) {
     </div>
   );
 }
+
+//TODO: Make this Shareable
 const VerticalMenu: React.FC = () => {
   const [value, setValue] = React.useState(0);
 
