@@ -1,14 +1,15 @@
 import { theme } from '@/theme';
-import { Box, Tab, tabClasses, Tabs, tabsClasses } from '@mui/material';
+import { Box, Tabs, tabsClasses } from '@mui/material';
 import React from 'react';
 import { HOOKS_TABS_LABELS, HOOKS_TABS_PAGES } from '../../constants';
-import { idAttributeProps } from '../../helpful';
+import TabLabel from './TabLabel';
 import TabPanelPage from './TabPanelPage';
 
 const VerticalMenu: React.FC = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
+    console.log(newValue);
     setValue(newValue);
   };
 
@@ -32,25 +33,7 @@ const VerticalMenu: React.FC = () => {
         {HOOKS_TABS_LABELS.map((tab, index) => {
           const { label, variant } = tab;
           const key = `${label}-${variant}-${index}`;
-
-          return (
-            <Tab
-              label={label}
-              {...idAttributeProps(index)}
-              key={key}
-              sx={{
-                textTransform: 'none',
-                letterSpacing: '1px',
-                padding: `0 ${theme.spacing(3)}`,
-                [`&.${tabClasses.root}`]: {
-                  [`&.${tabClasses.selected}`]: {
-                    backgroundColor: theme.custom.specialPalette?.variant[500],
-                    color: theme.custom.specialPalette?.variantMain,
-                  },
-                },
-              }}
-            />
-          );
+          return <TabLabel index={index} label={label} variant={variant} key={key} />;
         })}
       </Tabs>
       {HOOKS_TABS_PAGES.map((page, index) => {
