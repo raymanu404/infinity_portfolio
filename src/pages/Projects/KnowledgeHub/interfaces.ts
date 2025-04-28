@@ -6,4 +6,18 @@ interface ContentI extends PropsWithChildren {
   elementId: string;
 }
 
-export type { ContentI };
+type HookVariantCategory =
+  | 'STATE HOOKS'
+  | 'EFFECT'
+  | 'CONTEXT'
+  | 'REF'
+  | 'PERFORMANCE'
+  | 'TRANSITION'
+  | 'REACT 19 HOOKS'
+  | 'CUSTOM HOOKS';
+interface TabContentI extends PropsWithChildren {
+  title: string;
+  variant: HookVariantCategory;
+}
+
+export type { ContentI, HookVariantCategory, TabContentI };

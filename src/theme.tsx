@@ -85,6 +85,7 @@ const customTheme: CustomTheme = {
   },
   boxShadows: {
     main: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+    secondary: '2px 2px 10px 2px rgba(0,0,0,0.1)',
   },
   borderRadiusContainer: {
     main: '1rem',
