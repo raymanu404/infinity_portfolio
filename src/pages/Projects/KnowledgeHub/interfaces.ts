@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import { HOOK_CATEGORY_TYPE } from './constants';
 
 interface ContentI extends PropsWithChildren {
   title: string;
@@ -6,18 +7,11 @@ interface ContentI extends PropsWithChildren {
   elementId: string;
 }
 
-type HookVariantCategory =
-  | 'STATE HOOKS'
-  | 'EFFECT'
-  | 'CONTEXT'
-  | 'REF'
-  | 'PERFORMANCE'
-  | 'TRANSITION'
-  | 'REACT 19 HOOKS'
-  | 'CUSTOM HOOKS';
+type HookVariantCategoryType = (typeof HOOK_CATEGORY_TYPE)[keyof typeof HOOK_CATEGORY_TYPE];
+
 interface TabContentI extends PropsWithChildren {
   title: string;
-  variant: HookVariantCategory;
+  variant: HookVariantCategoryType;
 }
 
-export type { ContentI, HookVariantCategory, TabContentI };
+export type { ContentI, HookVariantCategoryType, TabContentI };

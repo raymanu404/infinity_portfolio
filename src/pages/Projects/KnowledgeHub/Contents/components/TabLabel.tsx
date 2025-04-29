@@ -1,16 +1,16 @@
 import { theme } from '@/theme';
-import { Tab, tabClasses, TabProps, Typography } from '@mui/material';
+import { Box, Tab, tabClasses, TabProps, Typography } from '@mui/material';
 import { forwardRef } from 'react';
 import { idAttributeProps } from '../../helpful';
-import { HookVariantCategory } from '../../interfaces';
+import { HookVariantCategoryType, TabContentI } from '../../interfaces';
 
 interface TabLabelProps extends TabProps {
-  variant: HookVariantCategory | null;
-  index: number;
+  variant: HookVariantCategoryType | null;
+  tabs: TabContentI[];
 }
 
 const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
-  { index, label, variant, key, ...rest },
+  { tabs, variant, key, ...rest },
   ref,
 ) {
   return (
@@ -27,27 +27,33 @@ const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
           {variant}
         </Typography>
       )}
-
-      <Tab
-        label={label}
-        {...idAttributeProps(index)}
-        sx={{
-          textTransform: 'none',
-          letterSpacing: '1px',
-          padding: `0 ${theme.spacing(3)}`,
-          [`&.${tabClasses.root}`]: {
-            [`&.${tabClasses.selected}`]: {
-              backgroundColor: theme.custom.specialPalette?.variant[500],
-              color: theme.custom.specialPalette?.variantMain,
-              width: '100%',
-            },
-          },
-          borderBottomWidth: '2px',
-        }}
-        ref={ref}
-        disableRipple
-        {...rest}
-      />
+      {tabs.map(({ title, variant }, index) => {
+        const key = `${title}-${variant}-${index}`;
+        return (
+          <Box sx={{ display: 'flex', flexDirection: 'column' }} key={key}>
+            <Tab
+              label={title}
+              {...idAttributeProps(index)}
+              sx={{
+                textTransform: 'none',
+                letterSpacing: '1px',
+                padding: `0 ${theme.spacing(3)}`,
+                [`&.${tabClasses.root}`]: {
+                  [`&.${tabClasses.selected}`]: {
+                    backgroundColor: theme.custom.specialPalette?.variant[500],
+                    color: theme.custom.specialPalette?.variantMain,
+                    width: '100%',
+                  },
+                },
+                borderBottomWidth: '2px',
+              }}
+              ref={ref}
+              disableRipple
+              {...rest}
+            />
+          </Box>
+        );
+      })}
     </div>
   );
 });

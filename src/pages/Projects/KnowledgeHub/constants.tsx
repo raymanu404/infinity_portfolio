@@ -10,15 +10,25 @@ const LEARNING_SECTIONS: ContentI[] = [
   },
 ];
 
+const HOOK_CATEGORY_TYPE = {
+  STATE: 'STATE',
+  EFFECT: 'EFFECT',
+  CONTEXT: 'CONTEXT',
+  REF: 'REF',
+  TRANSITION: 'TRANSITION',
+  REACT_19: 'REACT_19',
+  CUSTOM: 'CUSTOM',
+} as const;
+
 const HOOKS_TABS_PAGES: TabContentI[] = [
   {
     title: 'useState',
-    variant: 'STATE HOOKS',
+    variant: 'STATE',
     children: <UseStateContent />,
   },
   {
     title: 'useReducer',
-    variant: 'STATE HOOKS',
+    variant: 'STATE',
     children: <UseReducerContent />,
   },
   {
@@ -33,4 +43,4 @@ const HOOKS_TABS_LABELS = HOOKS_TABS_PAGES.map(x => ({
   variant: x.variant,
 }));
 
-export { HOOKS_TABS_LABELS, HOOKS_TABS_PAGES, LEARNING_SECTIONS };
+export { HOOK_CATEGORY_TYPE, HOOKS_TABS_LABELS, HOOKS_TABS_PAGES, LEARNING_SECTIONS };

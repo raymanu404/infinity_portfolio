@@ -1,4 +1,5 @@
-import { TabContentI } from './interfaces';
+import { HOOK_CATEGORY_TYPE } from './constants';
+import { HookVariantCategoryType, TabContentI } from './interfaces';
 
 const idAttributeProps = (index: number) => {
   return {
@@ -9,15 +10,16 @@ const idAttributeProps = (index: number) => {
 
 const getArrayGroupedByVariant = (tabs: TabContentI[]) => {
   //get all variants grouped
-  //return an sub array for each variant grouped
+  const result: { key: HookVariantCategoryType; array: TabContentI[] }[] = [];
+  const hooksCategoryTypeValues = Object.values(HOOK_CATEGORY_TYPE);
 
-  const result: { key: string; array: [] }[] = [];
+  hooksCategoryTypeValues.forEach(item => {
+    if (tabs.find(x => x.variant === item)) {
+      result.push({ key: item, array: tabs.filter(x => x.variant === item) });
+    }
+  });
 
-  // tabs.forEach(item =>{
-  //   result.push({key: })
-  // })
-
-  return tabs.filter(x => x.variant === 'STATE HOOKS');
+  return result;
 };
 
 export { getArrayGroupedByVariant, idAttributeProps };

@@ -1,7 +1,7 @@
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
-import React, { useEffect } from 'react';
-import { HOOKS_TABS_LABELS, HOOKS_TABS_PAGES } from '../../constants';
+import React from 'react';
+import { HOOKS_TABS_PAGES } from '../../constants';
 import { getArrayGroupedByVariant } from '../../helpful';
 import TabLabel from './TabLabel';
 import TabPanelPage from './TabPanelPage';
@@ -13,10 +13,6 @@ const VerticalMenu: React.FC = () => {
     console.log(newValue);
     setValue(newValue);
   };
-
-  useEffect(() => {
-    console.log(getArrayGroupedByVariant(HOOKS_TABS_PAGES));
-  }, []);
 
   return (
     <Box sx={{ flexGrow: 1, display: 'flex', height: 420, gap: `${theme.spacing(2)}` }}>
@@ -35,10 +31,11 @@ const VerticalMenu: React.FC = () => {
           boxShadow: theme.custom.boxShadows?.secondary,
         }}
       >
-        {HOOKS_TABS_LABELS.map((tab, index) => {
-          const { label, variant } = tab;
-          const key = `${label}-${variant}-${index}`;
-          return <TabLabel index={index} label={label} variant={variant} key={key} />;
+        {getArrayGroupedByVariant(HOOKS_TABS_PAGES).map((tab, index) => {
+          // return tabs grouped as single array then iterate through all tabs array but with key as chunked array
+          const { key: variant, array: tabs } = tab;
+          const key = `${variant}-${index}`;
+          return <TabLabel tabs={tabs} variant={variant} key={key} />;
         })}
       </Tabs>
       {HOOKS_TABS_PAGES.map((page, index) => {
