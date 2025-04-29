@@ -21,6 +21,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     variant: 'STATE HOOKS',
     children: <UseReducerContent />,
   },
+  {
+    title: 'useEffect',
+    variant: 'EFFECT',
+    children: <UseReducerContent />,
+  },
 ];
 
 const HOOKS_TABS_LABELS = HOOKS_TABS_PAGES.map(x => ({

@@ -1,7 +1,8 @@
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HOOKS_TABS_LABELS, HOOKS_TABS_PAGES } from '../../constants';
+import { getArrayGroupedByVariant } from '../../helpful';
 import TabLabel from './TabLabel';
 import TabPanelPage from './TabPanelPage';
 
@@ -12,6 +13,10 @@ const VerticalMenu: React.FC = () => {
     console.log(newValue);
     setValue(newValue);
   };
+
+  useEffect(() => {
+    console.log(getArrayGroupedByVariant(HOOKS_TABS_PAGES));
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1, display: 'flex', height: 420, gap: `${theme.spacing(2)}` }}>
