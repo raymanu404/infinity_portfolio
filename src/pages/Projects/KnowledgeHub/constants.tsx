@@ -1,6 +1,8 @@
 import { HooksSection, UseReducerContent, UseStateContent } from './Contents';
 import { ContentI, TabContentI } from './interfaces';
 
+//TODO: Add lazy loading + Routing for each section and content to be opened whenever user has the link
+// + also lazy load contents because performance stuff
 const LEARNING_SECTIONS: ContentI[] = [
   {
     title: 'Hooks',
