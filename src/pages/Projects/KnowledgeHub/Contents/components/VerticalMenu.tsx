@@ -8,6 +8,7 @@ import TabPanelPage from './TabPanelPage';
 
 const VerticalMenu: React.FC = () => {
   const [value, setValue] = React.useState(0);
+  const parentRef = React.useRef(null);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     console.log(newValue);
@@ -31,12 +32,38 @@ const VerticalMenu: React.FC = () => {
           boxShadow: theme.custom.boxShadows?.secondary,
         }}
       >
-        {getArrayGroupedByVariant(HOOKS_TABS_PAGES).map((tab, index) => {
-          // return tabs grouped as single array then iterate through all tabs array but with key as chunked array
-          const { key: variant, array: tabs } = tab;
+        {HOOKS_TABS_PAGES.map((tab, index) => {
+          const { variant } = tab;
           const key = `${variant}-${index}`;
-          return <TabLabel tabs={tabs} variant={variant} key={key} />;
+
+          const groupedTabs = getArrayGroupedByVariant(HOOKS_TABS_PAGES);
+          let showHeader = false;
+          let showBottom = false;
+
+          groupedTabs.map(x => {
+            if (tab.variant === x.key && tab.title === x.array[0].title) {
+              showHeader = true;
+              return;
+            }
+
+            if (tab.variant === x.key && tab.title === x.array[x.array.length - 1].title) {
+              showBottom = true;
+              return;
+            }
+          });
+
+          return (
+            <TabLabel
+              index={index}
+              key={key}
+              tab={tab}
+              showHeader={showHeader}
+              showBottom={showBottom}
+              parentRef={parentRef}
+            />
+          );
         })}
+        {/* <TabsPageList ref={parentRef} /> */}
       </Tabs>
       {HOOKS_TABS_PAGES.map((page, index) => {
         const { children, title } = page;
