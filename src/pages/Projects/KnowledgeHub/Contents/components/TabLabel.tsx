@@ -19,6 +19,7 @@ const headerStyle = (showHeader: boolean, showBottom: boolean) => {
       borderBottom: '2px #FFFFFF solid',
       borderLeft: '2px #FFFFFF solid',
       borderRight: '2px #FFFFFF solid',
+      marginBottom: `${theme.spacing(3)}`,
     };
   }
 
@@ -35,6 +36,7 @@ const headerStyle = (showHeader: boolean, showBottom: boolean) => {
       borderBottom: '2px #FFFFFF solid',
       borderLeft: '2px #FFFFFF solid',
       borderRight: '2px #FFFFFF solid',
+      marginBottom: `${theme.spacing(3)}`,
     };
   }
 };

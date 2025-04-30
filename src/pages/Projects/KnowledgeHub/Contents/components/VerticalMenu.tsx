@@ -28,9 +28,7 @@ const VerticalMenu: React.FC = () => {
           [`& .${tabsClasses.scrollButtons}`]: {
             '&.Mui-disabled': { opacity: 0.3 },
           },
-          [`& .${tabsClasses.flexContainer}`]: {
-            gap: theme.spacing(3),
-          },
+          [`& .${tabsClasses.flexContainer}`]: {},
           borderRadius: theme.custom.borderRadiusContainer?.main,
           boxShadow: theme.custom.boxShadows?.secondary,
         }}
