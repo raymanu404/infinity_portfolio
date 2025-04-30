@@ -10,8 +10,7 @@ const VerticalMenu: React.FC = () => {
   const [value, setValue] = React.useState(0);
   const parentRef = React.useRef(null);
 
-  const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue);
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
@@ -47,7 +46,6 @@ const VerticalMenu: React.FC = () => {
               if (x.array.length === 1) {
                 showBottom = true;
               }
-
               return;
             }
 
