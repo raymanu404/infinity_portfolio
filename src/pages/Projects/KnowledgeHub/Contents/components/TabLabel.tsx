@@ -21,6 +21,8 @@ const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
     <Box
       role="tab"
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
         ...tabGroupStyle(showHeader, showBottom),
       }}
     >
@@ -35,7 +37,7 @@ const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
             borderBottom: `1px ${theme.custom.specialPalette?.variant[400]} solid`,
           }}
         >
-          {`${variant}-HOOKS`.toLocaleUpperCase()}
+          {`${variant}-HOOKS`}
         </Typography>
       )}
 

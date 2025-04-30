@@ -10,7 +10,7 @@ const VerticalMenu: React.FC = () => {
   const [value, setValue] = React.useState(0);
   const parentRef = React.useRef(null);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 

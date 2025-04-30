@@ -1,7 +1,26 @@
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 
 const UseStateContent: React.FC = () => {
-  return <div>UseStateContent Component</div>;
+  return (
+    <Box
+      sx={{
+        padding: '0 5px',
+        display: 'flex',
+        gap: '20px',
+        flexDirection: 'column',
+      }}
+    >
+      {/* HEAD/TITLE */}
+      <Box>
+        <Typography variant="h6">Use State Hook</Typography>
+      </Box>
+      {/* CONTENT */}
+      <Box sx={{ width: '94%', height: '300px', backgroundColor: 'white' }}>Content</Box>
+      {/* NOTES */}
+      <Box sx={{ width: '94%', minHeight: '100px' }}>Notes</Box>
+    </Box>
+  );
 };
 
 UseStateContent.displayName = 'UseStateContent';

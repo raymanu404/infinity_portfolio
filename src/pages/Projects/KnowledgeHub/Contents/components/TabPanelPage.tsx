@@ -24,11 +24,12 @@ const TabPanelPage: React.FC<TabPanelProps> = props => {
         borderRadius: theme.custom.borderRadiusContainer?.main,
         boxShadow: theme.custom.boxShadows?.secondary,
         flexBasis: '90%',
+        padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+        width: '100%',
+        overflowY: 'auto',
       }}
     >
-      <Box sx={{ padding: `${theme.spacing(1)} ${theme.spacing(2)}`, width: '100%' }}>
-        {children}
-      </Box>
+      {children}
     </Box>
   );
 };
