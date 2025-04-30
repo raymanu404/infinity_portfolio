@@ -28,6 +28,9 @@ const VerticalMenu: React.FC = () => {
           [`& .${tabsClasses.scrollButtons}`]: {
             '&.Mui-disabled': { opacity: 0.3 },
           },
+          [`& .${tabsClasses.flexContainer}`]: {
+            gap: theme.spacing(3),
+          },
           borderRadius: theme.custom.borderRadiusContainer?.main,
           boxShadow: theme.custom.boxShadows?.secondary,
         }}
@@ -43,6 +46,10 @@ const VerticalMenu: React.FC = () => {
           groupedTabs.map(x => {
             if (tab.variant === x.key && tab.title === x.array[0].title) {
               showHeader = true;
+              if (x.array.length === 1) {
+                showBottom = true;
+              }
+
               return;
             }
 

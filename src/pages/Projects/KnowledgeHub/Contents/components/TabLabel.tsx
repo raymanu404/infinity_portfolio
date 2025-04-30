@@ -6,25 +6,49 @@ import { TabContentI } from '../../interfaces';
 
 interface TabLabelProps extends TabProps {
   tab: TabContentI;
-  showHeader?: boolean;
-  showBottom?: boolean;
+  showHeader: boolean;
+  showBottom: boolean;
   index: number;
   parentRef?: React.ForwardedRef<HTMLDivElement>;
 }
+
+const headerStyle = (showHeader: boolean, showBottom: boolean) => {
+  if (showHeader && showBottom) {
+    return {
+      borderTop: '2px #FFFFFF solid',
+      borderBottom: '2px #FFFFFF solid',
+      borderLeft: '2px #FFFFFF solid',
+      borderRight: '2px #FFFFFF solid',
+    };
+  }
+
+  if (showHeader) {
+    return {
+      borderTop: '2px #FFFFFF solid',
+      borderLeft: '2px #FFFFFF solid',
+      borderRight: '2px #FFFFFF solid',
+    };
+  }
+
+  if (showBottom) {
+    return {
+      borderBottom: '2px #FFFFFF solid',
+      borderLeft: '2px #FFFFFF solid',
+      borderRight: '2px #FFFFFF solid',
+    };
+  }
+};
 
 const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
   { index, tab, showHeader, showBottom, parentRef, ...rest },
   ref,
 ) {
   const { title, variant } = tab;
-  console.log(parentRef);
   return (
     <div
       role="tab"
       style={{
-        borderTop: '2px #FFFFFF solid',
-        borderLeft: '2px #FFFFFF solid',
-        borderRight: '2px #FFFFFF solid',
+        ...headerStyle(showHeader, showBottom),
       }}
     >
       {showHeader && (
@@ -36,7 +60,7 @@ const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
             textAlign: 'center',
           }}
         >
-          {variant}
+          {`${variant}-HOOKS`.toLocaleUpperCase()}
         </Typography>
       )}
 
