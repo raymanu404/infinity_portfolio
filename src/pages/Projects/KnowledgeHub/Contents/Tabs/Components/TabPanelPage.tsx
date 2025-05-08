@@ -17,7 +17,6 @@ const TabPanelPage: React.FC<TabPanelProps> = props => {
   return (
     <Box
       role="tabpanel"
-      hidden={isHidden}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       sx={{

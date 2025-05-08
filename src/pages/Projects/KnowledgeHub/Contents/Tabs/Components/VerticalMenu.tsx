@@ -1,8 +1,8 @@
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
 import React from 'react';
-import { HOOKS_TABS_PAGES } from '../../constants';
-import { getArrayGroupedByVariant } from '../../helpful';
+import { HOOKS_TABS_PAGES } from '../../../constants';
+import { getArrayGroupedByVariant } from '../../../helpful';
 import TabLabel from './TabLabel';
 import TabPanelPage from './TabPanelPage';
 

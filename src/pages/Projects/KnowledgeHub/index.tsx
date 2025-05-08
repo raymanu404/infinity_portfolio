@@ -1,8 +1,8 @@
 import { theme } from '@/theme';
 import { Box, Stack } from '@mui/material';
 import React from 'react';
-import MainContent from './Components/MainContent';
-import SideNavigation from './Components/SideNavigation';
+import MainContent from './MainContent';
+import SideNavigation from './SideNavigation';
 
 const KnowledgeHub: React.FC = () => {
   return (

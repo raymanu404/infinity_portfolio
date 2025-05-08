@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import { HOOKS_TABS_PAGES } from '../../constants';
-import { getArrayGroupedByVariant } from '../../helpful';
+import { HOOKS_TABS_PAGES } from '../../../constants';
+import { getArrayGroupedByVariant } from '../../../helpful';
 import TabLabel from './TabLabel';
 
 const TabsPageList = forwardRef<HTMLDivElement>(function TabsPageList(_, ref) {
@@ -26,7 +26,6 @@ const TabsPageList = forwardRef<HTMLDivElement>(function TabsPageList(_, ref) {
           }
         });
 
-        console.log(key);
         return (
           <TabLabel
             index={index}

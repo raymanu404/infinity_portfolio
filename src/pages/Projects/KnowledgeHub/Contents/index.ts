@@ -1,3 +1,2 @@
-export { default as HooksSection } from './HooksSection';
-export { default as UseReducerContent } from './TabsContent/UseReducerContent';
-export { default as UseStateContent } from './TabsContent/UseStateContent';
+export { default as UseReducerContent } from './Tabs/UseReducerContent';
+export { default as UseStateContent } from './Tabs/UseStateContent';

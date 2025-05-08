@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import React from 'react';
-import { LEARNING_SECTIONS } from '../constants';
+import { LEARNING_SECTIONS } from './constants';
 import SectionContent from './SectionContent';
 
 const SectionContentList: React.FC = () => {

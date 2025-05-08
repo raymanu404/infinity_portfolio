@@ -1,4 +1,5 @@
-import { HooksSection, UseReducerContent, UseStateContent } from './Contents';
+import { UseReducerContent, UseStateContent } from './Contents';
+import { HooksSection } from './Contents/Sections';
 import { ContentI, TabContentI } from './interfaces';
 
 //TODO: Add lazy loading + Routing for each section and content to be opened whenever user has the link

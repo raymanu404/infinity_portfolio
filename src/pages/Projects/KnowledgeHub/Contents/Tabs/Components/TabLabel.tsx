@@ -1,8 +1,8 @@
 import { theme } from '@/theme';
 import { Box, Tab, tabClasses, TabProps, Typography } from '@mui/material';
 import { forwardRef } from 'react';
-import { idAttributeProps, tabGroupStyle } from '../../helpful';
-import { TabContentI } from '../../interfaces';
+import { idAttributeProps, tabGroupStyle } from '../../../helpful';
+import { TabContentI } from '../../../interfaces';
 
 interface TabLabelProps extends TabProps {
   tab: TabContentI;

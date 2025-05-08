@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ContentI } from '../interfaces';
+import { ContentI } from './interfaces';
 
 interface SectionContentProps {
   content: ContentI;

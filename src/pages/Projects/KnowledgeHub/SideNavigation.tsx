@@ -2,7 +2,7 @@ import { theme } from '@/theme';
 import { Box, Link, SxProps, Typography } from '@mui/material';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { LEARNING_SECTIONS } from '../constants';
+import { LEARNING_SECTIONS } from './constants';
 
 const isActive: SxProps = {
   color: theme.custom.specialPalette?.variantMain,
