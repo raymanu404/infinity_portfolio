@@ -1,8 +1,16 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import { PagePanelContent, PagePanelHeadTitle } from './components';
 
-//TODO: Make shared component for tabsPanelPage content
+const createInitialTodos = () => [
+  { id: 1, name: 'Boris' },
+  { id: 2, name: 'Chase and status' },
+  { id: 3, name: 'Boris' },
+  { id: 4, name: 'Boris' },
+];
 const UseStateContent: React.FC = () => {
+  //its best to use function reference instead of calling it, on each rerender we rerender everything if we call the fn
+  const [todos, setTodos] = useState(createInitialTodos);
   return (
     <Box
       sx={{
@@ -13,13 +21,17 @@ const UseStateContent: React.FC = () => {
       }}
     >
       {/* HEAD/TITLE */}
-      <Box>
-        <Typography variant="h6">Use State Hook</Typography>
-      </Box>
+      <PagePanelHeadTitle title="Use State Hook" />
       {/* CONTENT */}
-      <Box sx={{ width: '94%', height: '300px', backgroundColor: 'white' }}>Content</Box>
-      {/* NOTES */}
-      <Box sx={{ width: '94%', minHeight: '100px' }}>Notes</Box>
+      <PagePanelContent>
+        {todos.map(x => {
+          return (
+            <div key={x.id}>
+              <Typography>{x.name}</Typography>
+            </div>
+          );
+        })}
+      </PagePanelContent>
     </Box>
   );
 };
