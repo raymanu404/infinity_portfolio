@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import VerticalMenu from '../Tabs/Components/VerticalMenu';
+import VerticalMenu from '../Tabs/VerticalMenu';
 
 const HooksSection: React.FC = () => {
   return (
