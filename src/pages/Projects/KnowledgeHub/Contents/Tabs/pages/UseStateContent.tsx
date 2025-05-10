@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { PagePanelContent, PagePanelHeadTitle } from './components';
+import SwordCursor from './components/SwordCursor';
 
 const createInitialTodos = () => [
   { id: 1, name: 'Boris' },
@@ -11,6 +12,7 @@ const createInitialTodos = () => [
 const UseStateContent: React.FC = () => {
   //its best to use function reference instead of calling it, on each rerender we rerender everything if we call the fn
   const [todos, setTodos] = useState(createInitialTodos);
+
   return (
     <Box
       sx={{
@@ -24,13 +26,16 @@ const UseStateContent: React.FC = () => {
       <PagePanelHeadTitle title="Use State Hook" />
       {/* CONTENT */}
       <PagePanelContent>
-        {todos.map(x => {
-          return (
-            <div key={x.id}>
-              <Typography>{x.name}</Typography>
-            </div>
-          );
-        })}
+        <Box>
+          {todos.map(x => {
+            return (
+              <div key={x.id}>
+                <Typography>{x.name}</Typography>
+              </div>
+            );
+          })}
+        </Box>
+        <SwordCursor />
       </PagePanelContent>
     </Box>
   );
