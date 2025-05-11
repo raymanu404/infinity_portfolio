@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 interface SwitcherProps {
   label: string;
+  isClosed?: boolean;
 }
 
 const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched }) => {
@@ -28,8 +29,8 @@ const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched }) => {
 
 Switcher.displayName = 'Switcher';
 
-const useSwitcher = ({ label }: SwitcherProps) => {
-  const [isSwitched, setIsSwitched] = useState(false);
+const useSwitcher = ({ label, isClosed = true }: SwitcherProps) => {
+  const [isSwitched, setIsSwitched] = useState(isClosed);
 
   const SwitcherComponent = (
     <Switcher isSwitched={isSwitched} setIsSwitched={setIsSwitched} label={label} />
