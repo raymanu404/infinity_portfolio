@@ -9,7 +9,7 @@ import SwordCursor from './Examples/SwordCursor';
 import UpdateNestedObjectsExample from './Examples/UpdateNestedObjectsExample';
 
 const UseStateContent: React.FC = () => {
-  const { SwitcherComponent, isSwitched: isClosedAll } = useSwitcher({ label: 'Close All' });
+  const { SwitcherComponent, isSwitched: closedAll } = useSwitcher({ isClosed: true });
 
   return (
     <Box
@@ -31,7 +31,7 @@ const UseStateContent: React.FC = () => {
               elementId: 'array-example-id',
               title: 'Array Example',
             }}
-            brutalClose={isClosedAll}
+            brutalClose={closedAll}
           >
             <ArrayExample />
           </SectionContent>
@@ -40,7 +40,7 @@ const UseStateContent: React.FC = () => {
               elementId: 'use-nested-objects-example-id',
               title: 'Use Nested Objects Example With Immer',
             }}
-            brutalClose={isClosedAll}
+            brutalClose={closedAll}
           >
             <UpdateNestedObjectsExample />
           </SectionContent>
@@ -49,7 +49,7 @@ const UseStateContent: React.FC = () => {
               elementId: 'update-objects-example-id',
               title: 'Update Objects Properly with useState',
             }}
-            brutalClose={isClosedAll}
+            brutalClose={closedAll}
           >
             <SwordCursor />
           </SectionContent>

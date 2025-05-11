@@ -40,8 +40,6 @@ const SectionContent: React.FC<SectionContentProps> = ({
       if (value) {
         setIsOpen(hash.includes(elementId));
       }
-    } else {
-      setIsOpen(true);
     }
   }, [hash]);
 
