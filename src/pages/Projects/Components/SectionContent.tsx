@@ -8,23 +8,40 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ContentI } from './interfaces';
+import { ContentI } from '../KnowledgeHub/interfaces';
 
-interface SectionContentProps {
+interface SectionContentProps extends PropsWithChildren {
   content: ContentI;
+  disableAutoOpen?: boolean;
+  brutalClose?: boolean;
 }
 
-const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
-  const { elementId, title, children, subTitle } = content;
+const SectionContent: React.FC<SectionContentProps> = ({
+  content,
+  disableAutoOpen = true,
+  children,
+  brutalClose,
+}) => {
+  const { elementId, title, children: parentChildren, subTitle } = content;
   const { hash } = useLocation();
   const [isOpen, setIsOpen] = useState(hash.includes(elementId));
 
   useEffect(() => {
-    const value = hash.includes(elementId);
-    if (value) {
-      setIsOpen(hash.includes(elementId));
+    if (typeof brutalClose === 'boolean') {
+      setIsOpen(!brutalClose);
+    }
+  }, [brutalClose]);
+
+  useEffect(() => {
+    if (!disableAutoOpen) {
+      const value = hash.includes(elementId);
+      if (value) {
+        setIsOpen(hash.includes(elementId));
+      }
+    } else {
+      setIsOpen(true);
     }
   }, [hash]);
 
@@ -63,7 +80,7 @@ const SectionContent: React.FC<SectionContentProps> = ({ content }) => {
           </Stack>
         </AccordionSummary>
         <AccordionDetails sx={{ backgroundColor: theme.custom.specialPalette?.variant[200] }}>
-          {children}
+          {parentChildren ?? children}
         </AccordionDetails>
       </Accordion>
     </Box>

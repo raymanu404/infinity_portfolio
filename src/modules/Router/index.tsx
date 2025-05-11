@@ -1,4 +1,4 @@
-import { CenteredBox } from '@/Shared/Utils/Helpers/styled-components';
+import { CenteredContainer } from '@/Shared/Utils/Helpers/styled-components';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { NotFoundPage, Spinner } from '../../Shared/Components';
@@ -41,9 +41,9 @@ const CustomRouter = () => {
         <Layout>
           <Suspense
             fallback={
-              <CenteredBox>
+              <CenteredContainer>
                 <Spinner size="3rem" />
-              </CenteredBox>
+              </CenteredContainer>
             }
           >
             <Routes>
