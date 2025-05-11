@@ -6,6 +6,7 @@ import React, { useCallback, useState } from 'react';
 interface SwitcherProps {
   label?: string;
   isClosed?: boolean;
+  showIcons?: boolean;
 }
 
 interface Props extends SwitcherProps {
@@ -13,7 +14,7 @@ interface Props extends SwitcherProps {
   setIsSwitched: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 }
 
-const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched }) => {
+const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched, showIcons }) => {
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (setIsSwitched) {
       setIsSwitched(event.target.checked);
@@ -28,7 +29,7 @@ const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched }) => {
         gap: theme.spacing(1),
       }}
     >
-      <Box>{isSwitched ? <EyeClosed /> : <Eye />}</Box>
+      {showIcons && <Box>{isSwitched ? <EyeClosed /> : <Eye />}</Box>}
       {label && (
         <Typography variant="h6" sx={{ color: theme.custom.specialPalette?.variantSecondaryDark }}>
           {label}
@@ -49,11 +50,16 @@ const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched }) => {
 Switcher.displayName = 'Switcher';
 
 const useSwitcher = (props: SwitcherProps) => {
-  const { isClosed, label } = props;
+  const { isClosed, label, showIcons } = props;
   const [isSwitched, setIsSwitched] = useState(isClosed);
 
   const SwitcherComponent = (
-    <Switcher isSwitched={isSwitched} setIsSwitched={setIsSwitched} label={label} />
+    <Switcher
+      isSwitched={isSwitched}
+      setIsSwitched={setIsSwitched}
+      label={label}
+      showIcons={showIcons}
+    />
   );
 
   return { isSwitched, SwitcherComponent };

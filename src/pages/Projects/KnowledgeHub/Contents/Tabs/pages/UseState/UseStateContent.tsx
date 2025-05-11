@@ -9,7 +9,10 @@ import SwordCursor from './Examples/SwordCursor';
 import UpdateNestedObjectsExample from './Examples/UpdateNestedObjectsExample';
 
 const UseStateContent: React.FC = () => {
-  const { SwitcherComponent, isSwitched: closedAll } = useSwitcher({ isClosed: true });
+  const { SwitcherComponent, isSwitched: closedAll } = useSwitcher({
+    isClosed: true,
+    showIcons: true,
+  });
 
   return (
     <Box
