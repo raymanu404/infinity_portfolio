@@ -17,4 +17,11 @@ const FlexWithGapBox = styled(Box)`
   gap: ${theme.spacing(2)};
 `;
 
-export { BoxCardContent, CenteredContainer, FlexWithGapBox };
+const SpaceBetweenRowBox = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  gap: ${theme.spacing(2)};
+  justify-content: space-between;
+  align-items: center;
+`;
+export { BoxCardContent, CenteredContainer, FlexWithGapBox, SpaceBetweenRowBox };

@@ -1,15 +1,21 @@
-import { Box, Typography } from '@mui/material';
+import { SpaceBetweenRowBox } from '@/Shared/Utils/Helpers/styled-components';
+import { IconButton, Typography } from '@mui/material';
+import { Maximize } from 'lucide-react';
 import React from 'react';
 
 interface PagePanelHeadTitleProps {
   title: string;
+  handleDialogOpen?: () => void;
 }
 
-const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ title }) => {
+const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ title, handleDialogOpen }) => {
   return (
-    <Box>
+    <SpaceBetweenRowBox>
       <Typography variant="h6">{title}</Typography>
-    </Box>
+      <IconButton onClick={handleDialogOpen}>
+        <Maximize />
+      </IconButton>
+    </SpaceBetweenRowBox>
   );
 };
 

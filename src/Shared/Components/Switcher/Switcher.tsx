@@ -1,13 +1,8 @@
 import { theme } from '@/theme';
 import { Box, Switch, Typography } from '@mui/material';
 import { Eye, EyeClosed } from 'lucide-react';
-import React, { useCallback, useState } from 'react';
-
-interface SwitcherProps {
-  label?: string;
-  isClosed?: boolean;
-  showIcons?: boolean;
-}
+import React, { useCallback } from 'react';
+import { SwitcherProps } from './useSwitcher';
 
 interface Props extends SwitcherProps {
   isSwitched: boolean | undefined;
@@ -49,20 +44,4 @@ const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched, showIcons
 
 Switcher.displayName = 'Switcher';
 
-const useSwitcher = (props: SwitcherProps) => {
-  const { isClosed, label, showIcons } = props;
-  const [isSwitched, setIsSwitched] = useState(isClosed);
-
-  const SwitcherComponent = (
-    <Switcher
-      isSwitched={isSwitched}
-      setIsSwitched={setIsSwitched}
-      label={label}
-      showIcons={showIcons}
-    />
-  );
-
-  return { isSwitched, SwitcherComponent };
-};
-
-export { useSwitcher };
+export { Switcher };

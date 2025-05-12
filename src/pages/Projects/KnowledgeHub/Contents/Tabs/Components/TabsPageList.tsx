@@ -3,6 +3,11 @@ import { HOOKS_TABS_PAGES } from '../../../constants';
 import { getArrayGroupedByVariant } from '../../../helpful';
 import TabLabel from './TabLabel';
 
+/**
+ * DEPRECATED
+ * TODO:Make this useable later
+ */
+
 const TabsPageList = forwardRef<HTMLDivElement>(function TabsPageList(_, ref) {
   return (
     <>
