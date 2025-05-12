@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ContentI } from '../KnowledgeHub/interfaces';
 
 interface SectionContentProps extends PropsWithChildren {
@@ -21,12 +21,14 @@ interface SectionContentProps extends PropsWithChildren {
 const SectionContent: React.FC<SectionContentProps> = ({
   content,
   disableAutoOpen = true,
-  children,
+  children: parentChildren,
   brutalClose,
 }) => {
-  const { elementId, title, children: parentChildren, subTitle } = content;
+  const { elementId, title, children, subTitle } = content;
   const { hash } = useLocation();
-  const [isOpen, setIsOpen] = useState(hash.includes(elementId));
+  const navigate = useNavigate();
+  const DEFAULT_SECTION_OPEN = hash.includes(elementId);
+  const [isOpen, setIsOpen] = useState(DEFAULT_SECTION_OPEN);
 
   useEffect(() => {
     if (typeof brutalClose === 'boolean') {
@@ -36,8 +38,9 @@ const SectionContent: React.FC<SectionContentProps> = ({
 
   useEffect(() => {
     if (!disableAutoOpen) {
-      const value = hash.includes(elementId);
-      if (value) {
+      const isSectionParam = hash.includes(elementId);
+
+      if (isSectionParam) {
         setIsOpen(hash.includes(elementId));
       }
     }
@@ -48,6 +51,9 @@ const SectionContent: React.FC<SectionContentProps> = ({
       <Accordion
         expanded={isOpen}
         onChange={() => {
+          if (!DEFAULT_SECTION_OPEN && typeof brutalClose === 'undefined') {
+            navigate({ hash: elementId });
+          }
           setIsOpen(prev => !prev);
         }}
       >

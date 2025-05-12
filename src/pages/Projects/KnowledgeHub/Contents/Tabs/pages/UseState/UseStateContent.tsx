@@ -1,6 +1,7 @@
 import SectionContent from '@/pages/Projects/Components/SectionContent';
 import { useSwitcher } from '@/Shared/Components/Switcher/Switcher';
 import { FlexWithGapBox } from '@/Shared/Utils/Helpers/styled-components';
+import { theme } from '@/theme';
 import { Box } from '@mui/material';
 import React from 'react';
 import { PagePanelContent, PagePanelHeadTitle } from '../components';
@@ -17,7 +18,7 @@ const UseStateContent: React.FC = () => {
   return (
     <Box
       sx={{
-        padding: '0 5px',
+        padding: `${theme.spacing(2)}px 0`,
         display: 'flex',
         gap: '20px',
         flexDirection: 'column',

@@ -7,7 +7,7 @@ const SectionContentList: React.FC = () => {
   return (
     <Stack direction={'column'} spacing={3}>
       {LEARNING_SECTIONS.map(item => (
-        <SectionContent content={item} key={item.elementId} />
+        <SectionContent content={item} key={item.elementId} disableAutoOpen={false} />
       ))}
     </Stack>
   );
