@@ -1,4 +1,14 @@
-import { AppBar, Box, Dialog, DialogProps, IconButton, Toolbar, Typography } from '@mui/material';
+import { theme } from '@/theme';
+import {
+  AppBar,
+  Box,
+  Dialog,
+  dialogClasses,
+  DialogProps,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 import { X } from 'lucide-react';
 import React, { PropsWithChildren } from 'react';
 import Transition from '../Transition';
@@ -13,6 +23,22 @@ interface FullModalProps extends PropsWithChildren, Omit<DialogProps, 'children'
 }
 
 const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, children, ...rest }) => {
+  const Children = (
+    <Box
+      sx={{
+        padding: `${theme.spacing(3)}`,
+        height: '100%',
+        maxHeight: '100vh',
+      }}
+    >
+      {children}
+    </Box>
+  );
+
+  if (!isOpen) {
+    return Children;
+  }
+
   return (
     <>
       {isOpen && (
@@ -22,6 +48,11 @@ const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, child
           open={isOpen}
           onClose={handleClose}
           TransitionComponent={Transition}
+          sx={{
+            [`& .${dialogClasses.paper}`]: {
+              backgroundColor: theme.custom.specialPalette?.variant[200],
+            },
+          }}
         >
           <AppBar sx={{ position: 'relative' }}>
             <Toolbar>
@@ -38,8 +69,7 @@ const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, child
               </Typography>
             </Toolbar>
           </AppBar>
-          <Box></Box>
-          {children}
+          {Children}
         </Dialog>
       )}
     </>
