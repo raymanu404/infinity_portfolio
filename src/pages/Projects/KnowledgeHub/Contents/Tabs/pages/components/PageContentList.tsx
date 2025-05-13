@@ -1,4 +1,5 @@
 import SectionContent from '@/pages/Projects/Components/SectionContent';
+import { NoResult } from '@/Shared/Components';
 import { useSwitcher } from '@/Shared/Components/Switcher/useSwitcher';
 import React from 'react';
 import { PageContentI } from '../interfaces';
@@ -16,19 +17,25 @@ const PageContentList: React.FC<PageContentListProps> = ({ pageContentList = [] 
 
   return (
     <PagePanelContent>
-      {SwitcherComponent}
-      {pageContentList.map(({ elementId, title, children }) => (
-        <SectionContent
-          key={`${elementId}-${title}`}
-          content={{
-            elementId: elementId,
-            title: title,
-          }}
-          brutalClose={closedAll}
-        >
-          {children}
-        </SectionContent>
-      ))}
+      {pageContentList.length > 0 && (
+        <>
+          {SwitcherComponent}
+          {pageContentList.map(({ elementId, title, children }) => (
+            <SectionContent
+              key={`${elementId}-${title}`}
+              content={{
+                elementId: elementId,
+                title: title,
+              }}
+              brutalClose={closedAll}
+            >
+              {children}
+            </SectionContent>
+          ))}
+        </>
+      )}
+
+      {pageContentList.length === 0 && <NoResult />}
     </PagePanelContent>
   );
 };

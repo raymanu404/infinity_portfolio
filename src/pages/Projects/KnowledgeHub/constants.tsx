@@ -1,4 +1,9 @@
-import { UseReducerContent, UseStateContent } from './Contents';
+import {
+  UseContextContent,
+  UseEffectContent,
+  UseReducerContent,
+  UseStateContent,
+} from './Contents';
 import { HooksSection } from './Contents/Sections';
 import { ContentI, TabContentI } from './interfaces';
 
@@ -37,12 +42,12 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
   {
     title: 'useEffect',
     variant: 'EFFECT',
-    children: <UseReducerContent />,
+    children: <UseEffectContent />,
   },
   {
     title: 'useContext',
     variant: 'CONTEXT',
-    children: <UseStateContent />,
+    children: <UseContextContent />,
   },
 ];
 

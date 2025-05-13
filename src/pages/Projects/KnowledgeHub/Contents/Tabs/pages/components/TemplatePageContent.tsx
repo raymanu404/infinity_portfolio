@@ -26,11 +26,15 @@ const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
       }}
     >
       {/* HEAD/TITLE */}
-      <PagePanelHeadTitle title={pageTitle} handleDialogOpen={handleOpen} />
+      <PagePanelHeadTitle
+        title={pageTitle}
+        handleDialogOpen={handleOpen}
+        isDisabledModal={pageContentList.length === 0}
+      />
 
       {/* CONTENT */}
       <FullModal isOpen={isOpen} handleClose={handleClose} title={pageTitle}>
-        <PageContentList pageContentList={pageContentList ?? []} />
+        <PageContentList pageContentList={pageContentList} />
       </FullModal>
     </Box>
   );
