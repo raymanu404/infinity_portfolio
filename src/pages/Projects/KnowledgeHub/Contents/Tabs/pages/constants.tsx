@@ -1,4 +1,5 @@
 import { PageContentI } from './interfaces';
+import { BasicExample } from './UseReducer/Examples';
 import {
   ArrayExample,
   CounterExample,
@@ -31,9 +32,9 @@ const USE_STATE_PAGE_CONTENTS: PageContentI[] = [
 
 const USE_REDCUER_PAGE_CONTENTS: PageContentI[] = [
   {
-    elementId: 'array-example-id',
-    title: 'Array Example',
-    children: <ArrayExample />,
+    elementId: 'basic-example-id',
+    title: 'Basic Example',
+    children: <BasicExample />,
   },
 ];
 

@@ -63,6 +63,21 @@ const localTheme: ThemeOptions = {
       white: '#FFFFFF',
     },
   },
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained' },
+          style: {
+            '&:hover': {
+              backgroundColor: '#74C69D',
+              borderColor: '#D8F3DC',
+            },
+          },
+        },
+      ],
+    },
+  },
 };
 
 const customTheme: CustomTheme = {
