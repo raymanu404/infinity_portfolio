@@ -1,5 +1,5 @@
 import { PageContentI } from './interfaces';
-import { BasicExample } from './UseReducer/Examples';
+import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import {
   ArrayExample,
   CounterExample,
@@ -35,6 +35,11 @@ const USE_REDCUER_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'basic-example-id',
     title: 'Basic Example',
     children: <BasicExample />,
+  },
+  {
+    elementId: 'todo-list-example-id',
+    title: 'Todo List Example',
+    children: <TodoListExample />,
   },
 ];
 

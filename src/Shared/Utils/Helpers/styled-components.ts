@@ -24,4 +24,5 @@ const SpaceBetweenRowBox = styled(Box)`
   justify-content: space-between;
   align-items: center;
 `;
+
 export { BoxCardContent, CenteredContainer, FlexWithGapBox, SpaceBetweenRowBox };

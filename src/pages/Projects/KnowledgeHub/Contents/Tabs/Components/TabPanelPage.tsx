@@ -6,7 +6,7 @@ interface TabPanelProps extends PropsWithChildren {
   index: number;
   isHidden: boolean;
 }
-
+//TODO:Make this component to be saved into routing
 const TabPanelPage: React.FC<TabPanelProps> = props => {
   const { children, isHidden, index } = props;
 

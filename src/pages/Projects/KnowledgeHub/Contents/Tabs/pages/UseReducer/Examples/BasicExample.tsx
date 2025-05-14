@@ -7,9 +7,13 @@ interface StateI {
   age: number;
 }
 
-type ActionReducer = { type: 'increment_age' } | { type: 'change_name' };
+type ActionReducerType = 'increment_age' | 'change_name';
+interface ActionI {
+  type: ActionReducerType;
+  nextName?: string;
+}
 
-const basicReducer = (state: StateI, action: ActionReducer & { nextName?: string }): StateI => {
+const basicReducer = (state: StateI, action: ActionI): StateI => {
   const { type } = action;
 
   switch (type) {
