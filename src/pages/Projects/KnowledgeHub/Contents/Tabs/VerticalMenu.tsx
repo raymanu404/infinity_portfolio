@@ -1,16 +1,29 @@
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
 import React from 'react';
-import { HOOKS_TABS_PAGES } from '../../constants';
-import { getArrayGroupedByVariant } from '../../helpful';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { HOOKS_TABS_PAGES, HOOK_CATEGORY_TYPE } from '../../constants';
+import { getArrayGroupedByVariant, getDefaultSubTabSelectedIndex } from '../../helpful';
 import TabLabel from './Components/TabLabel';
 import TabPanelPage from './Components/TabPanelPage';
+import { DASH_SPLIT_STRING } from './pages/constants';
 
 const VerticalMenu: React.FC = () => {
-  const [value, setValue] = React.useState(0);
+  const { hash } = useLocation();
+  const [value, setValue] = React.useState(getDefaultSubTabSelectedIndex(hash));
   const parentRef = React.useRef(null);
+  const navigate = useNavigate();
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
+    const hooksCategoryTypeValues = Object.values(HOOK_CATEGORY_TYPE);
+    const hashValue = hooksCategoryTypeValues[newValue].toLowerCase();
+    const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];
+    const finalHashValue = primarySectionHash + DASH_SPLIT_STRING + hashValue;
+
+    navigate({
+      hash: finalHashValue,
+    });
+
     setValue(newValue);
   };
 

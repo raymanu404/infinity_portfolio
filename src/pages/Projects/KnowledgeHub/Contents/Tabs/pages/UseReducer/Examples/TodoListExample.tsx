@@ -85,7 +85,7 @@ const TodoListExample: React.FC = () => {
     dispatch({ type: 'delete' });
   };
 
-  //TODO: reolve for each case
+  //TODO: resolve for each case
   return (
     <FlexWithGapBox sx={{ padding: theme.spacing(3) }}>
       <SpaceBetweenRowBox sx={{ width: '100%' }}>

@@ -7,6 +7,8 @@ import {
   UpdateNestedObjectsExample,
 } from './UseState/Examples';
 
+const DASH_SPLIT_STRING = '-';
+
 const USE_STATE_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'array-example-id',
@@ -30,7 +32,7 @@ const USE_STATE_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
-const USE_REDCUER_PAGE_CONTENTS: PageContentI[] = [
+const USE_REDUCER_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
     title: 'Basic Example',
@@ -48,8 +50,9 @@ const USE_EFFECT_PAGE_CONTENTS: PageContentI[] = [];
 const USE_CONTEXT_PAGE_CONTENTS: PageContentI[] = [];
 
 export {
+  DASH_SPLIT_STRING,
   USE_CONTEXT_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
-  USE_REDCUER_PAGE_CONTENTS,
+  USE_REDUCER_PAGE_CONTENTS,
   USE_STATE_PAGE_CONTENTS,
 };

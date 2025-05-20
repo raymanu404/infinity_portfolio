@@ -1,6 +1,7 @@
 import { theme } from '@/theme';
 import { SxProps, Theme } from '@mui/material';
 import { HOOK_CATEGORY_TYPE } from './constants';
+import { DASH_SPLIT_STRING } from './Contents/Tabs/pages/constants';
 import { HookVariantCategoryType, TabContentI } from './interfaces';
 
 const idAttributeProps = (index: number) => {
@@ -53,4 +54,20 @@ const tabGroupStyle = (showHeader: boolean, showBottom: boolean) => {
   }
 };
 
-export { getArrayGroupedByVariant, idAttributeProps, tabGroupStyle };
+const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
+  if (!currentHash.includes('#')) return 0;
+  if (!currentHash.includes(DASH_SPLIT_STRING)) return 0;
+
+  const subTabHash = currentHash
+    .split('#')[1]
+    .split(DASH_SPLIT_STRING)[1]
+    .toUpperCase() as HookVariantCategoryType;
+
+  const currentIndex = Object.values(HOOK_CATEGORY_TYPE).findIndex(x => {
+    return x === subTabHash;
+  });
+
+  return currentIndex;
+};
+
+export { getArrayGroupedByVariant, getDefaultSubTabSelectedIndex, idAttributeProps, tabGroupStyle };
