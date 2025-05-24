@@ -1,3 +1,4 @@
+import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Switch, Typography } from '@mui/material';
@@ -11,19 +12,14 @@ interface Props extends SwitcherProps {
 }
 
 const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched, showIcons }) => {
-  const { handleSearchParams } = useUrlQueryParams();
+  const { handleURLQueryParams, hash, getUrlQuery } = useUrlQueryParams();
+  // const isSwitchedLocal = getUrlQuery.openAll ? getUrlQuery.openAll : isSwitched;
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (setIsSwitched) {
       const checked = event.target.checked;
-      console.log(checked);
-      const urlQuery = handleSearchParams(checked);
-      console.log(urlQuery);
-      if (urlQuery.openAll) {
-        setIsSwitched(true);
-      } else {
-        setIsSwitched(checked);
-      }
+      setIsSwitched(checked);
+      handleURLQueryParams(getDefaultSubTabSelectedIndex(hash), checked);
     }
   }, []);
 

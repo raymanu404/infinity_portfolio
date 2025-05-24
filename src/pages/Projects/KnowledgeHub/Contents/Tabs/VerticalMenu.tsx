@@ -12,7 +12,6 @@ const VerticalMenu: React.FC = () => {
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue);
     handleURLQueryParams(newValue);
   };
 

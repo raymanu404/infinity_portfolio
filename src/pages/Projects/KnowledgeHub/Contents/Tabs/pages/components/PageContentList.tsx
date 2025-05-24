@@ -1,4 +1,5 @@
 import SectionContent from '@/pages/Projects/Components/SectionContent';
+import { DEFAULT_OPEN_ALL } from '@/pages/Projects/KnowledgeHub/constants';
 import { NoResult } from '@/Shared/Components';
 import { useSwitcher } from '@/Shared/Components/Switcher/useSwitcher';
 import React from 'react';
@@ -11,7 +12,7 @@ interface PageContentListProps {
 
 const PageContentList: React.FC<PageContentListProps> = ({ pageContentList = [] }) => {
   const { SwitcherComponent, isSwitched: closedAll } = useSwitcher({
-    isClosed: true,
+    isClosed: DEFAULT_OPEN_ALL,
     showIcons: true,
   });
 
