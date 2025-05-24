@@ -1,3 +1,4 @@
+import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Switch, Typography } from '@mui/material';
 import { Eye, EyeClosed } from 'lucide-react';
@@ -10,9 +11,19 @@ interface Props extends SwitcherProps {
 }
 
 const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched, showIcons }) => {
+  const { handleSearchParams } = useUrlQueryParams();
+
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (setIsSwitched) {
-      setIsSwitched(event.target.checked);
+      const checked = event.target.checked;
+      console.log(checked);
+      const urlQuery = handleSearchParams(checked);
+      console.log(urlQuery);
+      if (urlQuery.openAll) {
+        setIsSwitched(true);
+      } else {
+        setIsSwitched(checked);
+      }
     }
   }, []);
 

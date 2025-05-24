@@ -1,30 +1,19 @@
+import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { HOOKS_TABS_PAGES, HOOK_CATEGORY_TYPE } from '../../constants';
-import { getArrayGroupedByVariant, getDefaultSubTabSelectedIndex } from '../../helpful';
+import { HOOKS_TABS_PAGES } from '../../constants';
+import { getArrayGroupedByVariant } from '../../helpful';
 import TabLabel from './Components/TabLabel';
 import TabPanelPage from './Components/TabPanelPage';
-import { DASH_SPLIT_STRING } from './pages/constants';
 
 const VerticalMenu: React.FC = () => {
-  const { hash } = useLocation();
-  const [value, setValue] = React.useState(getDefaultSubTabSelectedIndex(hash));
   const parentRef = React.useRef(null);
-  const navigate = useNavigate();
+  const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    const hooksCategoryTypeValues = Object.values(HOOK_CATEGORY_TYPE);
-    const hashValue = hooksCategoryTypeValues[newValue].toLowerCase();
-    const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];
-    const finalHashValue = primarySectionHash + DASH_SPLIT_STRING + hashValue;
-
-    navigate({
-      hash: finalHashValue,
-    });
-
-    setValue(newValue);
+    console.log(newValue);
+    handleURLQueryParams(newValue);
   };
 
   return (
@@ -32,7 +21,7 @@ const VerticalMenu: React.FC = () => {
       <Tabs
         orientation="vertical"
         variant="scrollable"
-        value={value}
+        value={hashValueIndex}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{
@@ -86,7 +75,7 @@ const VerticalMenu: React.FC = () => {
         const key = `${title}-${index}`;
 
         return (
-          <TabPanelPage index={index} isHidden={value !== index} key={key}>
+          <TabPanelPage index={index} isHidden={hashValueIndex !== index} key={key}>
             {children}
           </TabPanelPage>
         );

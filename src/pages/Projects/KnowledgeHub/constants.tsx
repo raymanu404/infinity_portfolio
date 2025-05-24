@@ -28,6 +28,13 @@ const HOOK_CATEGORY_TYPE = {
   CUSTOM: 'CUSTOM',
 } as const;
 
+const HOOKS_SUB_SECTION = {
+  useState: 'use-state',
+  useReducer: 'use-reducer',
+  useEffect: 'use-effect',
+  useContext: 'use-context',
+} as const;
+
 const HOOKS_TABS_PAGES: TabContentI[] = [
   {
     title: 'useState',
@@ -51,4 +58,4 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
   },
 ];
 
-export { HOOK_CATEGORY_TYPE, HOOKS_TABS_PAGES, LEARNING_SECTIONS };
+export { HOOK_CATEGORY_TYPE, HOOKS_SUB_SECTION, HOOKS_TABS_PAGES, LEARNING_SECTIONS };
