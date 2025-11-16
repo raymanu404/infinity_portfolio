@@ -1,4 +1,4 @@
-import { DEFAULT_OPEN_ALL, HOOKS_SUB_SECTION } from '@/pages/Projects/KnowledgeHub/constants';
+import { HOOKS_SUB_SECTION } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useMemo, useState } from 'react';
@@ -29,7 +29,7 @@ export const useUrlQueryParams = () => {
     } else {
       navigate({
         hash: finalHashValue,
-        search: `openAll=${DEFAULT_OPEN_ALL}`,
+        // search: `openAll=${DEFAULT_OPEN_ALL}`,
       });
     }
 
