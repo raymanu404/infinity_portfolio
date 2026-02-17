@@ -16,6 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react", // Ensure React is the JSX import source
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
