@@ -2,12 +2,16 @@ import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
 import React from 'react';
-import { HOOKS_TABS_PAGES } from '../../constants';
 import { getArrayGroupedByVariant } from '../../helpful';
+import { TabContentI } from '../../interfaces';
 import TabLabel from './Components/TabLabel';
 import TabPanelPage from './Components/TabPanelPage';
 
-const VerticalMenu: React.FC = () => {
+interface VerticalMenuProps {
+  tabsPages: TabContentI[];
+}
+
+const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
   const parentRef = React.useRef(null);
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
 
@@ -33,11 +37,11 @@ const VerticalMenu: React.FC = () => {
           boxShadow: theme.custom.boxShadows?.secondary,
         }}
       >
-        {HOOKS_TABS_PAGES.map((tab, index) => {
+        {tabsPages.map((tab, index) => {
           const { variant } = tab;
           const key = `${variant}-${index}`;
 
-          const groupedTabs = getArrayGroupedByVariant(HOOKS_TABS_PAGES);
+          const groupedTabs = getArrayGroupedByVariant(tabsPages);
           let showHeader = false;
           let showBottom = false;
 
@@ -67,9 +71,9 @@ const VerticalMenu: React.FC = () => {
             />
           );
         })}
-        {/* <TabsPageList ref={parentRef} /> */}
+        {/* <TabsPageList ref={parentRef} tabsPages={tabsPages} /> */}
       </Tabs>
-      {HOOKS_TABS_PAGES.map((page, index) => {
+      {tabsPages.map((page, index) => {
         const { children, title } = page;
         const key = `${title}-${index}`;
 

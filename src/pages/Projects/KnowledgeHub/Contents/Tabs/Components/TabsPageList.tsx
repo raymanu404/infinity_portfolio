@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import { HOOKS_TABS_PAGES } from '../../../constants';
 import { getArrayGroupedByVariant } from '../../../helpful';
+import { TabContentI } from '../../../interfaces';
 import TabLabel from './TabLabel';
 
 /**
@@ -8,14 +8,17 @@ import TabLabel from './TabLabel';
  * TODO:Make this useable later
  */
 
-const TabsPageList = forwardRef<HTMLDivElement>(function TabsPageList(_, ref) {
+const TabsPageList = forwardRef<HTMLDivElement, { tabsPages: TabContentI[] }>(function TabsPageList(
+  { tabsPages },
+  ref,
+) {
   return (
     <>
-      {HOOKS_TABS_PAGES.map((tab, index) => {
+      {tabsPages.map((tab, index) => {
         const { variant } = tab;
         const key = `${variant}-${index}`;
 
-        const groupedTabs = getArrayGroupedByVariant(HOOKS_TABS_PAGES);
+        const groupedTabs = getArrayGroupedByVariant(tabsPages);
         let showHeader = false;
         let showBottom = false;
 
