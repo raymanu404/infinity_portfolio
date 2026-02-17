@@ -25,10 +25,6 @@ interface ActionI {
 const reducer = (state: StateProps, action: ActionI): StateProps => {
   const { type } = action;
 
-  console.log({
-    state,
-  });
-
   switch (type) {
     case 'add': {
       const updatedTodos = [...state.todos, action.nextState as StateI];

@@ -7,7 +7,7 @@ interface SwitcherProps {
   isClosed?: boolean;
   showIcons?: boolean;
 }
-
+//TODO: Fix Toggle all issue
 const useSwitcher = (props: SwitcherProps) => {
   const { isClosed, label, showIcons } = props;
   const [isSwitched, setIsSwitched] = useState(isClosed);
@@ -15,6 +15,7 @@ const useSwitcher = (props: SwitcherProps) => {
 
   const isSwitchedLocal = getUrlQuery ? !!getUrlQuery.openAll : (isSwitched ?? false);
 
+  // TODO: refactor this to not return a component, but just the state and the handler, and move the component to a separate file
   const SwitcherComponent = (
     <Switcher
       isSwitched={isSwitchedLocal}

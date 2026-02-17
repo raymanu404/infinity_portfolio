@@ -21,14 +21,14 @@ const PageContentList: React.FC<PageContentListProps> = ({ pageContentList = [] 
       {pageContentList.length > 0 && (
         <>
           {SwitcherComponent}
-          {pageContentList.map(({ elementId, title, children }) => (
+          {pageContentList.map(({ elementId, title, children, defaultOpen }) => (
             <SectionContent
               key={`${elementId}-${title}`}
               content={{
                 elementId: elementId,
                 title: title,
               }}
-              brutalClose={closedAll}
+              brutalClose={closedAll || !defaultOpen}
             >
               {children}
             </SectionContent>

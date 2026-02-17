@@ -42,6 +42,7 @@ const USE_REDUCER_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'todo-list-example-id',
     title: 'Todo List Example',
     children: <TodoListExample />,
+    defaultOpen: true,
   },
 ];
 
