@@ -1,7 +1,7 @@
 import { FlexWithGapBox, SpaceBetweenRowBox } from '@/Shared/Utils/Helpers/styled-components';
 import { theme } from '@/theme';
 import { Box, Button, Checkbox, IconButton, TextField, Typography } from '@mui/material';
-import { Delete, Pencil } from 'lucide-react';
+import { Delete, Pencil, SaveIcon } from 'lucide-react';
 import React, { useReducer } from 'react';
 
 type ActionReducerType = 'add' | 'delete' | 'update';
@@ -10,6 +10,7 @@ interface StateI {
   todoId: number;
   text: string;
   isChecked: boolean;
+  readonly isUpdating?: boolean;
 }
 
 interface StateProps {
@@ -24,20 +25,38 @@ interface ActionI {
 const reducer = (state: StateProps, action: ActionI): StateProps => {
   const { type } = action;
 
+  console.log({
+    state,
+  });
+
   switch (type) {
     case 'add': {
+      const updatedTodos = [...state.todos, action.nextState as StateI];
       return {
-        todos: [...state.todos],
+        todos: updatedTodos,
       };
     }
     case 'delete': {
+      const updatedTodos = state.todos.filter(todo => todo.todoId !== action.nextState?.todoId);
       return {
-        todos: [...state.todos],
+        todos: updatedTodos,
       };
     }
     case 'update': {
+      const updatedTodos = state.todos.map(todo => {
+        if (todo.todoId === action.nextState?.todoId) {
+          return {
+            ...todo,
+            isUpdating: action.nextState?.isUpdating ?? todo.isUpdating,
+            text: action.nextState?.text || todo.text,
+            isChecked: action.nextState?.isChecked ?? todo.isChecked,
+          };
+        }
+        return todo;
+      });
+
       return {
-        todos: [...state.todos],
+        todos: updatedTodos,
       };
     }
     default: {
@@ -55,7 +74,7 @@ const initialState: StateProps = {
     },
     {
       todoId: 2,
-      text: 'Let it Roll 2026',
+      text: 'Let it Roll 2027',
       isChecked: false,
     },
   ],
@@ -63,48 +82,74 @@ const initialState: StateProps = {
 
 const TodoListExample: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [localText, setLocalText] = React.useState('');
 
-  const addTodoHandler = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const nextId = state.todos.sort((a: StateI, b: StateI) => a.todoId - b.todoId)[0].todoId++;
-    console.log(nextId);
+  const addTodoHandler = (text: string) => {
+    const nextId = state.todos.reduce((max, todo) => Math.max(max, todo.todoId), 0) + 1;
+
     dispatch({
       type: 'add',
       nextState: {
         isChecked: false,
-        text: ev.target.value,
+        text: text,
         todoId: nextId,
       },
     });
   };
 
-  const updateTodoHandler = (todoId: number) => {
-    dispatch({ type: 'update' });
+  const updateTodoHandler = (nextState: Partial<StateI>) => {
+    dispatch({ type: 'update', nextState });
   };
 
   const deleteTodoHandler = (todoId: number) => {
-    dispatch({ type: 'delete' });
+    dispatch({ type: 'delete', nextState: { todoId } });
   };
 
-  //TODO: resolve for each case
   return (
     <FlexWithGapBox sx={{ padding: theme.spacing(3) }}>
       <SpaceBetweenRowBox sx={{ width: '100%' }}>
-        <TextField placeholder="TODO" variant="standard" onChange={ev => addTodoHandler(ev)} />
-        <Button variant="contained">Add Todo</Button>
+        <TextField
+          placeholder="TODO"
+          variant="standard"
+          onChange={ev => setLocalText(ev.target.value)}
+        />
+        <Button variant="contained" onClick={() => addTodoHandler(localText)}>
+          Add Todo
+        </Button>
       </SpaceBetweenRowBox>
       <FlexWithGapBox>
-        {state.todos.map(({ isChecked, todoId, text }) => {
+        {state.todos.map(({ isChecked, todoId, text, isUpdating }) => {
           const key = todoId;
           return (
             <SpaceBetweenRowBox key={key}>
               <SpaceBetweenRowBox>
-                <Checkbox value={isChecked} />
-                <Typography variant="h6">{text}</Typography>
+                <Checkbox
+                  value={isChecked}
+                  disabled={!isUpdating}
+                  onChange={ev => updateTodoHandler({ todoId, isChecked: ev.target.checked })}
+                />
+                {isUpdating ? (
+                  <>
+                    <TextField
+                      variant="standard"
+                      defaultValue={text}
+                      onChange={ev => updateTodoHandler({ todoId, text: ev.target.value })}
+                    />
+                  </>
+                ) : (
+                  <Typography variant="h6">{text}</Typography>
+                )}
               </SpaceBetweenRowBox>
               <Box>
-                <IconButton onClick={() => updateTodoHandler(todoId)}>
-                  <Pencil />
-                </IconButton>
+                {isUpdating ? (
+                  <IconButton onClick={() => updateTodoHandler({ todoId, isUpdating: false })}>
+                    <SaveIcon />
+                  </IconButton>
+                ) : (
+                  <IconButton onClick={() => updateTodoHandler({ todoId, isUpdating: true })}>
+                    <Pencil />
+                  </IconButton>
+                )}
                 <IconButton onClick={() => deleteTodoHandler(todoId)}>
                   <Delete />
                 </IconButton>
