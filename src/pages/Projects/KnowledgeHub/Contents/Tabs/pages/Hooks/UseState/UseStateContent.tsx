@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplatePageContent } from '../components';
+import { TemplatePageContent } from '../../components';
 import { USE_STATE_PAGE_CONTENTS } from '../constants';
 
 const PAGE_TITLE = 'Use State Hook';

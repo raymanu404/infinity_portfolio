@@ -1,4 +1,4 @@
-import { PageContentI } from './interfaces';
+import { PageContentI } from '../interfaces';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import {
   ArrayExample,

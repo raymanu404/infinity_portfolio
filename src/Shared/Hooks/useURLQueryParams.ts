@@ -1,5 +1,5 @@
 import { HOOKS_SUB_SECTION } from '@/pages/Projects/KnowledgeHub/constants';
-import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/constants';
+import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useMemo, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
