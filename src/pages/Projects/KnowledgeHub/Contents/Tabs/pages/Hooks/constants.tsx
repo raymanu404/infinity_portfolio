@@ -1,4 +1,6 @@
 import { PageContentI } from '../interfaces';
+import { BasicUseContext } from './UseContext/Examples';
+import { Basic, CounterEffect } from './UseEffect/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import {
   ArrayExample,
@@ -46,9 +48,26 @@ const USE_REDUCER_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
-const USE_EFFECT_PAGE_CONTENTS: PageContentI[] = [];
+const USE_EFFECT_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseEffect',
+    children: <Basic />,
+  },
+  {
+    elementId: 'counter-example-id',
+    title: 'Counter Example UseEffect',
+    children: <CounterEffect />,
+  },
+];
 
-const USE_CONTEXT_PAGE_CONTENTS: PageContentI[] = [];
+const USE_CONTEXT_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseContext',
+    children: <BasicUseContext />,
+  },
+];
 
 export {
   DASH_SPLIT_STRING,

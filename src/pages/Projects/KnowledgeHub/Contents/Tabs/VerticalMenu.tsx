@@ -16,7 +16,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    handleURLQueryParams(newValue);
+    handleURLQueryParams(+newValue);
   };
 
   return (
