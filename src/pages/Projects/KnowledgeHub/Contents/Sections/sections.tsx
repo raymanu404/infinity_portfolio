@@ -4,6 +4,7 @@ import {
   UseContextContent,
   UseEffectContent,
   UseReducerContent,
+  UseRefContent,
   UseStateContent,
 } from '../Tabs/pages/Hooks';
 
@@ -27,6 +28,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useContext',
     variant: 'CONTEXT',
     children: <UseContextContent />,
+  },
+  {
+    title: 'useRef',
+    variant: 'REF',
+    children: <UseRefContent />,
   },
 ];
 

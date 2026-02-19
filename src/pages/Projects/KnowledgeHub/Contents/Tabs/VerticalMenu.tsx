@@ -24,7 +24,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
       <Tabs
         orientation="vertical"
         variant="scrollable"
-        value={hashValueIndex}
+        value={hashValueIndex ?? 0}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{

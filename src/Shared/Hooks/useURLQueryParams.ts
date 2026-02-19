@@ -33,7 +33,7 @@ export const useUrlQueryParams = () => {
       });
     }
 
-    setValue(hashValueIndex);
+    setValue(+hashValueIndex);
   };
 
   const handleSearchParams = (checked: boolean) => {
@@ -50,7 +50,7 @@ export const useUrlQueryParams = () => {
 
   return {
     handleURLQueryParams,
-    hashValueIndex: value,
+    hashValueIndex: +value,
     handleSearchParams,
     searchParams,
     hash,
