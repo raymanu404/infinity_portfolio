@@ -1,4 +1,4 @@
-import { HOOKS_SUB_SECTION } from '@/pages/Projects/KnowledgeHub/constants';
+import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useMemo, useState } from 'react';
@@ -8,14 +8,15 @@ interface UrlQueryType {
   openAll: boolean;
 }
 
+// TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
 export const useUrlQueryParams = () => {
   const { hash } = useLocation();
-  const [value, setValue] = useState(getDefaultSubTabSelectedIndex(hash));
+  const [value, setValue] = useState<number>(+getDefaultSubTabSelectedIndex(hash));
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
-    const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION);
+    const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION_ARRAY);
 
     const hashValue = hooksCategoryTypeValues[hashValueIndex];
     const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];

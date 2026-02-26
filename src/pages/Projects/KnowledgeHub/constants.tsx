@@ -1,4 +1,5 @@
 import { EscapeHatches, HooksSection } from './Contents/Sections';
+import { HOOKS_TABS_PAGES } from './Contents/Sections/sections';
 import { ContentI } from './interfaces';
 
 //TODO: Add lazy loading + Routing for each section and content to be opened whenever user has the link
@@ -34,19 +35,16 @@ const SECTION_VARIANTS = {
   CUSTOM: 'CUSTOM',
 } as const;
 
-const HOOKS_SUB_SECTION = {
-  useState: 'use-state',
-  useReducer: 'use-reducer',
-  useEffect: 'use-effect',
-  useContext: 'use-context',
-} as const;
+const HOOKS_SUB_SECTION_ARRAY = Object.values(HOOKS_TABS_PAGES).map(x =>
+  x.title.replaceAll(/[A-Z]/g, '-$&').toLocaleLowerCase(),
+) as string[];
 
 const DEFAULT_OPEN_ALL = false;
 
 export {
   DEFAULT_OPEN_ALL,
   HOOK_CATEGORY_TYPE,
-  HOOKS_SUB_SECTION,
+  HOOKS_SUB_SECTION_ARRAY,
   LEARNING_SECTIONS,
   SECTION_VARIANTS,
 };

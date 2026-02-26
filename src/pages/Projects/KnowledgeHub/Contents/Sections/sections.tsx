@@ -2,6 +2,7 @@ import { TabContentI } from '../../interfaces';
 import { ReferenceValuesWithRefContent } from '../Tabs/pages/EscapeHatches';
 import {
   UseContextContent,
+  UseCustomHookContent,
   UseEffectContent,
   UseReducerContent,
   UseRefContent,
@@ -33,6 +34,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useRef',
     variant: 'REF',
     children: <UseRefContent />,
+  },
+  {
+    title: 'useCustomHook',
+    variant: 'CUSTOM',
+    children: <UseCustomHookContent />,
   },
 ];
 

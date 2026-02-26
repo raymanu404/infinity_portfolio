@@ -1,4 +1,5 @@
 import { PageContentI } from '../interfaces';
+import { UseCustomBasic } from './Custom/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
@@ -83,9 +84,18 @@ const USE_REF_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseCustomHook',
+    children: <UseCustomBasic />,
+  },
+];
+
 export {
   DASH_SPLIT_STRING,
   USE_CONTEXT_PAGE_CONTENTS,
+  USE_CUSTOM_HOOK_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
   USE_REDUCER_PAGE_CONTENTS,
   USE_REF_PAGE_CONTENTS,
