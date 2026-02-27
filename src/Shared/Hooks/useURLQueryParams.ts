@@ -1,7 +1,7 @@
 import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 interface UrlQueryType {
@@ -10,6 +10,7 @@ interface UrlQueryType {
 
 // TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
 export const useUrlQueryParams = () => {
+  // TODO: Fix toggle issue for openAll, also we have to open just the current section, not all the sections when we toggle the switcher, maybe we can pass the section
   const { hash } = useLocation();
   const [value, setValue] = useState<number>(+getDefaultSubTabSelectedIndex(hash));
   const navigate = useNavigate();
@@ -44,10 +45,7 @@ export const useUrlQueryParams = () => {
     });
   };
 
-  const getUrlQuery = useMemo(
-    () => ({ openAll: !!searchParams.get('openAll') }) as UrlQueryType,
-    [searchParams],
-  );
+  const getUrlQuery = { openAll: !!searchParams.get('openAll') } as UrlQueryType;
 
   return {
     handleURLQueryParams,

@@ -3,7 +3,7 @@ import { UseCustomBasic } from './Custom/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
-import { BasicUseRef } from './UseRef/Examples';
+import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
   ArrayExample,
   CounterExample,
@@ -81,6 +81,21 @@ const USE_REF_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'basic-example-id',
     title: 'Basic Example UseRef',
     children: <BasicUseRef />,
+  },
+  {
+    elementId: 'counter-example-id',
+    title: 'Counter Example UseRef',
+    children: <CounterRef />,
+  },
+  {
+    elementId: 'manipulate-dom-example-id',
+    title: 'Manipulate DOM Example UseRef',
+    children: <ManipulateDOM />,
+  },
+  {
+    elementId: 'parent-ref-example-id',
+    title: 'Parent Ref Example UseRef',
+    children: <ParentRef />,
   },
 ];
 

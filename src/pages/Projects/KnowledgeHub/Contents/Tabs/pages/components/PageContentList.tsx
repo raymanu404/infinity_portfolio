@@ -1,6 +1,6 @@
 import SectionContent from '@/pages/Projects/Components/SectionContent';
-import { DEFAULT_OPEN_ALL } from '@/pages/Projects/KnowledgeHub/constants';
 import { NoResult } from '@/Shared/Components';
+import { Switcher } from '@/Shared/Components/Switcher/Switcher';
 import { useSwitcher } from '@/Shared/Components/Switcher/useSwitcher';
 import React from 'react';
 import { PageContentI } from '../interfaces';
@@ -11,16 +11,13 @@ interface PageContentListProps {
 }
 
 const PageContentList: React.FC<PageContentListProps> = ({ pageContentList = [] }) => {
-  const { SwitcherComponent, isSwitched: closedAll } = useSwitcher({
-    isClosed: DEFAULT_OPEN_ALL,
-    showIcons: true,
-  });
+  const { isSwitched, setIsSwitched } = useSwitcher();
 
   return (
     <PagePanelContent>
       {pageContentList.length > 0 && (
         <>
-          {SwitcherComponent}
+          {<Switcher isSwitched={isSwitched} setIsSwitched={setIsSwitched} showIcons />}
           {pageContentList.map(({ elementId, title, children, defaultOpen }) => (
             <SectionContent
               key={`${elementId}-${title}`}
@@ -28,7 +25,7 @@ const PageContentList: React.FC<PageContentListProps> = ({ pageContentList = [] 
                 elementId: elementId,
                 title: title,
               }}
-              brutalClose={closedAll || !defaultOpen}
+              brutalClose={isSwitched || !defaultOpen}
             >
               {children}
             </SectionContent>

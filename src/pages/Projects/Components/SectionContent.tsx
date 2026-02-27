@@ -1,3 +1,4 @@
+import { useUrlQueryParams } from '@/Shared/Hooks/useURLQueryParams';
 import { theme } from '@/theme';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
@@ -27,7 +28,8 @@ const SectionContent: React.FC<SectionContentProps> = ({
   const { elementId, title, children, subTitle } = content;
   const { hash } = useLocation();
   const navigate = useNavigate();
-  const DEFAULT_SECTION_OPEN = hash.includes(elementId);
+  const { getUrlQuery } = useUrlQueryParams();
+  const DEFAULT_SECTION_OPEN = hash.includes(elementId) || !!getUrlQuery.openAll;
   const [isOpen, setIsOpen] = useState(DEFAULT_SECTION_OPEN);
 
   useEffect(() => {
@@ -49,6 +51,7 @@ const SectionContent: React.FC<SectionContentProps> = ({
   return (
     <Box id={elementId}>
       <Accordion
+        id={`${elementId}-accordion`}
         expanded={isOpen}
         onChange={() => {
           if (!DEFAULT_SECTION_OPEN && typeof brutalClose === 'undefined') {

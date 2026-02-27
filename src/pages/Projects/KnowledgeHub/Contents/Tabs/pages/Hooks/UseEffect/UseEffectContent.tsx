@@ -32,7 +32,9 @@ const UseEffectContent: React.FC = () => {
     <TemplatePageContent
       pageTitle={PAGE_TITLE}
       pageContentList={USE_EFFECT_PAGE_CONTENTS}
-      notes={PAGE_NOTES}
+      notes={{
+        notes: PAGE_NOTES,
+      }}
     />
   );
 };

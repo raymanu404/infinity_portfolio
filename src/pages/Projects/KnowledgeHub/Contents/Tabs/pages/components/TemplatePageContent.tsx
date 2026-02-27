@@ -1,9 +1,8 @@
 import { FullModal } from '@/Shared/Components';
 import { useModal } from '@/Shared/Components/Modal/useModal';
-import { NotesType } from '@/Shared/Components/Notes/interfaces';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { PageContentI } from '../interfaces';
 import PageContentList from './PageContentList';
 import PagePanelHeadTitle from './PagePanelHeadTitle';
@@ -11,7 +10,7 @@ import PagePanelHeadTitle from './PagePanelHeadTitle';
 interface TemplatePageContentProps {
   pageTitle: string;
   pageContentList: PageContentI[];
-  notes?: NotesType;
+  notes?: ComponentProps<typeof Notes>;
 }
 
 const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
@@ -37,7 +36,7 @@ const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
       />
 
       {/* NOTES */}
-      {notes && <Notes notes={notes} />}
+      {notes && <Notes {...notes} />}
 
       {/* CONTENT */}
       <FullModal isOpen={isOpen} handleClose={handleClose} title={pageTitle}>

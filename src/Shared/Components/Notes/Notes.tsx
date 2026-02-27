@@ -1,14 +1,31 @@
 import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
+import { Theme } from '@emotion/react';
+import { SxProps } from '@mui/material/styles';
 import React from 'react';
 import { NotesType } from './interfaces';
 
 interface NotesProps {
   notes: NotesType;
+  specialNotes?: boolean;
 }
 
-const Notes: React.FC<NotesProps> = ({ notes }) => {
+const specialNoteStyle = {
+  border: '2px solid #2D6A4F',
+  padding: '20px',
+  backgroundColor: '#52B788',
+  color: '#081C15',
+} as SxProps<Theme>;
+
+const defaultNoteStyle = {
+  border: '1px solid #52B788',
+  padding: '20px',
+  backgroundColor: '#95D5B2',
+  color: '#081C15',
+} as SxProps<Theme>;
+
+const Notes: React.FC<NotesProps> = ({ notes, specialNotes = false }) => {
   return (
-    <BoxCardContent sx={{ padding: '20px' }}>
+    <BoxCardContent sx={specialNotes ? specialNoteStyle : defaultNoteStyle}>
       <h2>Note</h2>
       {Array.isArray(notes) ? (
         notes.map((note, index) => (

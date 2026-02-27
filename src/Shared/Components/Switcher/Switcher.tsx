@@ -4,16 +4,17 @@ import { theme } from '@/theme';
 import { Box, Switch, Typography } from '@mui/material';
 import { Eye, EyeClosed } from 'lucide-react';
 import React, { useCallback } from 'react';
-import { SwitcherProps } from './useSwitcher';
 
-interface Props extends SwitcherProps {
+interface Props {
+  label?: string;
+  isClosed?: boolean;
+  showIcons?: boolean;
   isSwitched: boolean | undefined;
-  setIsSwitched: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+  setIsSwitched: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Switcher: React.FC<Props> = ({ isSwitched, label, setIsSwitched, showIcons }) => {
-  const { handleURLQueryParams, hash, getUrlQuery } = useUrlQueryParams();
-  // const isSwitchedLocal = getUrlQuery.openAll ? getUrlQuery.openAll : isSwitched;
+  const { handleURLQueryParams, hash } = useUrlQueryParams();
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (setIsSwitched) {
