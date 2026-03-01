@@ -27,6 +27,7 @@ const HOOK_CATEGORY_TYPE = {
   TRANSITION: 'TRANSITION',
   REACT_19: 'REACT_19',
   CUSTOM: 'CUSTOM',
+  MEMO: 'MEMO',
 } as const;
 
 const SECTION_VARIANTS = {

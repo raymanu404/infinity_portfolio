@@ -1,7 +1,9 @@
 import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
+import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
+import { BasicUseMemo } from './UseMemo/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
@@ -99,6 +101,27 @@ const USE_REF_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_CALLBACK_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'skipping-rerendering-example-id',
+    title: 'Skipping Re-rendering Example UseCallback',
+    children: <SkippingReRendering />,
+  },
+  {
+    elementId: 'no-skipping-rerendering-example-id',
+    title: 'No Skipping Re-rendering Example',
+    children: <NoSkippingRerendering />,
+  },
+];
+
+const USE_MEMO_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseMemo',
+    children: <BasicUseMemo />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -109,9 +132,11 @@ const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
 
 export {
   DASH_SPLIT_STRING,
+  USE_CALLBACK_PAGE_CONTENTS,
   USE_CONTEXT_PAGE_CONTENTS,
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
+  USE_MEMO_PAGE_CONTENTS,
   USE_REDUCER_PAGE_CONTENTS,
   USE_REF_PAGE_CONTENTS,
   USE_STATE_PAGE_CONTENTS,

@@ -1,9 +1,11 @@
 import { TabContentI } from '../../interfaces';
 import { ReferenceValuesWithRefContent } from '../Tabs/pages/EscapeHatches';
 import {
+  UseCallbackContent,
   UseContextContent,
   UseCustomHookContent,
   UseEffectContent,
+  UseMemoContent,
   UseReducerContent,
   UseRefContent,
   UseStateContent,
@@ -19,6 +21,16 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useReducer',
     variant: 'STATE',
     children: <UseReducerContent />,
+  },
+  {
+    title: 'useCallback',
+    variant: 'MEMO',
+    children: <UseCallbackContent />,
+  },
+  {
+    title: 'useMemo',
+    variant: 'MEMO',
+    children: <UseMemoContent />,
   },
   {
     title: 'useEffect',
