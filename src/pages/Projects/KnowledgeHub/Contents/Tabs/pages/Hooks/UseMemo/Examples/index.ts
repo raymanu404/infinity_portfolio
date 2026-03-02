@@ -1,1 +1,2 @@
-export { default as BasicUseMemo } from './Basic';
+export { default as NoSkipReRenderUseMemo } from './NoSkippingReRendering';
+export { default as SkipReRenderingUseMemo } from './SkippingReRendering';

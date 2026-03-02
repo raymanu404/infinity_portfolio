@@ -15,6 +15,8 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
   const parentRef = React.useRef(null);
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
 
+  console.log({ hashValueIndex });
+
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     handleURLQueryParams(+newValue);
   };
@@ -24,6 +26,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
       <Tabs
         orientation="vertical"
         variant="scrollable"
+        scrollButtons="auto"
         value={isNaN(hashValueIndex) ? 0 : hashValueIndex}
         onChange={handleChange}
         aria-label="Vertical tabs example"

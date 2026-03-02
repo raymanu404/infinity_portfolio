@@ -3,7 +3,7 @@ import { UseCustomBasic } from './Custom/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
-import { BasicUseMemo } from './UseMemo/Examples';
+import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo } from './UseMemo/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
@@ -116,9 +116,14 @@ const USE_CALLBACK_PAGE_CONTENTS: PageContentI[] = [
 
 const USE_MEMO_PAGE_CONTENTS: PageContentI[] = [
   {
-    elementId: 'basic-example-id',
-    title: 'Basic Example UseMemo',
-    children: <BasicUseMemo />,
+    elementId: 'no-skipping-rerendering-example-id',
+    title: 'No Skipping Re-rendering Example UseMemo',
+    children: <NoSkipReRenderUseMemo />,
+  },
+  {
+    elementId: 'skipping-rerendering-example-id',
+    title: 'Skipping Re-rendering Example UseMemo',
+    children: <SkipReRenderingUseMemo />,
   },
 ];
 
