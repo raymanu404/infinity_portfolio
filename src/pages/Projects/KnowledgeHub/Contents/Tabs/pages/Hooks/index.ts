@@ -6,3 +6,4 @@ export { default as UseMemoContent } from './UseMemo/UseMemoContent';
 export { default as UseReducerContent } from './UseReducer/UseReducerContent';
 export { default as UseRefContent } from './UseRef/UseRefContent';
 export { default as UseStateContent } from './UseState/UseStateContent';
+export { default as UseTransitionContent } from './UseTransition/UseTransitionContent';

@@ -9,6 +9,7 @@ import {
   UseReducerContent,
   UseRefContent,
   UseStateContent,
+  UseTransitionContent,
 } from '../Tabs/pages/Hooks';
 
 const HOOKS_TABS_PAGES: TabContentI[] = [
@@ -46,6 +47,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useRef',
     variant: 'REF',
     children: <UseRefContent />,
+  },
+  {
+    title: 'useTransition',
+    variant: 'TRANSITION',
+    children: <UseTransitionContent />,
   },
   {
     title: 'useCustomHook',

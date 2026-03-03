@@ -12,6 +12,7 @@ import {
   SwordCursor,
   UpdateNestedObjectsExample,
 } from './UseState/Examples';
+import { BasicUseTransition } from './UseTransition/Examples';
 
 const DASH_SPLIT_STRING = '-';
 
@@ -132,6 +133,14 @@ const USE_MEMO_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_TRANSITION_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseTransition',
+    children: <BasicUseTransition />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -150,4 +159,5 @@ export {
   USE_REDUCER_PAGE_CONTENTS,
   USE_REF_PAGE_CONTENTS,
   USE_STATE_PAGE_CONTENTS,
+  USE_TRANSITION_PAGE_CONTENTS,
 };
