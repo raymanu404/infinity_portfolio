@@ -2,6 +2,7 @@ import { Button, Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react';
 import { TabExampleT, ThemeExampleT } from './interfaces';
 import TodoList from './TodoList';
+import { todos } from './utils';
 
 interface ExampleContainerProps {
   skipReRendering?: boolean;
@@ -40,7 +41,7 @@ const ExampleContainer: React.FC<ExampleContainerProps> = ({ skipReRendering = f
           <Tab label="Active" value="active" />
         </Tabs>
       </div>
-      <TodoList theme={darkMode} skipReRendering={skipReRendering} tab={tab} />
+      <TodoList theme={darkMode} skipReRendering={skipReRendering} tab={tab} todos={todos} />
     </div>
   );
 };

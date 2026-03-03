@@ -1,17 +1,18 @@
 import React, { useMemo } from 'react';
-import { TabExampleT, ThemeExampleT } from './interfaces';
-import { filterTodos, todos } from './utils';
+import { TabExampleT, ThemeExampleT, Todo } from './interfaces';
+import { filterTodos } from './utils';
 
 interface TodoListProps {
   theme: ThemeExampleT;
   skipReRendering?: boolean;
   tab: TabExampleT;
+  todos: Todo[];
 }
 
-const TodoList: React.FC<TodoListProps> = ({ theme, skipReRendering = true, tab }) => {
+const TodoList: React.FC<TodoListProps> = ({ theme, skipReRendering = true, tab, todos }) => {
   const filteredTodos = skipReRendering
     ? useMemo(() => filterTodos(todos, tab), [todos, tab])
-    : filterTodos(todos, tab);
+    : filterTodos(todos, tab, true);
 
   return (
     <div

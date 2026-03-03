@@ -10,11 +10,13 @@ const generateTodos = (num: number) => {
 
 export const todos = generateTodos(100);
 
-export const filterTodos = (todos: Todo[], tabs: TabExampleT) => {
+export const filterTodos = (todos: Todo[], tabs: TabExampleT, skipFakeTime?: boolean) => {
   console.log('filterTodos called');
   const start = Date.now();
-  while (Date.now() - start < 200) {
-    // Simulate expensive calculation
+  if (!skipFakeTime) {
+    while (Date.now() - start < 200) {
+      // Simulate expensive calculation
+    }
   }
 
   switch (tabs) {
