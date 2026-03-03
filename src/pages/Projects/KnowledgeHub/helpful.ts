@@ -59,11 +59,11 @@ const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
   if (!currentHash.includes(DASH_SPLIT_STRING)) return 0;
 
   const hash = currentHash.split('#')[1];
-  const subTabHash =
-    hash.split(DASH_SPLIT_STRING)[1] + DASH_SPLIT_STRING + hash.split(DASH_SPLIT_STRING)[2];
+
+  const dividedHash = hash.split(DASH_SPLIT_STRING).slice(1).join(DASH_SPLIT_STRING);
 
   const currentIndex = Object.values(HOOKS_SUB_SECTION_ARRAY).findIndex(x => {
-    return x === subTabHash;
+    return x === dividedHash;
   });
 
   return currentIndex;

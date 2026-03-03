@@ -86,9 +86,11 @@ const SectionContent: React.FC<SectionContentProps> = ({
             </Typography>
           </Stack>
         </AccordionSummary>
-        <AccordionDetails sx={{ backgroundColor: theme.custom.specialPalette?.variant[200] }}>
-          {parentChildren ?? children}
-        </AccordionDetails>
+        {isOpen && (
+          <AccordionDetails sx={{ backgroundColor: theme.custom.specialPalette?.variant[200] }}>
+            {parentChildren ?? children}
+          </AccordionDetails>
+        )}
       </Accordion>
     </Box>
   );

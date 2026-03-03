@@ -9,14 +9,7 @@ const PAGE_NOTES: NotesType = [];
 
 const UseTransitionContent: React.FC = () => {
   return (
-    <TemplatePageContent
-      pageTitle={PAGE_TITLE}
-      pageContentList={USE_TRANSITION_PAGE_CONTENTS}
-      notes={{
-        notes: PAGE_NOTES,
-        specialNotes: true,
-      }}
-    />
+    <TemplatePageContent pageTitle={PAGE_TITLE} pageContentList={USE_TRANSITION_PAGE_CONTENTS} />
   );
 };
 

@@ -1,7 +1,7 @@
 import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getArrayGroupedByVariant } from '../../helpful';
 import { TabContentI } from '../../interfaces';
 import TabLabel from './Components/TabLabel';
@@ -12,13 +12,31 @@ interface VerticalMenuProps {
 }
 
 const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
-  const parentRef = React.useRef(null);
+  const parentRef = React.useRef<HTMLDivElement[] | null>(null);
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
+  const [tabIndex, setTabIndex] = React.useState(0);
 
-  console.log({ hashValueIndex });
+  useEffect(() => {
+    if (isNaN(hashValueIndex)) return;
+    if (hashValueIndex < 0) return;
+    if (hashValueIndex >= tabsPages.length) return;
+
+    if (hashValueIndex === tabIndex) return;
+
+    if (parentRef.current) {
+      const parent = parentRef.current.find(el =>
+        el.id.includes(`vertical-tab-${hashValueIndex}`),
+      ) as HTMLDivElement;
+
+      parent.scrollIntoView({ behavior: 'instant', block: 'center' });
+    }
+
+    setTabIndex(+hashValueIndex);
+  }, [hashValueIndex]);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     handleURLQueryParams(+newValue);
+    setTabIndex(newValue);
   };
 
   return (
@@ -27,7 +45,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
         orientation="vertical"
         variant="scrollable"
         scrollButtons="auto"
-        value={isNaN(hashValueIndex) ? 0 : hashValueIndex}
+        value={isNaN(tabIndex) ? 0 : tabIndex}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{
@@ -54,12 +72,10 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
               if (x.array.length === 1) {
                 showBottom = true;
               }
-              return;
             }
 
             if (tab.variant === x.key && tab.title === x.array[x.array.length - 1].title) {
               showBottom = true;
-              return;
             }
           });
 
@@ -70,7 +86,11 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
               tab={tab}
               showHeader={showHeader}
               showBottom={showBottom}
-              parentRef={parentRef}
+              parentRef={el => {
+                if (el && !parentRef.current?.includes(el)) {
+                  parentRef.current = [...(parentRef.current ?? []), el];
+                }
+              }}
             />
           );
         })}
@@ -81,7 +101,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
         const key = `${title}-${index}`;
 
         return (
-          <TabPanelPage index={index} isHidden={hashValueIndex !== index} key={key}>
+          <TabPanelPage index={index} isHidden={tabIndex !== index} key={key}>
             {children}
           </TabPanelPage>
         );
