@@ -4,8 +4,10 @@ import {
   UseCallbackContent,
   UseContextContent,
   UseCustomHookContent,
+  UseDeferredValueContent,
   UseEffectContent,
   UseMemoContent,
+  UseOptimisticContent,
   UseReducerContent,
   UseRefContent,
   UseStateContent,
@@ -52,6 +54,16 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useTransition',
     variant: 'TRANSITION',
     children: <UseTransitionContent />,
+  },
+  {
+    title: 'useDeferredValue',
+    variant: 'TRANSITION',
+    children: <UseDeferredValueContent />,
+  },
+  {
+    title: 'useOptimistic',
+    variant: 'TRANSITION',
+    children: <UseOptimisticContent />,
   },
   {
     title: 'useCustomHook',

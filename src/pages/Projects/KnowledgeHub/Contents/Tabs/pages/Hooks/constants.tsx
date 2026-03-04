@@ -2,8 +2,10 @@ import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
+import { BasicUseDeferredValue } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
+import { BasicUseOptimistic } from './UseOptimistic/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
@@ -141,6 +143,22 @@ const USE_TRANSITION_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_DEFERRED_VALUE_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseDeferredValue',
+    children: <BasicUseDeferredValue />,
+  },
+];
+
+const USE_OPTIMISTIC_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseOptimistic',
+    children: <BasicUseOptimistic />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -154,8 +172,10 @@ export {
   USE_CALLBACK_PAGE_CONTENTS,
   USE_CONTEXT_PAGE_CONTENTS,
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
+  USE_DEFERRED_VALUE_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
   USE_MEMO_PAGE_CONTENTS,
+  USE_OPTIMISTIC_PAGE_CONTENTS,
   USE_REDUCER_PAGE_CONTENTS,
   USE_REF_PAGE_CONTENTS,
   USE_STATE_PAGE_CONTENTS,

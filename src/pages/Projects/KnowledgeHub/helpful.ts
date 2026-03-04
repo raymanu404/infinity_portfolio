@@ -52,6 +52,11 @@ const tabGroupStyle = (showHeader: boolean, showBottom: boolean) => {
       marginBottom: `${theme.spacing(3)}`,
     } as SxProps<Theme>;
   }
+
+  return {
+    borderLeft: `2px ${theme.custom.specialPalette?.variant[500]} solid`,
+    borderRight: `2px ${theme.custom.specialPalette?.variant[500]} solid`,
+  } as SxProps<Theme>;
 };
 
 const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
