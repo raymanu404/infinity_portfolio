@@ -1,3 +1,4 @@
+import { Spinner } from '@/Shared/Components';
 import React from 'react';
 import QuantityInput from './QuantityInput';
 import { updateQuantityApi } from './utils';
@@ -11,18 +12,25 @@ const BasicUseTransition: React.FC = () => {
       await updateQuantityApi(newQuantity);
 
       startTransition(() => {
-        setQuantity(prev => prev + 1);
+        setQuantity(newQuantity);
       });
     });
   };
 
+  const totalPrice = quantity * 102.34;
+
   return (
     <div>
-      <h1>Updating the quantity in an Action </h1>
+      <h2>Updating the quantity in an Action </h2>
 
-      <p>Quantity: {quantity}</p>
-
-      {isPending && <p>Loading...</p>}
+      {isPending ? (
+        <Spinner size="1.4em" />
+      ) : (
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <p>Quantity: {quantity}</p>
+          <p>Total Price: ${totalPrice.toFixed(2)}</p>
+        </div>
+      )}
 
       <QuantityInput updateQuantity={updateQuantityHandler} />
     </div>

@@ -14,7 +14,7 @@ import {
   SwordCursor,
   UpdateNestedObjectsExample,
 } from './UseState/Examples';
-import { BasicUseTransition } from './UseTransition/Examples';
+import { BasicUseTransition, PendingVisualEffect } from './UseTransition/Examples';
 
 const DASH_SPLIT_STRING = '-';
 
@@ -140,6 +140,11 @@ const USE_TRANSITION_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'basic-example-id',
     title: 'Basic Example UseTransition',
     children: <BasicUseTransition />,
+  },
+  {
+    elementId: 'pending-visual-effect-id',
+    title: 'Pending Visual Effect Example',
+    children: <PendingVisualEffect />,
   },
 ];
 

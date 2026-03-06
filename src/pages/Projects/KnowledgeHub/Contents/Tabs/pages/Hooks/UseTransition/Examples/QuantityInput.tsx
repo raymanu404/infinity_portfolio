@@ -8,7 +8,7 @@ interface QuantityInputProps {
 const QuantityInput: React.FC<QuantityInputProps> = ({ updateQuantity }) => {
   const onChangeHandler = async (ev: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = +ev.target.value;
-
+    // To expose an action prop, await the callback in startTransition.
     startTransition(async () => {
       await updateQuantity(newQuantity);
     });
@@ -17,8 +17,7 @@ const QuantityInput: React.FC<QuantityInputProps> = ({ updateQuantity }) => {
   return (
     <div>
       <h1>QuantityInput</h1>
-
-      <TextField onChange={onChangeHandler} defaultValue={1} type="number" />
+      <TextField onChange={onChangeHandler} type="number" defaultValue={1} />
     </div>
   );
 };
