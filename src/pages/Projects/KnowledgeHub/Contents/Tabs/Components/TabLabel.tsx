@@ -1,6 +1,5 @@
 import { theme } from '@/theme';
 import { Box, Tab, tabClasses, TabProps, Typography } from '@mui/material';
-import { forwardRef } from 'react';
 import { idAttributeProps, tabGroupStyle } from '../../../helpful';
 import { TabContentI } from '../../../interfaces';
 
@@ -12,10 +11,14 @@ interface TabLabelProps extends TabProps {
   parentRef?: React.ForwardedRef<HTMLDivElement>;
 }
 
-const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
-  { index, tab, showHeader, showBottom, parentRef, ...rest },
+const TabLabel = function TabLabel({
   ref,
-) {
+  index,
+  tab,
+  showHeader,
+  showBottom,
+  ...rest
+}: TabLabelProps) {
   const { title, variant } = tab;
   return (
     <Box
@@ -58,13 +61,13 @@ const TabLabel = forwardRef<HTMLDivElement, TabLabelProps>(function TabLabel(
           },
           borderBottomWidth: '2px',
         }}
-        ref={parentRef ?? ref}
+        ref={ref}
         disableRipple
         {...rest}
       />
     </Box>
   );
-});
+};
 
 TabLabel.displayName = 'TabLabel';
 

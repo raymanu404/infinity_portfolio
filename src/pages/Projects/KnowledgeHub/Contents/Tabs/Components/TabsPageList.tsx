@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import { getArrayGroupedByVariant } from '../../../helpful';
 import { TabContentI } from '../../../interfaces';
 import TabLabel from './TabLabel';
@@ -8,10 +7,12 @@ import TabLabel from './TabLabel';
  * TODO:Make this useable later
  */
 
-const TabsPageList = forwardRef<HTMLDivElement, { tabsPages: TabContentI[] }>(function TabsPageList(
-  { tabsPages },
+const TabsPageList = function TabsPageList({
   ref,
-) {
+  tabsPages,
+}: { tabsPages: TabContentI[] } & {
+  ref: React.RefObject<HTMLDivElement>;
+}) {
   return (
     <>
       {tabsPages.map((tab, index) => {
@@ -41,13 +42,13 @@ const TabsPageList = forwardRef<HTMLDivElement, { tabsPages: TabContentI[] }>(fu
             tab={tab}
             showHeader={showHeader}
             showBottom={showBottom}
-            parentRef={ref}
+            ref={ref}
           />
         );
       })}
     </>
   );
-});
+};
 
 TabsPageList.displayName = 'TabsPageList';
 

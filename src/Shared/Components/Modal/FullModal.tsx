@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import { X } from 'lucide-react';
 import React, { PropsWithChildren } from 'react';
-import Transition from '../Transition';
 
 interface FullModalProps extends PropsWithChildren, Omit<DialogProps, 'children' | 'open'> {
   isOpen: boolean;
@@ -47,7 +46,6 @@ const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, child
           {...rest}
           open={isOpen}
           onClose={handleClose}
-          TransitionComponent={Transition}
           sx={{
             [`& .${dialogClasses.paper}`]: {
               backgroundColor: theme.custom.specialPalette?.variant[200],

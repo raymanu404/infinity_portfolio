@@ -86,7 +86,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
               tab={tab}
               showHeader={showHeader}
               showBottom={showBottom}
-              parentRef={el => {
+              ref={el => {
                 if (el && !parentRef.current?.includes(el)) {
                   parentRef.current = [...(parentRef.current ?? []), el];
                 }
