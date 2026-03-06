@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChildComponent: React.FC<{ parentRef: React.RefObject<HTMLDivElement> }> = ({
+const ChildComponent: React.FC<{ parentRef: React.RefObject<HTMLDivElement | null> }> = ({
   parentRef,
 }) => {
   return (

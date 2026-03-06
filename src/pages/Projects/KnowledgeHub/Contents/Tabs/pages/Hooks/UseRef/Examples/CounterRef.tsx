@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 const CounterRef: React.FC = () => {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [now, setNow] = useState<number | null>(null);
-  const intervalRef = useRef<number | undefined>();
+  const intervalRef = useRef<number | undefined>(0);
 
   function handleStart() {
     setStartTime(Date.now());

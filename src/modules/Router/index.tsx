@@ -7,24 +7,23 @@ import { Layout } from '../Layout/Layout';
 import { RedirectRouter } from './Components/RedirectRouter';
 import { PATH_ROUTES } from './constants';
 
-const Home = lazy(() => import('../../pages/Home/Home'));
 const Projects = lazy(() =>
-  import('../../pages/Projects/index').then(module => ({
+  import('@/pages/Projects/index.js').then(module => ({
     default: module.ProjectsContainer,
   })),
 );
 const TicTacToe = lazy(() =>
-  import('../../pages/Projects/index').then(module => ({
+  import('@/pages/Projects/index.js').then(module => ({
     default: module.TicTacToe,
   })),
 );
 const Monsters = lazy(() =>
-  import('../../pages/Projects/index').then(module => ({
+  import('@/pages/Projects/index.js').then(module => ({
     default: module.Monsters,
   })),
 );
 const KnowledgeHub = lazy(() =>
-  import('../../pages/Projects/index').then(module => ({
+  import('@/pages/Projects/index.js').then(module => ({
     default: module.KnowledgeHub,
   })),
 );
@@ -47,7 +46,7 @@ const CustomRouter = () => {
             }
           >
             <Routes>
-              <Route index element={<Home />} />
+              {/* <Route index element={<Home />} /> */}
               <Route element={<NotFoundPage />} path={convertToPathURI(PATH_ROUTES.NOT_FOUND)} />
               <Route path="*" element={<Navigate to={'not-found'} replace />} />
               <Route path={convertToPathURI(PATH_ROUTES.PROJECTS)} element={<Projects />} />
