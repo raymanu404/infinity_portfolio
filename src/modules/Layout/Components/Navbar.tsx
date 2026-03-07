@@ -1,7 +1,7 @@
 import { PATH_ROUTES } from '@/modules/Router/constants';
 import { theme } from '@/theme';
 import { Box, Tab, Tabs } from '@mui/material';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { navbarTabsConst, tabsSx, tabSx } from '../constants';
 
@@ -14,13 +14,17 @@ const currentPathDefault = (pathname: string[]) => {
 
 export const Navbar = () => {
   const { pathname } = useLocation();
+  // you can use useTransition to defer the navigation update, allowing the UI to remain responsive during the transition
+  const [isPending, startTransition] = useTransition();
 
   const [value, setValue] = useState<string>(currentPathDefault(pathname.split('/')));
   const navigate = useNavigate();
 
   const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
-    navigate(newValue);
+    startTransition(() => {
+      navigate(newValue);
+    });
   };
 
   return (
