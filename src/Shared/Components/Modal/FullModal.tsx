@@ -54,17 +54,17 @@ const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, child
         >
           <AppBar sx={{ position: 'relative' }}>
             <Toolbar>
+              <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                {title}
+              </Typography>
               <IconButton
-                edge="start"
+                edge="end"
                 color="inherit"
                 onClick={event => handleClose(event)}
                 aria-label="close"
               >
                 <X />
               </IconButton>
-              <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                {title}
-              </Typography>
             </Toolbar>
           </AppBar>
           {Children}

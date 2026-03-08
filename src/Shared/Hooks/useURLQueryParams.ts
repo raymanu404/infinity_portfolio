@@ -1,11 +1,13 @@
 import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { SearchQueryParamsT, SearchQueryParamsV } from '../interfaces';
 
 interface UrlQueryType {
   openAll: boolean;
+  fullMode: boolean;
 }
 
 // TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
@@ -18,15 +20,17 @@ export const useUrlQueryParams = () => {
 
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
     const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION_ARRAY);
-
-    const hashValue = hooksCategoryTypeValues[hashValueIndex];
-    const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];
-    const finalHashValue = primarySectionHash + DASH_SPLIT_STRING + hashValue;
+    let finalHashValue = hash;
+    if (hash) {
+      const hashValue = hooksCategoryTypeValues[hashValueIndex];
+      const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];
+      finalHashValue = primarySectionHash + DASH_SPLIT_STRING + hashValue;
+    }
 
     if (typeof checked !== 'undefined') {
       navigate({
         hash: finalHashValue,
-        search: `openAll=${checked}`,
+        // search: `openAll=${checked}`,
       });
     } else {
       navigate({
@@ -38,14 +42,43 @@ export const useUrlQueryParams = () => {
     setValue(+hashValueIndex);
   };
 
-  const handleSearchParams = (checked: boolean) => {
-    setSearchParams(searchParams => {
-      searchParams.set('openAll', `${checked}`);
-      return searchParams;
-    });
-  };
+  //TODO: check openAll toggle (fucks everything) and fix this when we have multiple values for searchParams (openAll + fullModal) in URL
+  // check also for both (all) queryParams for sections when you have all of them, it opens all LEARNING_SECTIONS into SectionContentList
+  const handleSearchParams = useCallback(
+    (key: SearchQueryParamsT, value?: string | boolean | number | undefined) => {
+      // console.log({ key, value });
 
-  const getUrlQuery = { openAll: !!searchParams.get('openAll') } as UrlQueryType;
+      const url = new URLSearchParams();
+
+      if (value) {
+        url.set(key.toString(), `${value}`);
+      } else {
+        url.delete(key.toString());
+      }
+
+      const search = url
+        .entries()
+        .map(x => `${x[0]}=${x[1]}`)
+        .reduce(
+          (acc, current, index) => (index === url.size - 1 ? acc + current : acc + current + '&'),
+          '',
+        );
+
+      // console.log({ searchParams });
+      // console.log(search);
+
+      navigate({
+        hash: hash,
+        search: search,
+      });
+    },
+    [hash, navigate],
+  );
+
+  const getUrlQuery = {
+    openAll: !!searchParams.get(SearchQueryParamsV.openAll),
+    fullMode: !!searchParams.get(SearchQueryParamsV.fullMode),
+  } as UrlQueryType;
 
   return {
     handleURLQueryParams,

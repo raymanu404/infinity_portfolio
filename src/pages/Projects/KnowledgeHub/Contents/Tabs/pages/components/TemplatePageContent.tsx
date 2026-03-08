@@ -1,6 +1,7 @@
 import { FullModal } from '@/Shared/Components';
 import { useModal } from '@/Shared/Components/Modal/useModal';
 import Notes from '@/Shared/Components/Notes/Notes';
+import { useUrlQueryParams } from '@/Shared/Hooks';
 import { Box } from '@mui/material';
 import React, { ComponentProps } from 'react';
 import { PageContentI } from '../interfaces';
@@ -18,7 +19,9 @@ const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
   pageTitle,
   notes,
 }) => {
-  const { handleClose, handleOpen, isOpen } = useModal();
+  const { handleClose, handleOpen, isOpen } = useModal({ fullModal: true });
+
+  const { getUrlQuery } = useUrlQueryParams();
 
   return (
     <Box
@@ -35,12 +38,23 @@ const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
         isDisabledModal={pageContentList.length === 0}
       />
 
-      {/* NOTES */}
-      {notes && <Notes {...notes} />}
-
       {/* CONTENT */}
-      <FullModal isOpen={isOpen} handleClose={handleClose} title={pageTitle}>
-        <PageContentList pageContentList={pageContentList} />
+      <FullModal
+        isOpen={isOpen || getUrlQuery.fullMode}
+        handleClose={handleClose}
+        title={pageTitle}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '20px',
+            flexDirection: 'column',
+          }}
+        >
+          {/* NOTES */}
+          {notes && <Notes {...notes} />}
+          <PageContentList pageContentList={pageContentList} />
+        </Box>
       </FullModal>
     </Box>
   );

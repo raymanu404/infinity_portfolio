@@ -30,7 +30,6 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
 
       parent.scrollIntoView({ behavior: 'instant', block: 'center' });
     }
-
     setTabIndex(+hashValueIndex);
   }, [hashValueIndex]);
 
