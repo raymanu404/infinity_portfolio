@@ -18,6 +18,9 @@ const PAGE_NOTES = [
       {
         note: 'The deferred “background” rendering is interruptible. For example, if you type into the input again, React will abandon it and restart with the new value. React will always use the latest provided value.',
       },
+      {
+        note: 'Also, unlike with debouncing or throttling, deferred re-renders done by useDeferredValue are interruptible by default',
+      },
     ],
   },
 ] as NotesType;
