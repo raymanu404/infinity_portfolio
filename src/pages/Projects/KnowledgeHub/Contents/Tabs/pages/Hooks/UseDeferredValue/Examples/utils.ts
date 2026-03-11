@@ -16,19 +16,16 @@ const generateArtists = (count: number) => {
 };
 
 const queryArtists = async (query: string, artists: Artist[]) => {
-  // setTimeout(() => {
-  const result = new Promise<Artist[]>(resolve => {
+  const promise = new Promise<Artist[]>(resolve => {
     const filtered = artists.filter(
       x => x.genre.toLowerCase().includes(query) || x.name.toLowerCase().includes(query),
     );
-
     resolve(filtered);
 
     return filtered;
-    // }, 10);
   });
 
-  return result;
+  return promise;
 };
 
 export { generateArtists, queryArtists };

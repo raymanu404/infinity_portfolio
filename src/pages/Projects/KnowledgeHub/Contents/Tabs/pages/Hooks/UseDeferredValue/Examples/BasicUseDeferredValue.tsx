@@ -6,6 +6,7 @@ import Artists from './Artists';
 const BasicUseDeferredValue: React.FC = () => {
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query);
+  const isStale = query !== deferredQuery;
 
   return (
     <>
@@ -15,7 +16,7 @@ const BasicUseDeferredValue: React.FC = () => {
 
         <TextField value={query} onChange={e => setQuery(e.target.value)} />
         <Suspense fallback={<Spinner size="2em" />}>
-          <Artists query={deferredQuery} />
+          <Artists query={query} isStale={isStale} />
         </Suspense>
       </div>
     </>

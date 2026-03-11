@@ -2,7 +2,7 @@ import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
-import { BasicUseDeferredValue } from './UseDeferredValue/Examples';
+import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
 import { BasicUseOptimistic } from './UseOptimistic/Examples';
@@ -162,6 +162,11 @@ const USE_DEFERRED_VALUE_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'basic-example-id',
     title: 'Basic Example UseDeferredValue',
     children: <BasicUseDeferredValue />,
+  },
+  {
+    elementId: 'prevent-blocking-ui',
+    title: 'Prevent blocking UI by using useDeferredValue',
+    children: <PreventBlockingUI />,
   },
 ];
 
