@@ -19,11 +19,21 @@ const SideNavigation: React.FC = () => {
         backgroundColor: theme.custom.specialPalette?.variant[200],
         flexGrow: 0,
         alignSelf: 'baseline',
-        position: 'sticky',
+        position: { xs: 'static', sm: 'sticky' },
         top: `calc(40px + ${theme.spacing(4)})`,
-        flexBasis: '20%',
-        padding: `${theme.spacing(2)} 0`,
+        flexBasis: { xs: '100%', sm: '250px' },
+        width: { xs: '100%', sm: 'auto' },
+        boxSizing: 'border-box',
+        padding: `${theme.spacing(2)}`,
         margin: 0,
+        display: 'flex',
+        flexDirection: { xs: 'row', sm: 'column' },
+        overflowX: 'auto',
+        gap: { xs: theme.spacing(2), sm: 0 },
+        // Hide scrollbar on mobile
+        '&::-webkit-scrollbar': { display: 'none' },
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none',
       }}
     >
       {LEARNING_SECTIONS.map(({ elementId, title }) => (
@@ -35,7 +45,9 @@ const SideNavigation: React.FC = () => {
         >
           <Typography
             sx={{
-              padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+              padding: { xs: `${theme.spacing(1)} ${theme.spacing(2)}`, sm: `${theme.spacing(0.5)} ${theme.spacing(2)}` },
+              whiteSpace: 'nowrap',
+              borderRadius: { xs: '16px', sm: 0 },
               ...isActiveLinkSx(elementId),
             }}
           >

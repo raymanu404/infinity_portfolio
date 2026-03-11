@@ -15,7 +15,6 @@ const KnowledgeHub: React.FC = () => {
       <Stack
         sx={{
           display: 'flex',
-          flexDirection: 'row',
           width: '100%',
           gap: `${theme.spacing(4)}`,
           margin: 0,

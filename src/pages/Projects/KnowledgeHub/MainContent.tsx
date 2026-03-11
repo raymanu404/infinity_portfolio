@@ -4,7 +4,7 @@ import SectionContentList from './SectionContentList';
 
 const MainContent: React.FC = () => {
   return (
-    <Box sx={{ flexBasis: '100%' }}>
+    <Box sx={{ flex: 1, minWidth: 0 }}>
       <SectionContentList />
     </Box>
   );
