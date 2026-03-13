@@ -5,7 +5,17 @@ import { USE_OPTIMISTIC_PAGE_CONTENTS } from '../constants';
 
 const PAGE_TITLE = 'UseOptimisticContent Hook';
 
-const PAGE_NOTES = [] as NotesType;
+const PAGE_NOTES = [
+  { note: 'is a React Hook that lets you optimistically update the UI.' },
+  {
+    note: 'To use the optimistic state, call the set function inside an Action',
+    subNotes: [
+      {
+        note: 'Actions are functions called inside startTransition',
+      },
+    ],
+  },
+] as NotesType;
 
 const UseOptimisticContent: React.FC = () => {
   return (

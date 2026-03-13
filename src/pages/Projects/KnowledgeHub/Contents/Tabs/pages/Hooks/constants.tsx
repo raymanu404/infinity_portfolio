@@ -5,7 +5,7 @@ import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
-import { BasicUseOptimistic } from './UseOptimistic/Examples';
+import { HardcodedValue, PropsValue } from './UseOptimistic/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
@@ -172,9 +172,14 @@ const USE_DEFERRED_VALUE_PAGE_CONTENTS: PageContentI[] = [
 
 const USE_OPTIMISTIC_PAGE_CONTENTS: PageContentI[] = [
   {
-    elementId: 'basic-example-id',
-    title: 'Basic Example UseOptimistic',
-    children: <BasicUseOptimistic />,
+    elementId: 'hardcoded-example-id',
+    title: 'Hardcoded value example UseOptimistic',
+    children: <HardcodedValue />,
+  },
+  {
+    elementId: 'props-value-example-id',
+    title: 'Props Value Example UseOptimistic',
+    children: <PropsValue />,
   },
 ];
 

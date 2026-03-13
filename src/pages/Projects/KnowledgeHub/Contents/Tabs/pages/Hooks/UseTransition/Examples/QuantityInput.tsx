@@ -2,15 +2,15 @@ import { TextField } from '@mui/material';
 import React, { startTransition } from 'react';
 
 interface QuantityInputProps {
-  updateQuantity: (newQuantity: number) => Promise<void>;
+  updateQuantityAction: (newQuantity: number) => Promise<void>;
 }
 
-const QuantityInput: React.FC<QuantityInputProps> = ({ updateQuantity }) => {
+const QuantityInput: React.FC<QuantityInputProps> = ({ updateQuantityAction }) => {
   const onChangeHandler = async (ev: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = +ev.target.value;
     // To expose an action prop, await the callback in startTransition.
     startTransition(async () => {
-      await updateQuantity(newQuantity);
+      await updateQuantityAction(newQuantity);
     });
   };
 

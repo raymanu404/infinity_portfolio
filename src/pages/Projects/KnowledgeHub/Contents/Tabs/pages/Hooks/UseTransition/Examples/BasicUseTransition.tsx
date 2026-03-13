@@ -32,7 +32,7 @@ const BasicUseTransition: React.FC = () => {
         </div>
       )}
 
-      <QuantityInput updateQuantity={updateQuantityHandler} />
+      <QuantityInput updateQuantityAction={updateQuantityHandler} />
     </div>
   );
 };
