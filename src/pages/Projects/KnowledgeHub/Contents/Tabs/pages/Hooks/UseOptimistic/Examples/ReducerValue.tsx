@@ -1,0 +1,145 @@
+import Notes from '@/Shared/Components/Notes/Notes';
+import { Trash } from 'lucide-react';
+import React, { startTransition, useOptimistic, useState } from 'react';
+
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+  sending?: boolean; // optimistic flag
+}
+
+type Action =
+  | { type: 'add'; text: string }
+  | { type: 'toggle'; id: number }
+  | { type: 'delete'; id: number };
+
+// Fake API calls
+const fakeAddTodo = (text: string): Promise<Todo> =>
+  new Promise(resolve =>
+    setTimeout(() => resolve({ id: Date.now(), text, completed: false }), 1000),
+  );
+
+const fakeToggleTodo = (id: number): Promise<void> =>
+  new Promise(resolve => setTimeout(resolve, 1000));
+
+const fakeDeleteTodo = (id: number): Promise<void> =>
+  new Promise(resolve =>
+    setTimeout(() => {
+      console.log('deleted', id);
+      resolve();
+    }, 1000),
+  );
+
+// Reducer passed as 2nd arg to useOptimistic
+const todosReducer = (state: Todo[], action: Action): Todo[] => {
+  switch (action.type) {
+    case 'add':
+      return [
+        ...state,
+        {
+          id: Date.now(),
+          text: action.text,
+          completed: false,
+          sending: true, // mark as optimistic
+        },
+      ];
+    case 'toggle':
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, completed: !todo.completed, sending: true } : todo,
+      );
+    case 'delete':
+      return state.map(x => {
+        if (x.id === action.id) {
+          return { ...x, sending: true };
+        }
+
+        return x;
+      });
+    default:
+      return state;
+  }
+};
+
+const ReducerValue: React.FC = () => {
+  const [todos, setTodos] = useState<Todo[]>([
+    { id: 1, text: 'Buy milk', completed: false },
+    { id: 2, text: 'Walk the dog', completed: true },
+  ]);
+
+  const [optimisticTodos, optimisticDispatch] = useOptimistic(todos, todosReducer);
+
+  const handleAdd = (text: string) => {
+    startTransition(async () => {
+      optimisticDispatch({ type: 'add', text }); // UI updates immediately
+
+      const newTodo = await fakeAddTodo(text); // wait for server
+      setTodos(prev => [...prev, newTodo]); // commit real state
+    });
+  };
+
+  const handleToggle = (id: number) => {
+    startTransition(async () => {
+      optimisticDispatch({ type: 'toggle', id }); // UI updates immediately
+
+      await fakeToggleTodo(id);
+      setTodos(prev => prev.map(t => (t.id === id ? { ...t, completed: !t.completed } : t)));
+    });
+  };
+
+  const handleDelete = (id: number) => {
+    startTransition(async () => {
+      optimisticDispatch({ type: 'delete', id }); // UI updates immediately
+
+      await fakeDeleteTodo(id);
+      setTodos(prev => prev.filter(x => x.id !== id));
+    });
+  };
+
+  return (
+    <div>
+      <Notes
+        specialNotes={true}
+        notes={[
+          {
+            note: ` Reducer pattern like useOptimistic(items, fn): If items changes while the Action is pending, React re-runs your reducer with the new items to recalculate the state. This keeps your optimistic additions on top of the latest data.`,
+          },
+        ]}
+      />
+      <button
+        onClick={() => handleAdd('New todo ' + Date.now())}
+        disabled={optimisticTodos.some(x => x.sending)}
+      >
+        Add Todo
+      </button>
+      <ul>
+        {optimisticTodos.map(todo => (
+          <li key={todo.id} style={{ opacity: todo.sending ? 0.5 : 1 }}>
+            <div
+              style={{
+                display: 'flex',
+                gap: '8px',
+                flexDirection: 'row',
+                alignItems: 'center',
+                padding: '10px 0',
+              }}
+            >
+              <span
+                onClick={() => handleToggle(todo.id)}
+                style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+              >
+                {todo.text}
+              </span>
+              {todo.sending && <small> — saving...</small>}
+              <Trash onClick={() => handleDelete(todo.id)} size={'1.5em'} />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+ReducerValue.displayName = 'ReducerValue';
+
+export default ReducerValue;

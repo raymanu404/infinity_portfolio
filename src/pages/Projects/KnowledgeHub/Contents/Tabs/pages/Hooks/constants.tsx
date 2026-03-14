@@ -5,7 +5,12 @@ import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
-import { HardcodedValue, PropsValue } from './UseOptimistic/Examples';
+import {
+  ActionPropsExample,
+  HardcodedValue,
+  PropsValue,
+  ReducerValue,
+} from './UseOptimistic/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
 import { BasicUseRef, CounterRef, ManipulateDOM, ParentRef } from './UseRef/Examples';
 import {
@@ -180,6 +185,16 @@ const USE_OPTIMISTIC_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'props-value-example-id',
     title: 'Props Value Example UseOptimistic',
     children: <PropsValue />,
+  },
+  {
+    elementId: 'reducer-value-example-id',
+    title: 'Reducer Value Example UseOptimistic',
+    children: <ReducerValue />,
+  },
+  {
+    elementId: 'action-props-example-id',
+    title: 'Action props Example UseOptimistic',
+    children: <ActionPropsExample />,
   },
 ];
 
