@@ -7,8 +7,10 @@ import { Basic, CounterEffect } from './UseEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
 import {
   ActionPropsExample,
+  BasicReducerExample,
   HardcodedValue,
   PropsValue,
+  ReducerShoppingExample,
   ReducerValue,
 } from './UseOptimistic/Examples';
 import { BasicExample, TodoListExample } from './UseReducer/Examples';
@@ -187,9 +189,20 @@ const USE_OPTIMISTIC_PAGE_CONTENTS: PageContentI[] = [
     children: <PropsValue />,
   },
   {
+    elementId: 'basic-reducer-value-example-id',
+    title:
+      'Basic Reducer example with useOptimistic, usefully when you want to have up to date the state',
+    children: <BasicReducerExample />,
+  },
+  {
     elementId: 'reducer-value-example-id',
     title: 'Reducer Value Example UseOptimistic',
     children: <ReducerValue />,
+  },
+  {
+    elementId: 'reducer-shopping-example-id',
+    title: 'Another example with reducer in addition with UseOptimistic',
+    children: <ReducerShoppingExample />,
   },
   {
     elementId: 'action-props-example-id',

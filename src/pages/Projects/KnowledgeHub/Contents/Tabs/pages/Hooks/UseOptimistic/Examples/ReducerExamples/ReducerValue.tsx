@@ -104,6 +104,14 @@ const ReducerValue: React.FC = () => {
           {
             note: ` Reducer pattern like useOptimistic(items, fn): If items changes while the Action is pending, React re-runs your reducer with the new items to recalculate the state. This keeps your optimistic additions on top of the latest data.`,
           },
+          {
+            note: 'Reducers are essential when the base state might change while your Transition is pending. If todos changes while your add is pending (for example, another user added a todo), React will re-run your reducer with the new todos to recalculate what to show. This ensures your new todo is added to the latest list, not an outdated copy.',
+            subNotes: [
+              {
+                note: 'An updater function like setOptimistic(prev => [...prev, newItem]) would only see the state from when the Transition started, missing any updates that happened during the async work.',
+              },
+            ],
+          },
         ]}
       />
       <button
