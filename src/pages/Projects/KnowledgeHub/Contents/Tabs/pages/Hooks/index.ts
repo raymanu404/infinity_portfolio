@@ -3,6 +3,7 @@ export { default as UseCallbackContent } from './UseCallback/UseCallbackContent'
 export { default as UseContextContent } from './UseContext/UseContextContent';
 export { default as UseDeferredValueContent } from './UseDeferredValue/UseDeferredValueContent';
 export { default as UseEffectContent } from './UseEffect/UseEffectContent';
+export { default as UseIdContent } from './UseId/UseIdContent';
 export { default as UseMemoContent } from './UseMemo/UseMemoContent';
 export { default as UseOptimisticContent } from './UseOptimistic/UseOptimisticContent';
 export { default as UseReducerContent } from './UseReducer/UseReducerContent';
