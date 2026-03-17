@@ -4,6 +4,7 @@ import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Exampl
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
+import { BasicExample as BasicUseId } from './UseId/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
 import {
   ActionPropsExample,
@@ -211,6 +212,14 @@ const USE_OPTIMISTIC_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_ID_HOOK_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseCustomHook',
+    children: <BasicUseId />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -226,6 +235,7 @@ export {
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
   USE_DEFERRED_VALUE_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
+  USE_ID_HOOK_PAGE_CONTENTS,
   USE_MEMO_PAGE_CONTENTS,
   USE_OPTIMISTIC_PAGE_CONTENTS,
   USE_REDUCER_PAGE_CONTENTS,
