@@ -64,7 +64,7 @@ const BasicReducerExample: React.FC = () => {
     const savedTodo = await fakeAddTodo(newTodo);
 
     startTransition(() => {
-      setTodos([...todos, savedTodo]);
+      setTodos(todos => [...todos, savedTodo]);
     });
   };
 

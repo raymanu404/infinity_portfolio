@@ -46,7 +46,11 @@ const itemsCartReducer = (currentItems: ShopItemI[], action: ActionCartI): ShopI
       return [...currentItems, newItem];
     }
     case 'delete': {
-      const updatedCart = currentItems.filter(x => x.id !== action.nextState.id);
+      const updatedCart = currentItems.map(x =>
+        x.id === action.nextState.id
+          ? { ...x, isDeleted: true, isPending: true, quantity: 0 }
+          : { ...x },
+      );
 
       return updatedCart;
     }
@@ -64,15 +68,16 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
     [optimisticItems],
   );
 
-  const deleteHandler = async (id: string) => {
-    useOptimisticDispatch({
-      actionType: 'delete',
-      nextState: {
-        id,
-      },
-    });
+  const totalCart = useMemo(() => totalWoVAT + totalWoVAT * VAT, [optimisticItems]);
 
+  const deleteHandler = (id: string) => {
     startTransition(async () => {
+      useOptimisticDispatch({
+        actionType: 'delete',
+        nextState: {
+          id,
+        },
+      });
       await actions.deleteHandler(id);
     });
   };
@@ -90,8 +95,6 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
       await actions.updateQuantityHandler(quantity, id);
     });
   };
-
-  const totalCart = useMemo(() => totalWoVAT + totalWoVAT * VAT, [optimisticItems]);
 
   return (
     <div
@@ -123,6 +126,7 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
         <Divider />
         {optimisticItems
           .filter(x => x.quantity !== 0)
+          .filter(x => !x.isDeleted)
           .map(({ id, price, quantity, title, isPending }) => {
             const subTotal = price * quantity;
             return (
@@ -145,9 +149,7 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
                   </div>
                   <IconButton
                     onClick={() => {
-                      startTransition(async () => {
-                        await deleteHandler(id);
-                      });
+                      deleteHandler(id);
                     }}
                     disabled={isPending}
                   >

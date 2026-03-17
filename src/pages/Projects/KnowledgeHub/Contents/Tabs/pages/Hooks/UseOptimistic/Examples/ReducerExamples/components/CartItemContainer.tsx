@@ -73,16 +73,6 @@ const CartItemContainer: React.FC<CartItemContainerProps> = ({
           <TextField
             type="number"
             variant="standard"
-            //   sx={{
-            //     '::-webkit-outer-spin-button': {
-            //       appearance: 'none',
-            //       margin: 0,
-            //     },
-            //     '::-webkit-inner-spin-button': {
-            //       appearance: 'none',
-            //       margin: 0,
-            //     },
-            //   }}
             value={quantity}
             onChange={({ target }) => {
               startTransition(async () => {

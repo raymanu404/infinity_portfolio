@@ -15,14 +15,7 @@ const ReducerShoppingExample: React.FC = () => {
       });
 
       startTransition(() => {
-        const updatedItems = items.map(x => {
-          if (x.id === id) {
-            return { ...x, quantity };
-          }
-
-          return x;
-        });
-        setItems(updatedItems);
+        setItems(x => x.map(item => (item.id === id ? { ...item, quantity: quantity } : item)));
       });
     },
     deleteHandler: async (id: string) => {
@@ -33,8 +26,7 @@ const ReducerShoppingExample: React.FC = () => {
       });
 
       startTransition(() => {
-        const updatedItems = items.filter(x => x.id !== id);
-        setItems(updatedItems);
+        setItems(items => items.map(x => (x.id === id ? { ...x, quantity: 0 } : { ...x })));
       });
     },
   };

@@ -24,10 +24,11 @@ const fakeToggleTodo = (id: number): Promise<void> =>
   new Promise(resolve => setTimeout(resolve, 1000));
 
 const fakeDeleteTodo = (id: number): Promise<void> =>
-  new Promise(resolve =>
+  new Promise((resolve, reject) =>
     setTimeout(() => {
       console.log('deleted', id);
-      resolve();
+      if (id !== 1) resolve();
+      else reject();
     }, 1000),
   );
 
@@ -67,6 +68,7 @@ const ReducerValue: React.FC = () => {
     { id: 2, text: 'Walk the dog', completed: true },
   ]);
 
+  const [error, setError] = useState<string | null>(null);
   const [optimisticTodos, optimisticDispatch] = useOptimistic(todos, todosReducer);
 
   const handleAdd = (text: string) => {
@@ -88,11 +90,16 @@ const ReducerValue: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
+    setError(null);
     startTransition(async () => {
       optimisticDispatch({ type: 'delete', id }); // UI updates immediately
 
-      await fakeDeleteTodo(id);
-      setTodos(prev => prev.filter(x => x.id !== id));
+      try {
+        await fakeDeleteTodo(id);
+        setTodos(prev => prev.filter(x => x.id !== id));
+      } catch {
+        setError('Cannot delete. Permission denied.');
+      }
     });
   };
 
@@ -111,6 +118,9 @@ const ReducerValue: React.FC = () => {
                 note: 'An updater function like setOptimistic(prev => [...prev, newItem]) would only see the state from when the Transition started, missing any updates that happened during the async work.',
               },
             ],
+          },
+          {
+            note: 'Optimistic delete with error recovery, When the delete fails, the item automatically reappears in the list.',
           },
         ]}
       />
@@ -143,6 +153,7 @@ const ReducerValue: React.FC = () => {
             </div>
           </li>
         ))}
+        {error && <p style={{ color: 'red', padding: 8, background: '#fee' }}>{error}</p>}
       </ul>
     </div>
   );

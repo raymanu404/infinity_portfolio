@@ -4,5 +4,6 @@ export interface ShopItemI {
   price: number;
   quantity: number;
   description?: string;
+  isDeleted?: boolean;
   isPending?: boolean;
 }
