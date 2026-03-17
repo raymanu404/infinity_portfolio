@@ -15,6 +15,7 @@ const PAGE_NOTES = [
       },
     ],
   },
+  { note: 'We can only call optimistic Setter from event handlers, effects, or other callbacks' },
 ] as NotesType;
 
 const UseOptimisticContent: React.FC = () => {
