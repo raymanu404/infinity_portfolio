@@ -1,6 +1,7 @@
 import { TabContentI } from '../../interfaces';
 import { ReferenceValuesWithRefContent } from '../Tabs/pages/EscapeHatches';
 import {
+  UseActionStateContent,
   UseCallbackContent,
   UseContextContent,
   UseCustomHookContent,
@@ -71,6 +72,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useOptimistic',
     variant: 'TRANSITION',
     children: <UseOptimisticContent />,
+  },
+  {
+    title: 'useActionState',
+    variant: 'TRANSITION',
+    children: <UseActionStateContent />,
   },
   {
     title: 'useId',

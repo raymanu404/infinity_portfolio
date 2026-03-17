@@ -1,5 +1,6 @@
 import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
+import { UseActionStateBasicExample } from './UseActionState/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
@@ -234,6 +235,14 @@ const USE_IMPERATIVE_HANDLE_HOOK_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_ACTION_STATE_HOOK_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseActionState',
+    children: <UseActionStateBasicExample />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -244,6 +253,7 @@ const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
 
 export {
   DASH_SPLIT_STRING,
+  USE_ACTION_STATE_HOOK_PAGE_CONTENTS,
   USE_CALLBACK_PAGE_CONTENTS,
   USE_CONTEXT_PAGE_CONTENTS,
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
