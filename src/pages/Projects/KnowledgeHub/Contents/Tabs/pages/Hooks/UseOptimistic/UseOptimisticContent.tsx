@@ -16,6 +16,18 @@ const PAGE_NOTES = [
     ],
   },
   { note: 'We can only call optimistic Setter from event handlers, effects, or other callbacks' },
+  {
+    note: 'To know when useOptimistic is pending, you have three options:',
+    subNotes: [
+      { note: 'Check if optimisticValue === value' },
+      {
+        note: 'Add a useTransition, Since useTransition uses useOptimistic for isPending under the hood, this is equivalent to option 1',
+      },
+      {
+        note: 'Add a pending flag in your reducer',
+      },
+    ],
+  },
 ] as NotesType;
 
 const UseOptimisticContent: React.FC = () => {
