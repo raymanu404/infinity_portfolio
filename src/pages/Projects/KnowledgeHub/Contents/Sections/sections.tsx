@@ -7,6 +7,7 @@ import {
   UseDeferredValueContent,
   UseEffectContent,
   UseIdContent,
+  UseImperativeHandleContent,
   UseMemoContent,
   UseOptimisticContent,
   UseReducerContent,
@@ -50,6 +51,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useRef',
     variant: 'REF',
     children: <UseRefContent />,
+  },
+  {
+    title: 'useImperativeHandle',
+    variant: 'REF',
+    children: <UseImperativeHandleContent />,
   },
   {
     title: 'useTransition',
