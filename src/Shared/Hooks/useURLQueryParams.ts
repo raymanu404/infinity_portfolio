@@ -20,12 +20,16 @@ export const useUrlQueryParams = () => {
 
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
     const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION_ARRAY);
+
+    console.log({ hooksCategoryTypeValues });
     let finalHashValue = hash;
     if (hash) {
       const hashValue = hooksCategoryTypeValues[hashValueIndex];
-      const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0];
-      finalHashValue = primarySectionHash + DASH_SPLIT_STRING + hashValue;
+      // const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0]; // UPDATE WHEN WE HAVE GENERIC METHOD FOR ALL SECTIONS
+      finalHashValue = 'hooks' + DASH_SPLIT_STRING + hashValue;
     }
+
+    console.log({ finalHashValue, hash });
 
     if (typeof checked !== 'undefined') {
       navigate({
@@ -64,11 +68,8 @@ export const useUrlQueryParams = () => {
           '',
         );
 
-      // console.log({ searchParams });
-      // console.log(search);
-
       navigate({
-        hash: hash,
+        hash, // TODO: BUG, check why is previous hash value/ why hash value is changed between rerendering of the openModal component
         search: search,
       });
     },

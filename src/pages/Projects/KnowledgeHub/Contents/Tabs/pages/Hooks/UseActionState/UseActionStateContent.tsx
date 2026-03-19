@@ -4,7 +4,11 @@ import { TemplatePageContent } from '../../components';
 import { USE_ACTION_STATE_HOOK_PAGE_CONTENTS } from '../constants';
 
 const PAGE_TITLE = 'UseActionStateContent Hook';
-const PAGE_NOTES = [] as NoteI[];
+const PAGE_NOTES = [
+  {
+    note: 'Is a React Hook that lets you update state with side effects using Actions',
+  },
+] as NoteI[];
 
 const UseActionStateContent: React.FC = () => {
   return (
