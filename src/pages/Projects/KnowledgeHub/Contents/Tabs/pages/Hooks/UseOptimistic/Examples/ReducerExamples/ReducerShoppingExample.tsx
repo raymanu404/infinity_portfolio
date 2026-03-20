@@ -1,3 +1,4 @@
+import Notes from '@/Shared/Components/Notes/Notes';
 import React, { startTransition, useState } from 'react';
 import ItemsContainer from './components/ItemsContainer';
 import { ITEMS } from './constants';
@@ -15,7 +16,9 @@ const ReducerShoppingExample: React.FC = () => {
       });
 
       startTransition(() => {
-        setItems(x => x.map(item => (item.id === id ? { ...item, quantity: quantity } : item)));
+        setItems(prev =>
+          prev.map(item => (item.id === id ? { ...item, quantity: quantity } : item)),
+        );
       });
     },
     deleteHandler: async (id: string) => {
@@ -26,7 +29,7 @@ const ReducerShoppingExample: React.FC = () => {
       });
 
       startTransition(() => {
-        setItems(items => items.map(x => (x.id === id ? { ...x, quantity: 0 } : { ...x })));
+        setItems(prevItems => prevItems.map(x => (x.id === id ? { ...x, quantity: 0 } : { ...x })));
       });
     },
   };
@@ -34,6 +37,15 @@ const ReducerShoppingExample: React.FC = () => {
   return (
     <div>
       <h1>ReducerShoppingExample</h1>
+
+      <Notes
+        notes={[
+          {
+            note: 'The most important thing for performing multiple actions in parallel is PREV STATE from setState',
+          },
+        ]}
+        specialNotes={true}
+      />
 
       <ItemsContainer items={items} actions={actionsCallbacks} />
     </div>
