@@ -1,7 +1,7 @@
 import { Spinner } from '@/Shared/Components';
 import { Button, IconButton } from '@mui/material';
 import { Trash } from 'lucide-react';
-import React, { startTransition, useActionState } from 'react';
+import React, { startTransition, useActionState, useOptimistic } from 'react';
 import { basicExampleCartApi } from './utils';
 
 interface StateI {
@@ -42,24 +42,28 @@ const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
 });
 
-const UseActionStateBasicExample: React.FC = () => {
+const ImmediateUpdate: React.FC = () => {
   const [stateAction, dispatchAction, isPending] = useActionState(reducerAction, initialState);
+  const [optimisticState, dispatchOptimistic] = useOptimistic(stateAction);
+  const isCompleted = Object.is(stateAction, optimisticState);
 
   const addCountHandler = () => {
     startTransition(() => {
+      dispatchOptimistic(prev => ({ count: prev.count + 1 }));
       dispatchAction({ type: 'add' });
     });
   };
 
   const decreaseCountHandler = () => {
     startTransition(() => {
+      dispatchOptimistic(prev => ({ count: prev.count - 1 }));
       dispatchAction({ type: 'decrease' });
     });
   };
 
   return (
     <div>
-      <h2>UseActionState basic Example </h2>
+      <h2>Immediate Update on UI by useOptimistic in addition with useActionState Example </h2>
       <div>
         <div
           style={{
@@ -70,14 +74,29 @@ const UseActionStateBasicExample: React.FC = () => {
             gap: '20px',
           }}
         >
-          <p>You have {stateAction.count} tickets</p>
-          {isPending ? (
-            <Spinner size="1.2em" />
-          ) : (
-            <div>
-              <span>Total Price {formatter.format(stateAction.count * 9999)}</span>
-            </div>
-          )}
+          <span
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: '20px',
+            }}
+          >
+            <p>You have {optimisticState.count} tickets </p>
+            {isPending && <Spinner size="1.2em" />}
+          </span>
+
+          <span
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: '20px',
+            }}
+          >
+            Total Price {formatter.format(optimisticState.count * 9999)}
+            {isPending && <Spinner size="1.2em" />}
+          </span>
         </div>
         <div
           style={{
@@ -85,26 +104,30 @@ const UseActionStateBasicExample: React.FC = () => {
             flexDirection: 'row',
             alignItems: 'center',
             gap: '20px',
+            justifyContent: 'space-between',
           }}
         >
-          <Button onClick={addCountHandler} variant="contained">
-            Buy tickets{' '}
-          </Button>
-          <IconButton
-            onClick={() => {
-              if (stateAction.count > 0) {
-                decreaseCountHandler();
-              }
-            }}
-          >
-            <Trash />
-          </IconButton>
+          <div>
+            <Button onClick={addCountHandler} variant="contained">
+              Buy tickets{' '}
+            </Button>
+            <IconButton
+              onClick={() => {
+                if (optimisticState.count > 0) {
+                  decreaseCountHandler();
+                }
+              }}
+            >
+              <Trash />
+            </IconButton>
+          </div>
+          {isCompleted && <span>Saved on server!</span>}
         </div>
       </div>
     </div>
   );
 };
 
-UseActionStateBasicExample.displayName = 'UseActionStateBasicExample';
+ImmediateUpdate.displayName = 'ImmediateUpdate';
 
-export default UseActionStateBasicExample;
+export default ImmediateUpdate;

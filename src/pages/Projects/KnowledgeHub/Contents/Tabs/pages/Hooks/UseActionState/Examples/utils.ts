@@ -1,4 +1,4 @@
-const basicExampleAddCartApi = async (count: number) => {
+const basicExampleCartApi = async (count: number) => {
   return await new Promise<number>(resolve =>
     setTimeout(() => {
       resolve(count);
@@ -6,4 +6,4 @@ const basicExampleAddCartApi = async (count: number) => {
   );
 };
 
-export { basicExampleAddCartApi };
+export { basicExampleCartApi };

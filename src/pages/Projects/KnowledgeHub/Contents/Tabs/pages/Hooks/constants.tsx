@@ -1,6 +1,10 @@
 import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
-import { UseActionStateBasicExample } from './UseActionState/Examples';
+import {
+  ExposingActionProps,
+  ImmediateUpdate,
+  UseActionStateBasicExample,
+} from './UseActionState/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
@@ -240,6 +244,16 @@ const USE_ACTION_STATE_HOOK_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'basic-example-id',
     title: 'Basic Example UseActionState',
     children: <UseActionStateBasicExample />,
+  },
+  {
+    elementId: 'immediate-update-id',
+    title: 'Update UI immediately by useOptimistic in addition with UseActionState',
+    children: <ImmediateUpdate />,
+  },
+  {
+    elementId: 'exposing-action-props-id',
+    title: 'Exposing action props Example',
+    children: <ExposingActionProps />,
   },
 ];
 
