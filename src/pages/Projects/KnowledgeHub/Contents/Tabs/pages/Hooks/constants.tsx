@@ -1,9 +1,11 @@
 import { PageContentI } from '../interfaces';
 import { UseCustomBasic } from './Custom/Examples';
 import {
+  ErrorHandleExample,
   ExposingActionProps,
   ImmediateUpdate,
   UseActionStateBasicExample,
+  UseFormActionProps,
 } from './UseActionState/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
@@ -254,6 +256,16 @@ const USE_ACTION_STATE_HOOK_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'exposing-action-props-id',
     title: 'Exposing action props Example',
     children: <ExposingActionProps />,
+  },
+  {
+    elementId: 'form-action-props-id',
+    title: 'Form action props Example',
+    children: <UseFormActionProps />,
+  },
+  {
+    elementId: 'error-handle-id',
+    title: 'Error Handle Example',
+    children: <ErrorHandleExample />,
   },
 ];
 
