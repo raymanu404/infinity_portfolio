@@ -11,8 +11,10 @@ import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Exampl
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
+import { UseEffectEventBasic } from './UseEffectEvent/Examples';
 import { BasicExample as BasicUseId } from './UseId/Examples';
 import { CustomMethodsExample, UseImperativeHandleExample } from './UseImperativeHandle/Examples';
+import { UseLayoutEffectBasic } from './UseLayoutEffect/Examples';
 import { NoSkipReRenderUseMemo, SkipReRenderingUseMemo, WrapComponent } from './UseMemo/Examples';
 import {
   ActionPropsExample,
@@ -269,6 +271,22 @@ const USE_ACTION_STATE_HOOK_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_EFFECT_EVENT_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseEffectEvent Hook',
+    children: <UseEffectEventBasic />,
+  },
+];
+
+const USE_LAYOUT_EFFECT_EVENT_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseLayoutEffect Hook',
+    children: <UseLayoutEffectBasic />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -284,9 +302,11 @@ export {
   USE_CONTEXT_PAGE_CONTENTS,
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
   USE_DEFERRED_VALUE_PAGE_CONTENTS,
+  USE_EFFECT_EVENT_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,
   USE_ID_HOOK_PAGE_CONTENTS,
   USE_IMPERATIVE_HANDLE_HOOK_PAGE_CONTENTS,
+  USE_LAYOUT_EFFECT_EVENT_PAGE_CONTENTS,
   USE_MEMO_PAGE_CONTENTS,
   USE_OPTIMISTIC_PAGE_CONTENTS,
   USE_REDUCER_PAGE_CONTENTS,

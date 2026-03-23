@@ -7,8 +7,10 @@ import {
   UseCustomHookContent,
   UseDeferredValueContent,
   UseEffectContent,
+  UseEffectEventContent,
   UseIdContent,
   UseImperativeHandleContent,
+  UseLayoutEffectContent,
   UseMemoContent,
   UseOptimisticContent,
   UseReducerContent,
@@ -42,6 +44,16 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useEffect',
     variant: 'EFFECT',
     children: <UseEffectContent />,
+  },
+  {
+    title: 'UseEffectEvent',
+    variant: 'EFFECT',
+    children: <UseEffectEventContent />,
+  },
+  {
+    title: 'useLayoutEffect',
+    variant: 'EFFECT',
+    children: <UseLayoutEffectContent />,
   },
   {
     title: 'useContext',
