@@ -8,7 +8,7 @@ const ErrorPage: React.FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '70vh',
-        backgroundColor: 'red',
+        backgroundColor: '#e63946',
       }}
     >
       <h1>ErrorPage</h1>
