@@ -4,7 +4,11 @@ import { TemplatePageContent } from '../../components';
 import { USE_EFFECT_EVENT_PAGE_CONTENTS } from '../constants';
 
 const PAGE_TITLE = 'Use UseEffectEventContent Hook';
-const PAGE_NOTES = [] as NotesType;
+const PAGE_NOTES = [
+  {
+    note: 'is a React Hook that lets you separate events from Effects.',
+  },
+] as NotesType;
 
 const UseEffectEventContent: React.FC = () => {
   return (

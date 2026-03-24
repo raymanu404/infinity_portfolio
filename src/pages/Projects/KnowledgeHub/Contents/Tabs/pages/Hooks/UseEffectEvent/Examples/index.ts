@@ -1,1 +1,1 @@
-export { default as UseEffectEventBasic } from './UseEffectEventBasic';
+export { default as ChatRoomExample } from './ChatRoomExample';

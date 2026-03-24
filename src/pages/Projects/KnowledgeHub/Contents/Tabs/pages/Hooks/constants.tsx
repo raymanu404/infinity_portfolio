@@ -11,7 +11,7 @@ import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Exampl
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
-import { UseEffectEventBasic } from './UseEffectEvent/Examples';
+import { ChatRoomExample } from './UseEffectEvent/Examples';
 import { BasicExample as BasicUseId } from './UseId/Examples';
 import { CustomMethodsExample, UseImperativeHandleExample } from './UseImperativeHandle/Examples';
 import { UseLayoutEffectBasic } from './UseLayoutEffect/Examples';
@@ -275,7 +275,7 @@ const USE_EFFECT_EVENT_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
     title: 'Basic Example UseEffectEvent Hook',
-    children: <UseEffectEventBasic />,
+    children: <ChatRoomExample />,
   },
 ];
 
