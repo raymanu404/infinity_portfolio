@@ -76,6 +76,7 @@ const UseEffectEventBasic: React.FC = () => {
               },
             ],
           },
+          { note: 'Check difference by switching theme property!' },
         ]}
       />
 

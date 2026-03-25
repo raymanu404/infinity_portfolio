@@ -11,7 +11,12 @@ import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Exampl
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
-import { ChatRoomExample } from './UseEffectEvent/Examples';
+import {
+  ChatRoomExample,
+  EventListenerExample,
+  UsingCustomHookExample,
+  UsingTimerExample,
+} from './UseEffectEvent/Examples';
 import { BasicExample as BasicUseId } from './UseId/Examples';
 import { CustomMethodsExample, UseImperativeHandleExample } from './UseImperativeHandle/Examples';
 import { UseLayoutEffectBasic } from './UseLayoutEffect/Examples';
@@ -274,8 +279,23 @@ const USE_ACTION_STATE_HOOK_PAGE_CONTENTS: PageContentI[] = [
 const USE_EFFECT_EVENT_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
-    title: 'Basic Example UseEffectEvent Hook',
+    title: 'ChatRoom Example UseEffectEvent Hook',
     children: <ChatRoomExample />,
+  },
+  {
+    elementId: 'timer-example-id',
+    title: 'Timer Example UseEffectEvent Hook',
+    children: <UsingTimerExample />,
+  },
+  {
+    elementId: 'event-listener-example-id',
+    title: 'Event Listener Example UseEffectEvent Hook',
+    children: <EventListenerExample />,
+  },
+  {
+    elementId: 'using-in-custom-hook-example-id',
+    title: 'Using in custom hook Example with UseEffectEvent',
+    children: <UsingCustomHookExample />,
   },
 ];
 
