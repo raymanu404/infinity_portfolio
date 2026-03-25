@@ -46,7 +46,7 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     children: <UseEffectContent />,
   },
   {
-    title: 'UseEffectEvent',
+    title: 'useEffectEvent',
     variant: 'EFFECT',
     children: <UseEffectEventContent />,
   },
