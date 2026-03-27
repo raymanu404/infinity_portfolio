@@ -10,9 +10,10 @@ interface TodoListProps {
 }
 
 const TodoList: React.FC<TodoListProps> = ({ theme, skipReRendering = true, tab, todos }) => {
-  const filteredTodos = skipReRendering
-    ? useMemo(() => filterTodos(todos, tab), [todos, tab])
-    : filterTodos(todos, tab, true);
+  const filteredTodosMemo = useMemo(() => filterTodos(todos, tab), [todos, tab]);
+  const filteredTodos = filterTodos(todos, tab, true);
+
+  const filtered = skipReRendering ? filteredTodosMemo : filteredTodos;
 
   return (
     <div
@@ -24,9 +25,9 @@ const TodoList: React.FC<TodoListProps> = ({ theme, skipReRendering = true, tab,
       }}
     >
       <h1>TodoList UseMemo Example</h1>
-      <p>Filtered Todos Count: {filteredTodos.length}</p>
+      <p>Filtered Todos Count: {filtered.length}</p>
 
-      {filteredTodos.map(todo => (
+      {filtered.map(todo => (
         <div
           key={todo.id}
           style={{

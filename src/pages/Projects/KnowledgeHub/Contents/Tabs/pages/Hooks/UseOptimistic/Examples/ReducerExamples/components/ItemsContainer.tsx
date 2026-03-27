@@ -61,7 +61,7 @@ const itemsCartReducer = (currentItems: ShopItemI[], action: ActionCartI): ShopI
 };
 
 const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
-  const [optimisticItems, useOptimisticDispatch] = useOptimistic(items, itemsCartReducer);
+  const [optimisticItems, optimisticDispatchItems] = useOptimistic(items, itemsCartReducer);
 
   const totalWoVAT = useMemo(
     () => optimisticItems.reduce((sum, { price, quantity }) => sum + price * quantity, 0),
@@ -72,7 +72,7 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
 
   const deleteHandler = (id: string) => {
     startTransition(async () => {
-      useOptimisticDispatch({
+      optimisticDispatchItems({
         actionType: 'delete',
         nextState: {
           id,
@@ -83,7 +83,7 @@ const ItemsContainer: React.FC<ItemsContainerProps> = ({ items, actions }) => {
   };
 
   const updateQuantityHandler = async (quantity: number, id: string) => {
-    useOptimisticDispatch({
+    optimisticDispatchItems({
       actionType: 'updateQuantity',
       nextState: {
         quantity,
