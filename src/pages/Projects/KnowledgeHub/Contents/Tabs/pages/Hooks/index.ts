@@ -2,6 +2,7 @@ export { default as UseCustomHookContent } from './Custom/UseCustomHookContent';
 export { default as UseActionStateContent } from './UseActionState/UseActionStateContent';
 export { default as UseCallbackContent } from './UseCallback/UseCallbackContent';
 export { default as UseContextContent } from './UseContext/UseContextContent';
+export { default as UseDebugValueContent } from './UseDebugValue/UseDebugValueContent';
 export { default as UseDeferredValueContent } from './UseDeferredValue/UseDeferredValueContent';
 export { default as UseEffectContent } from './UseEffect/UseEffectContent';
 export { default as UseEffectEventContent } from './UseEffectEvent/UseEffectEventContent';

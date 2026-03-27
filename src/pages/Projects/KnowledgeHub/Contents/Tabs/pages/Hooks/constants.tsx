@@ -9,6 +9,7 @@ import {
 } from './UseActionState/Examples';
 import { NoSkippingRerendering, SkippingReRendering } from './UseCallback/Examples';
 import { AuthExample, BasicUseContext } from './UseContext/Examples';
+import { UseDebugValueExample } from './UseDebugValue/Examples';
 import { BasicUseDeferredValue, PreventBlockingUI } from './UseDeferredValue/Examples';
 import { Basic, CounterEffect } from './UseEffect/Examples';
 import {
@@ -307,6 +308,14 @@ const USE_LAYOUT_EFFECT_EVENT_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const USE_DEBUG_VALUE_HOOK_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'basic-example-id',
+    title: 'Basic Example UseDebugValueExample',
+    children: <UseDebugValueExample />,
+  },
+];
+
 const USE_CUSTOM_HOOK_PAGE_CONTENTS: PageContentI[] = [
   {
     elementId: 'basic-example-id',
@@ -321,6 +330,7 @@ export {
   USE_CALLBACK_PAGE_CONTENTS,
   USE_CONTEXT_PAGE_CONTENTS,
   USE_CUSTOM_HOOK_PAGE_CONTENTS,
+  USE_DEBUG_VALUE_HOOK_PAGE_CONTENTS,
   USE_DEFERRED_VALUE_PAGE_CONTENTS,
   USE_EFFECT_EVENT_PAGE_CONTENTS,
   USE_EFFECT_PAGE_CONTENTS,

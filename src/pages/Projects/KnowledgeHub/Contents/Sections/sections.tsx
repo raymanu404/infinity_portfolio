@@ -5,6 +5,7 @@ import {
   UseCallbackContent,
   UseContextContent,
   UseCustomHookContent,
+  UseDebugValueContent,
   UseDeferredValueContent,
   UseEffectContent,
   UseEffectEventContent,
@@ -94,6 +95,11 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
     title: 'useId',
     variant: 'GENERAL',
     children: <UseIdContent />,
+  },
+  {
+    title: 'useDebugValue',
+    variant: 'GENERAL',
+    children: <UseDebugValueContent />,
   },
   {
     title: 'useCustomHook',

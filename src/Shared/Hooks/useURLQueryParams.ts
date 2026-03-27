@@ -1,7 +1,7 @@
 import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
-import { useCallback, useState } from 'react';
+import { useCallback, useDebugValue, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { SearchQueryParamsT, SearchQueryParamsV } from '../interfaces';
 
@@ -18,10 +18,11 @@ export const useUrlQueryParams = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  useDebugValue(value);
+
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
     const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION_ARRAY);
 
-    console.log({ hooksCategoryTypeValues });
     let finalHashValue = hash;
     if (hash) {
       const hashValue = hooksCategoryTypeValues[hashValueIndex];
