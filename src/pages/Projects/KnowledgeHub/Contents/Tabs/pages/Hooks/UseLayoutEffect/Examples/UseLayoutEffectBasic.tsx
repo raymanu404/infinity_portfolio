@@ -1,6 +1,6 @@
 import Notes from '@/Shared/Components/Notes/Notes';
 import React from 'react';
-import TooltipExample from './TooltipExample';
+import { TooltipExample } from './TooltipExample';
 
 const UseLayoutEffectBasic: React.FC = () => {
   return (
@@ -24,7 +24,10 @@ const UseLayoutEffectBasic: React.FC = () => {
           },
         ]}
       />
-      <TooltipExample />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', margin: '20px 0' }}>
+        <TooltipExample />
+        <TooltipExample useEffectExample />
+      </div>
     </div>
   );
 };
