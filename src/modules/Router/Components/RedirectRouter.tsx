@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface PropsI {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 const RedirectRouter = (props: PropsI) => {
