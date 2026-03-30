@@ -2,7 +2,7 @@ import Home from '@/pages/Home';
 import ErrorPage from '@/Shared/Components/Error/ErrorPage';
 import { CenteredContainer } from '@/Shared/Utils/Helpers/styled-components';
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import { NotFoundPage, Spinner } from '../../Shared/Components';
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
 import { Layout } from '../Layout/Layout';
@@ -38,12 +38,7 @@ const KnowledgeHub = lazy(() =>
 
 const CustomRouter = () => {
   return (
-    <BrowserRouter
-      future={{
-        v7_relativeSplatPath: true,
-        v7_startTransition: true,
-      }}
-    >
+    <BrowserRouter>
       <RedirectRouter>
         <Layout>
           <Suspense

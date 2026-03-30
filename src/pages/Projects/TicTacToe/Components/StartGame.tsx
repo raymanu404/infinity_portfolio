@@ -1,7 +1,7 @@
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Box, IconButton } from '@mui/material';
 import React, { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { DEFAULT_USER_INPUT, MAXIMUM_PLAYERS_ALLOWED } from '../utils/constants';
 import { GameStatus, PlayerStartDataI } from '../utils/interfaces';
 import { PlayerInputContainer } from './PlayerInputContainer';

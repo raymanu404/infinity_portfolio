@@ -1,7 +1,7 @@
 import { theme } from '@/theme';
 import { Box, Link, SxProps, Typography } from '@mui/material';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { LEARNING_SECTIONS } from './constants';
 
 const isActive: SxProps = {
@@ -45,7 +45,10 @@ const SideNavigation: React.FC = () => {
         >
           <Typography
             sx={{
-              padding: { xs: `${theme.spacing(1)} ${theme.spacing(2)}`, sm: `${theme.spacing(0.5)} ${theme.spacing(2)}` },
+              padding: {
+                xs: `${theme.spacing(1)} ${theme.spacing(2)}`,
+                sm: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+              },
               whiteSpace: 'nowrap',
               borderRadius: { xs: '16px', sm: 0 },
               ...isActiveLinkSx(elementId),

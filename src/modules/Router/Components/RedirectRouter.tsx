@@ -1,6 +1,6 @@
 import { PATH_ROUTES } from '@/modules/Router/constants';
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 
 interface PropsI {
   children: React.ReactNode;

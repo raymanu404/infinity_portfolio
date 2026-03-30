@@ -9,8 +9,8 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { PropsWithChildren, useEffect, useEffectEvent, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import { ContentI } from '../KnowledgeHub/interfaces';
 
 interface SectionContentProps extends PropsWithChildren {
@@ -32,9 +32,13 @@ const SectionContent: React.FC<SectionContentProps> = ({
   const DEFAULT_SECTION_OPEN = hash.includes(elementId) || !!getUrlQuery.openAll;
   const [isOpen, setIsOpen] = useState(DEFAULT_SECTION_OPEN);
 
+  const updateAccordionState = useEffectEvent((isOpen: boolean) => {
+    setIsOpen(isOpen);
+  });
+
   useEffect(() => {
     if (typeof brutalClose === 'boolean') {
-      setIsOpen(!brutalClose);
+      updateAccordionState(!brutalClose);
     }
   }, [brutalClose]);
 
@@ -43,10 +47,13 @@ const SectionContent: React.FC<SectionContentProps> = ({
       const isSectionParam = hash.includes(elementId);
 
       if (isSectionParam) {
-        setIsOpen(hash.includes(elementId));
+        const isIncludedInURL = hash.includes(elementId);
+
+        if (!isIncludedInURL) return;
+        updateAccordionState(isIncludedInURL);
       }
     }
-  }, [hash]);
+  }, [disableAutoOpen, elementId, hash]);
 
   return (
     <Box id={elementId}>

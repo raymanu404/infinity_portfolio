@@ -108,6 +108,14 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
   },
 ];
 
+const REACT_ROUTER_TABS_PAGES: TabContentI[] = [
+  {
+    title: 'React Router ',
+    variant: 'REACT_ROUTER_v7',
+    children: <ReferenceValuesWithRefContent />,
+  },
+];
+
 const ESCAPE_HATCHES_TABS_PAGES: TabContentI[] = [
   {
     title: 'How to “remember” information without re-rendering ',
@@ -116,4 +124,4 @@ const ESCAPE_HATCHES_TABS_PAGES: TabContentI[] = [
   },
 ];
 
-export { ESCAPE_HATCHES_TABS_PAGES, HOOKS_TABS_PAGES };
+export { ESCAPE_HATCHES_TABS_PAGES, HOOKS_TABS_PAGES, REACT_ROUTER_TABS_PAGES };

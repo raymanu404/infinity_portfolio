@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import Game from './Components/Game';
 import StartGame from './Components/StartGame';
 import { GameStatus } from './utils/interfaces';

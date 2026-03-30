@@ -2,7 +2,7 @@ import { PATH_ROUTES } from '@/modules/Router/constants';
 import { theme } from '@/theme';
 import { Box, Tab, Tabs } from '@mui/material';
 import { useState, useTransition } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import { navbarTabsConst, tabsSx, tabSx } from '../constants';
 
 const currentPathDefault = (pathname: string[]) => {

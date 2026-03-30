@@ -2,7 +2,7 @@ import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useCallback, useDebugValue, useState } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { SearchQueryParamsT, SearchQueryParamsV } from '../interfaces';
 
 interface UrlQueryType {

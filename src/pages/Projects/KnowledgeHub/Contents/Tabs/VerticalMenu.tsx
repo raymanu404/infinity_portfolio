@@ -1,7 +1,7 @@
 import { useUrlQueryParams } from '@/Shared/Hooks';
 import { theme } from '@/theme';
 import { Box, Tabs, tabsClasses } from '@mui/material';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useEffectEvent } from 'react';
 import { getArrayGroupedByVariant } from '../../helpful';
 import { TabContentI } from '../../interfaces';
 import TabLabel from './Components/TabLabel';
@@ -15,6 +15,10 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
   const parentRef = React.useRef<HTMLDivElement[] | null>(null);
   const { handleURLQueryParams, hashValueIndex } = useUrlQueryParams();
   const [tabIndex, setTabIndex] = React.useState(0);
+
+  const updateTabIndex = useEffectEvent(() => {
+    setTabIndex(+hashValueIndex);
+  });
 
   useEffect(() => {
     if (isNaN(hashValueIndex)) return;
@@ -30,15 +34,18 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
 
       parent.scrollIntoView({ behavior: 'instant', block: 'center' });
     }
-    setTabIndex(+hashValueIndex);
-  }, [hashValueIndex]);
+    updateTabIndex();
+  }, [hashValueIndex, tabIndex, tabsPages.length]);
 
-  const handleChange = useCallback((_: React.SyntheticEvent, newValue: number) => {
-    handleURLQueryParams(+newValue);
-    setTabIndex(newValue);
+  const handleChange = useCallback(
+    (_: React.SyntheticEvent, newValue: number) => {
+      handleURLQueryParams(+newValue);
+      setTabIndex(newValue);
 
-    console.log({ newValue });
-  }, []);
+      console.log({ newValue });
+    },
+    [handleURLQueryParams],
+  );
 
   return (
     <Box sx={{ flexGrow: 1, display: 'flex', height: 420, gap: `${theme.spacing(2)}` }}>
