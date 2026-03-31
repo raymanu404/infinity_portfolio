@@ -24,6 +24,7 @@ const TabLabel = function TabLabel({
     <Box
       role="tab"
       sx={{
+        flexBasis: '40%',
         display: 'flex',
         flexDirection: 'column',
         ...tabGroupStyle(showHeader, showBottom),

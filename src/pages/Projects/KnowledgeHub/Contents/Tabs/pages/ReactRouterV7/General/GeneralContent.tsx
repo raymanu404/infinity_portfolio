@@ -6,7 +6,7 @@ import { GENERAL_REACT_ROUTER_PAGE_CONTENTS } from '../contents';
 const PAGE_TITLE = 'General content of React Router v7';
 const PAGE_NOTES = [] as NoteI[];
 
-const UseIdContent: React.FC = () => {
+const GeneralContent: React.FC = () => {
   return (
     <TemplatePageContent
       pageTitle={PAGE_TITLE}
@@ -18,6 +18,6 @@ const UseIdContent: React.FC = () => {
   );
 };
 
-UseIdContent.displayName = 'UseIdContent';
+GeneralContent.displayName = 'GeneralContent';
 
-export default UseIdContent;
+export default GeneralContent;

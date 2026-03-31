@@ -19,6 +19,7 @@ import {
   UseStateContent,
   UseTransitionContent,
 } from '../Tabs/pages/Hooks';
+import { GeneralContent } from '../Tabs/pages/ReactRouterV7';
 
 const HOOKS_TABS_PAGES: TabContentI[] = [
   {
@@ -110,9 +111,9 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
 
 const REACT_ROUTER_TABS_PAGES: TabContentI[] = [
   {
-    title: 'React Router ',
+    title: 'General Content',
     variant: 'REACT_ROUTER_v7',
-    children: <ReferenceValuesWithRefContent />,
+    children: <GeneralContent />,
   },
 ];
 
