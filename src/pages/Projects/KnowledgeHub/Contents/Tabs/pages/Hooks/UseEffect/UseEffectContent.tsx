@@ -1,7 +1,7 @@
 import { NotesType } from '@/Shared/Components/Notes/interfaces';
 import React from 'react';
 import { TemplatePageContent } from '../../components';
-import { USE_EFFECT_PAGE_CONTENTS } from '../constants';
+import { USE_EFFECT_PAGE_CONTENTS } from '../contents';
 
 const PAGE_TITLE = 'Use Effect Hook';
 const PAGE_NOTES = [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TemplatePageContent } from '../../components';
-import { USE_CONTEXT_PAGE_CONTENTS } from '../constants';
+import { USE_CONTEXT_PAGE_CONTENTS } from '../contents';
 import { AuthProvider } from './Contexts/AuthContext';
 import { ThemeProvider } from './Contexts/ThemeContext';
 
