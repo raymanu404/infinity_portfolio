@@ -1,11 +1,11 @@
 import { PageContentI } from '../interfaces';
-import { BasicExample } from './General/Examples';
+import { NestedRoutesExample } from './General/Examples';
 
 const GENERAL_REACT_ROUTER_PAGE_CONTENTS: PageContentI[] = [
   {
-    elementId: 'basic-example-id',
-    title: 'Basic Example',
-    children: <BasicExample />,
+    elementId: 'nested-routes-example-id',
+    title: 'Nested Routes Example',
+    children: <NestedRoutesExample />,
   },
 ];
 

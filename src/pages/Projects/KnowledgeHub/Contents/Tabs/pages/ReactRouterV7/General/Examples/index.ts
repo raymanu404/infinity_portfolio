@@ -1,1 +1,1 @@
-export { default as BasicExample } from './BasicExample';
+export { default as NestedRoutesExample } from './NestedRoutesExample';

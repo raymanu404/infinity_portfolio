@@ -1,0 +1,69 @@
+import React from 'react';
+
+interface Post {
+  title: string;
+  content: string;
+  description: string;
+  date: string;
+}
+
+type Posts = Record<string, Post>;
+
+const POSTS: Posts = {
+  'react-router-v7': {
+    title: 'React Router v7 Released',
+    content: 'React Router v7 has been released with new features and improvements.',
+    description: 'An overview of the new features in React Router v7.',
+    date: '2024-06-01',
+  },
+  'react-router-v6': {
+    title: 'React Router v6 Released',
+    content: 'React Router v6 has been released with new features and improvements.',
+    description: 'An overview of the new features in React Router v6.',
+    date: '2021-12-08',
+  },
+  'Material UI v5': {
+    title: 'Material UI v5 Released',
+    content: 'Material UI v5 has been released with new features and improvements.',
+    description: 'An overview of the new features in Material UI v5.',
+    date: '2021-12-08',
+  },
+  'Material UI v6': {
+    title: 'Material UI v6 Released',
+    content: 'Material UI v6 has been released with new features and improvements.',
+    description: 'An overview of the new features in Material UI v6.',
+    date: '2023-06-01',
+  },
+};
+
+const BlogPosts: React.FC = () => {
+  return (
+    <div>
+      <h4>BlogPosts</h4>
+      <ul>
+        {Object.entries(POSTS).map(([key, { content, title, description, date }]) => (
+          <li
+            key={key}
+            style={{
+              padding: '10px 0',
+              borderBottom: '1px solid #ccc',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '5px',
+            }}
+          >
+            <h5>{title}</h5>
+            <p>{description}</p>
+            <small>{date}</small>
+
+            <span>{content}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+BlogPosts.displayName = 'BlogPosts';
+
+export default BlogPosts;

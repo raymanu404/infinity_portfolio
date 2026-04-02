@@ -36,7 +36,11 @@ const KnowledgeHub = lazy(() =>
   })),
 );
 
+const knowledgeHub = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
+
 const CustomRouter = () => {
+  console.log('CustomRouter rendered');
+  console.log({ knowledgeHub });
   return (
     <BrowserRouter>
       <RedirectRouter>
@@ -57,10 +61,7 @@ const CustomRouter = () => {
                   path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])}
                   element={<Monsters />}
                 />
-                <Route
-                  path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB])}
-                  element={<KnowledgeHub />}
-                />
+                <Route path={knowledgeHub} element={<KnowledgeHub />} />
 
                 {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
                 <Route
