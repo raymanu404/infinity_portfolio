@@ -1,3 +1,4 @@
+import { FullCenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 import { Box, Grid } from '@mui/material';
 import { useNavigate } from 'react-router';
 import CardContainer from './Components/CardContainer';
@@ -7,19 +8,8 @@ const ProjectsContainer = () => {
   const navigate = useNavigate();
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <Box
-        sx={{
-          marginTop: '50px',
-          marginLeft: '20px',
-          padding: '10px 50px',
-        }}
-      >
+    <FullCenteredBox>
+      <Box>
         <Grid container spacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}>
           {PROJECTS_CONST.map(project => {
             return (
@@ -34,7 +24,7 @@ const ProjectsContainer = () => {
           })}
         </Grid>
       </Box>
-    </Box>
+    </FullCenteredBox>
   );
 };
 
