@@ -39,8 +39,6 @@ const KnowledgeHub = lazy(() =>
 const knowledgeHub = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
 
 const CustomRouter = () => {
-  console.log('CustomRouter rendered');
-  console.log({ knowledgeHub });
   return (
     <BrowserRouter>
       <RedirectRouter>

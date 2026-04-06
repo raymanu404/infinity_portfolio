@@ -6,6 +6,8 @@ export const pages = [
   { name: 'About', path: '/about' },
   { name: 'Posts', path: '/posts' },
   { name: 'Contacts', path: '/contacts' },
+  { name: 'Stats', path: '/stats' },
+  { name: 'Login', path: '/login' },
 ] as const;
 
 export type Page = (typeof pages)[number];
