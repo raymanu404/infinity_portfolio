@@ -13,8 +13,8 @@ const NestedRoutesExample: React.FC = () => {
     <div>
       <h3>NestedRoutesExample React router</h3>
 
-      <NavPages />
       <UserProvider>
+        <NavPages />
         <Routes>
           {/* PUBLIC ROUTES */}
           <Route index element={<Home />} />

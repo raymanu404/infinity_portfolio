@@ -11,6 +11,7 @@ const ProtectedRouter: React.FC<PropsWithChildren> = ({ children }) => {
     pathname.split('/').length > 2 ? pathname.split('/').slice(0, 3).join('/') : pathname;
 
   useEffect(() => {
+    console.log({ basePath, user });
     if (!user) {
       navigate(`${basePath}${pages[5].path}`);
     }

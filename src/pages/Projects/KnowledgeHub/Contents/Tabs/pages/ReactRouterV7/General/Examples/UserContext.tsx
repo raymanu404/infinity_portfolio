@@ -8,7 +8,7 @@ export interface User {
 
 interface UserContextI {
   user: User | null;
-  login: ({ email, password }: { email: string; password: string }) => void;
+  login: ({ email, password }: { email: string; password: string }) => boolean;
   logout: () => void;
 }
 
@@ -25,7 +25,9 @@ const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
         id: crypto.randomUUID(),
         name: 'Admin',
       });
-    }
+
+      return true;
+    } else return false;
   };
 
   const logout = () => {

@@ -1,23 +1,43 @@
 import { Button, FormControl, FormLabel, TextField } from '@mui/material';
-import React, { SubmitEventHandler } from 'react';
-import { Form, useNavigate } from 'react-router';
+import React, { useEffect, useEffectEvent } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 import { useUserContext } from '../UserContext';
 import { pages } from './NavPages';
 
 const LoginPage: React.FC = () => {
   const { login, user } = useUserContext()!;
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const basePath =
+    pathname.split('/').length > 2 ? pathname.split('/').slice(0, 3).join('/') : pathname;
 
-  if (user) {
-    navigate(pages[4].path);
-  }
+  const redirectToStats = useEffectEvent(() => {
+    navigate(`${basePath}${pages[4].path}`);
+  });
 
-  const submitLoginHandler: SubmitEventHandler<HTMLFormElement> = async event => {
-    const { target } = event;
-    event.preventDefault();
+  useEffect(() => {
+    if (user) {
+      redirectToStats();
+    }
+  }, [basePath, user]);
 
-    const values = target.childNodes.entries();
-    console.log(values);
+  const submitLoginHandler = async (formData: FormData) => {
+    const email = formData.get('email')?.toString() || '';
+    const password = formData.get('password')?.toString() || '';
+
+    const result = login({
+      email,
+      password,
+    });
+
+    if (result) {
+      toast('Login successfully', { type: 'success' });
+    } else {
+      toast('Email or password is incorrect!', {
+        type: 'warning',
+      });
+    }
   };
 
   return (
@@ -30,8 +50,8 @@ const LoginPage: React.FC = () => {
       }}
     >
       <h2>LoginPage</h2>
-      <Form
-        onSubmit={submitLoginHandler}
+      <form
+        action={submitLoginHandler}
         style={{
           padding: '10px 0',
           display: 'flex',
@@ -52,7 +72,7 @@ const LoginPage: React.FC = () => {
         <Button type="submit" variant="contained">
           Login
         </Button>
-      </Form>
+      </form>
     </div>
   );
 };
