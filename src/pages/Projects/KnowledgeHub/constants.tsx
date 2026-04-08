@@ -1,4 +1,4 @@
-import { EscapeHatches, HooksSection, ReactRouterV7 } from './Contents/Sections';
+import { AuthStrategies, EscapeHatches, HooksSection, ReactRouterV7 } from './Contents/Sections';
 import { HOOKS_TABS_PAGES } from './Contents/Sections/sections';
 import { ContentI } from './interfaces';
 
@@ -16,6 +16,12 @@ const LEARNING_SECTIONS: ContentI[] = [
     elementId: 'react-router-v7',
     children: <ReactRouterV7 />,
     subTitle: 'React Router v7',
+  },
+  {
+    title: 'Auth Strategies Roadmap',
+    elementId: 'auth-strategies-roadmap',
+    children: <AuthStrategies />,
+    subTitle: 'Everything you need to know about Auth',
   },
   {
     title: 'Escape Hatches',
@@ -40,6 +46,7 @@ const HOOK_CATEGORY_TYPE = {
 const SECTION_VARIANTS = {
   HOOKS: 'HOOKS',
   REACT_ROUTER_v7: 'REACT_ROUTER_v7',
+  AUTH_STRATEGIES: 'AUTH_STRATEGIES',
   ESCAPE_HATCHES: 'ESCAPE_HATCHES',
   CUSTOM: 'CUSTOM',
 } as const;

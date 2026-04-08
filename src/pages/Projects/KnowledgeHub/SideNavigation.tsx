@@ -9,9 +9,10 @@ const isActive: SxProps = {
   backgroundColor: theme.custom.specialPalette?.variant[500],
 };
 
+const isActiveLinkSx = (elemId: string, hash: string) => (hash.includes(elemId) ? isActive : {});
+
 const SideNavigation: React.FC = () => {
   const { hash } = useLocation();
-  const isActiveLinkSx = (elemId: string) => (hash.includes(elemId) ? isActive : {});
 
   return (
     <Box
@@ -51,7 +52,7 @@ const SideNavigation: React.FC = () => {
               },
               whiteSpace: 'nowrap',
               borderRadius: { xs: '16px', sm: 0 },
-              ...isActiveLinkSx(elementId),
+              ...isActiveLinkSx(elementId, hash),
             }}
           >
             {title}
