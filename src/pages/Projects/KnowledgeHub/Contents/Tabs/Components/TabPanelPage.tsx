@@ -20,9 +20,9 @@ const TabPanelPage: React.FC<TabPanelProps> = props => {
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       sx={{
+        flexBasis: '80%',
         borderRadius: theme.custom.borderRadiusContainer?.main,
         boxShadow: theme.custom.boxShadows?.secondary,
-        flexBasis: '90%',
         padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
         width: '100%',
         overflowY: 'auto',

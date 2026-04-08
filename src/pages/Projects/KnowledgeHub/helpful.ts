@@ -1,7 +1,7 @@
 import { theme } from '@/theme';
 import { SxProps, Theme } from '@mui/material';
 import { HOOKS_SUB_SECTION_ARRAY, HOOK_CATEGORY_TYPE } from './constants';
-import { DASH_SPLIT_STRING } from './Contents/Tabs/pages/Hooks/constants';
+import { DASH_SPLIT_STRING } from './Contents/Tabs/pages/Hooks/contents';
 import { HookVariantCategoryType, TabContentI } from './interfaces';
 
 const idAttributeProps = (index: number) => {

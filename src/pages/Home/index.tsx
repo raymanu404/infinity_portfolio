@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
+import { FullCenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 
 const Home = () => {
   return (
-    <Box>
-      <div>So nice to be home</div>
-    </Box>
+    <FullCenteredBox>
+      <FullCenteredBox>HOME PAGE</FullCenteredBox>
+    </FullCenteredBox>
   );
 };
 

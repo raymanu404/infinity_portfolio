@@ -1,6 +1,7 @@
+import { FullCenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import Game from './Components/Game';
 import StartGame from './Components/StartGame';
 import { GameStatus } from './utils/interfaces';
@@ -51,12 +52,8 @@ const TicTacToe = () => {
   // }, [location.search])
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-      }}
-    >
-      <Box sx={{ marginTop: '50px', marginLeft: '50px' }}>
+    <FullCenteredBox>
+      <Box>
         {/* {gameStatus !== GameStatus.NEW && (
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <IconButton
@@ -94,7 +91,7 @@ const TicTacToe = () => {
           </>
         )}
       </Box>
-    </Box>
+    </FullCenteredBox>
   );
 };
 

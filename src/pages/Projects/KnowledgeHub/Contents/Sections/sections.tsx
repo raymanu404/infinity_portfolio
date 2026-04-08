@@ -19,6 +19,7 @@ import {
   UseStateContent,
   UseTransitionContent,
 } from '../Tabs/pages/Hooks';
+import { GeneralContent } from '../Tabs/pages/ReactRouterV7';
 
 const HOOKS_TABS_PAGES: TabContentI[] = [
   {
@@ -108,6 +109,14 @@ const HOOKS_TABS_PAGES: TabContentI[] = [
   },
 ];
 
+const REACT_ROUTER_TABS_PAGES: TabContentI[] = [
+  {
+    title: 'General Content',
+    variant: 'REACT_ROUTER_v7',
+    children: <GeneralContent />,
+  },
+];
+
 const ESCAPE_HATCHES_TABS_PAGES: TabContentI[] = [
   {
     title: 'How to “remember” information without re-rendering ',
@@ -116,4 +125,4 @@ const ESCAPE_HATCHES_TABS_PAGES: TabContentI[] = [
   },
 ];
 
-export { ESCAPE_HATCHES_TABS_PAGES, HOOKS_TABS_PAGES };
+export { ESCAPE_HATCHES_TABS_PAGES, HOOKS_TABS_PAGES, REACT_ROUTER_TABS_PAGES };

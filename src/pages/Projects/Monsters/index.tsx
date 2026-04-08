@@ -1,5 +1,5 @@
 import { Spinner } from '@/Shared/Components';
-import { Box } from '@mui/material';
+import { FullCenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 import { ChangeEvent, useEffect, useState } from 'react';
 import CardList from './Components/CardList';
 import HeaderMonsters from './Components/HeaderMonsters';
@@ -28,12 +28,8 @@ const Monsters = () => {
   const filteredMonsters = monsters.filter(x => x.name.toLocaleLowerCase().includes(searchedValue));
 
   return (
-    <Box
+    <FullCenteredBox
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        alignItems: 'center',
         background: 'linear-gradient(#219ebc,#8ecae6)',
         padding: '0 50px',
       }}
@@ -46,7 +42,7 @@ const Monsters = () => {
       />
       {isLoading && <Spinner size="2.3rem" />}
       {!isLoading && <CardList monsters={filteredMonsters} />}
-    </Box>
+    </FullCenteredBox>
   );
 };
 

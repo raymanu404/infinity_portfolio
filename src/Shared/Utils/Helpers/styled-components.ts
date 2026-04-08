@@ -7,6 +7,20 @@ const CenteredContainer = styled(Container)`
   align-items: center;
 `;
 
+const CenteredBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const FullCenteredBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-direction: column;
+`;
+
 const BoxCardContent = styled(Box)`
   padding: 0 ${theme.spacing(2)};
 `;
@@ -25,4 +39,11 @@ const SpaceBetweenRowBox = styled(Box)`
   align-items: center;
 `;
 
-export { BoxCardContent, CenteredContainer, FlexWithGapBox, SpaceBetweenRowBox };
+export {
+  BoxCardContent,
+  CenteredBox,
+  CenteredContainer,
+  FlexWithGapBox,
+  FullCenteredBox,
+  SpaceBetweenRowBox,
+};

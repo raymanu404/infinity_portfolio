@@ -1,4 +1,4 @@
-import { EscapeHatches, HooksSection } from './Contents/Sections';
+import { EscapeHatches, HooksSection, ReactRouterV7 } from './Contents/Sections';
 import { HOOKS_TABS_PAGES } from './Contents/Sections/sections';
 import { ContentI } from './interfaces';
 
@@ -9,7 +9,13 @@ const LEARNING_SECTIONS: ContentI[] = [
     title: 'Hooks',
     elementId: 'hooks',
     children: <HooksSection />,
-    subTitle: 'All Hooks',
+    subTitle: 'All React v19 Hooks',
+  },
+  {
+    title: 'React Router v7',
+    elementId: 'react-router-v7',
+    children: <ReactRouterV7 />,
+    subTitle: 'React Router v7',
   },
   {
     title: 'Escape Hatches',
@@ -33,6 +39,7 @@ const HOOK_CATEGORY_TYPE = {
 
 const SECTION_VARIANTS = {
   HOOKS: 'HOOKS',
+  REACT_ROUTER_v7: 'REACT_ROUTER_v7',
   ESCAPE_HATCHES: 'ESCAPE_HATCHES',
   CUSTOM: 'CUSTOM',
 } as const;

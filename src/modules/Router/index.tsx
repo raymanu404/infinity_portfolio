@@ -1,8 +1,8 @@
 import Home from '@/pages/Home';
 import ErrorPage from '@/Shared/Components/Error/ErrorPage';
-import { CenteredContainer } from '@/Shared/Utils/Helpers/styled-components';
+import { FullCenteredBox } from '@/Shared/Utils/Helpers/styled-components';
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import { NotFoundPage, Spinner } from '../../Shared/Components';
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
 import { Layout } from '../Layout/Layout';
@@ -36,37 +36,30 @@ const KnowledgeHub = lazy(() =>
   })),
 );
 
+const knowledgeHub = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
+
 const CustomRouter = () => {
   return (
-    <BrowserRouter
-      future={{
-        v7_relativeSplatPath: true,
-        v7_startTransition: true,
-      }}
-    >
+    <BrowserRouter>
       <RedirectRouter>
         <Layout>
           <Suspense
             fallback={
-              <CenteredContainer sx={{ minHeight: '70vh' }}>
+              <FullCenteredBox>
                 <Spinner size="3rem" />
-              </CenteredContainer>
+              </FullCenteredBox>
             }
           >
             <ErrorBoundary fallback={<ErrorPage />}>
               <Routes>
                 <Route index element={<Home />} />
-                <Route element={<NotFoundPage />} path={convertToPathURI(PATH_ROUTES.NOT_FOUND)} />
-                <Route path="*" element={<Navigate to={'not-found'} replace />} />
+                <Route path="*" element={<NotFoundPage />} />
                 <Route path={convertToPathURI(PATH_ROUTES.PROJECTS)} element={<Projects />} />
                 <Route
                   path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])}
                   element={<Monsters />}
                 />
-                <Route
-                  path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB])}
-                  element={<KnowledgeHub />}
-                />
+                <Route path={knowledgeHub} element={<KnowledgeHub />} />
 
                 {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
                 <Route

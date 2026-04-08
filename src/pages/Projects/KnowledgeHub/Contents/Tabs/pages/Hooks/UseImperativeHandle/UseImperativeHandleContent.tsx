@@ -1,7 +1,7 @@
 import { NoteI } from '@/Shared/Components/Notes/interfaces';
 import React from 'react';
 import { TemplatePageContent } from '../../components';
-import { USE_IMPERATIVE_HANDLE_HOOK_PAGE_CONTENTS } from '../constants';
+import { USE_IMPERATIVE_HANDLE_HOOK_PAGE_CONTENTS } from '../contents';
 
 const PAGE_TITLE = 'UseImperativeHandle Hook';
 const PAGE_NOTES = [
