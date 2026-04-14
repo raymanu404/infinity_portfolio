@@ -1,5 +1,6 @@
 import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
 import { Theme } from '@emotion/react';
+import { Typography } from '@mui/material';
 import { SxProps } from '@mui/material/styles';
 import React from 'react';
 import { NotesType } from './interfaces';
@@ -30,7 +31,22 @@ const Notes: React.FC<NotesProps> = ({ notes, specialNotes = false }) => {
       {Array.isArray(notes) ? (
         notes.map((note, index) => (
           <ul key={index}>
-            <li>{typeof note === 'string' ? note : note.note}</li>
+            <li
+              style={
+                note.hideList
+                  ? {
+                      listStyle: 'none',
+                    }
+                  : undefined
+              }
+            >
+              <div
+                style={{ display: 'flex', flexDirection: 'row', gap: '5px', alignItems: 'center' }}
+              >
+                {note.orderedList && <Typography variant="h6">{index + 1}.</Typography>}
+                {typeof note === 'string' ? note : note.note}
+              </div>
+            </li>
             {note && typeof note !== 'string' && note.subNotes && (
               <BoxCardContent sx={{ paddingLeft: '20px', paddingTop: '10px' }}>
                 <ul>

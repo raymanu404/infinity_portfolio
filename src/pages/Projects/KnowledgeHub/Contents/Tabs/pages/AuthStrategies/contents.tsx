@@ -1,5 +1,5 @@
 import { PageContentI } from '../interfaces';
-import { AuthVsAuthorization, WhatIsAuth } from './01.Introduction/Examples';
+import { AuthVsAuthorization, CommonAuthFlows, WhatIsAuth } from './01.Introduction/Examples';
 
 const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   {
@@ -11,6 +11,11 @@ const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
     elementId: 'authentication-vs-authorization-example-id',
     title: 'Authentication vs. Authorization',
     children: <AuthVsAuthorization />,
+  },
+  {
+    elementId: 'common-authentication-flows-example-id',
+    title: 'Common Authentication Flows:A high-level Overview',
+    children: <CommonAuthFlows />,
   },
 ];
 

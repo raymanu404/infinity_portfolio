@@ -1,6 +1,10 @@
+import { ReactNode } from 'react';
+
 export interface NoteI {
-  note: string;
+  note: string | ReactNode;
+  hideList?: boolean;
+  orderedList?: boolean;
   subNotes?: NoteI[];
 }
 
-export type NotesType = NoteI[] | React.ReactNode;
+export type NotesType = NoteI[] | ReactNode;
