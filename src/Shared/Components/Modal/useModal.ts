@@ -16,14 +16,14 @@ const useModal = (props?: Props) => {
       handleSearchParams('fullMode', true);
     }
     setIsOpen(true);
-  }, []);
+  }, [fullModal, handleSearchParams]);
 
   const handleClose = useCallback(() => {
     if (fullModal) {
       handleSearchParams('fullMode', undefined);
     }
     setIsOpen(false);
-  }, []);
+  }, [fullModal, handleSearchParams]);
 
   return { isOpen, handleOpen, handleClose };
 };
