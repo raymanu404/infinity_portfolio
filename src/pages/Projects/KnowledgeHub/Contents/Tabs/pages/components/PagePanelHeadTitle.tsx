@@ -40,6 +40,7 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
             backgroundColor: theme.custom.specialPalette?.variant[300],
           }}
         >
+          {/* TODO: FIX FULL DIALOG ISSUE */}
           {appsMenu.length > 0 &&
             appsMenu.map(
               (
