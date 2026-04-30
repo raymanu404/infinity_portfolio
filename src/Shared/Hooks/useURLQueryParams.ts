@@ -10,6 +10,19 @@ interface UrlQueryType {
   fullMode: boolean;
 }
 
+export const URL_QUERY_TYPE = {
+  openAll: 'openAll',
+  fullMode: 'fullMode',
+} as const;
+
+export const OPTIONS_APP_MENU_TYPE = {
+  fullMode: 'fullMode',
+  authTaskManager: 'authTaskManager',
+} as const;
+
+type UseUrlQueryParamsReturnType = (typeof URL_QUERY_TYPE)[keyof typeof URL_QUERY_TYPE];
+type OptionsAppMenuType = (typeof OPTIONS_APP_MENU_TYPE)[keyof typeof OPTIONS_APP_MENU_TYPE];
+
 // TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
 export const useUrlQueryParams = () => {
   // TODO: Fix toggle issue for openAll, also we have to open just the current section, not all the sections when we toggle the switcher, maybe we can pass the section
@@ -92,4 +105,4 @@ export const useUrlQueryParams = () => {
   };
 };
 
-export type { UrlQueryType };
+export type { OptionsAppMenuType, UrlQueryType, UseUrlQueryParamsReturnType };
