@@ -55,6 +55,16 @@ const HOOKS_SUB_SECTION_ARRAY = Object.values(HOOKS_TABS_PAGES).map(x =>
   x.title.replaceAll(/[A-Z]/g, '-$&').toLocaleLowerCase(),
 ) as string[];
 
+const URL_QUERY_TYPE = {
+  openAll: 'openAll',
+  fullMode: 'fullMode',
+} as const;
+
+const OPTIONS_APP_MENU_TYPE = {
+  fullMode: 'fullMode',
+  authTaskManager: 'authTaskManager',
+} as const;
+
 const DEFAULT_OPEN_ALL = false;
 
 export {
@@ -62,5 +72,7 @@ export {
   HOOK_CATEGORY_TYPE,
   HOOKS_SUB_SECTION_ARRAY,
   LEARNING_SECTIONS,
+  OPTIONS_APP_MENU_TYPE,
   SECTION_VARIANTS,
+  URL_QUERY_TYPE,
 };

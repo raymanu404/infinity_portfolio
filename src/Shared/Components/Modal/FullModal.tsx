@@ -35,7 +35,7 @@ const FullModal: React.FC<FullModalProps> = ({ title, handleClose, isOpen, child
   );
 
   if (!isOpen) {
-    return Children;
+    return children;
   }
 
   return (

@@ -3,25 +3,7 @@ import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/p
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useCallback, useDebugValue, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
-import { SearchQueryParamsT, SearchQueryParamsV } from '../interfaces';
-
-interface UrlQueryType {
-  openAll: boolean;
-  fullMode: boolean;
-}
-
-export const URL_QUERY_TYPE = {
-  openAll: 'openAll',
-  fullMode: 'fullMode',
-} as const;
-
-export const OPTIONS_APP_MENU_TYPE = {
-  fullMode: 'fullMode',
-  authTaskManager: 'authTaskManager',
-} as const;
-
-type UseUrlQueryParamsReturnType = (typeof URL_QUERY_TYPE)[keyof typeof URL_QUERY_TYPE];
-type OptionsAppMenuType = (typeof OPTIONS_APP_MENU_TYPE)[keyof typeof OPTIONS_APP_MENU_TYPE];
+import { SearchQueryParamsT, SearchQueryParamsV, UrlQueryType } from '../interfaces';
 
 // TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
 export const useUrlQueryParams = () => {
@@ -104,5 +86,3 @@ export const useUrlQueryParams = () => {
     getUrlQuery,
   };
 };
-
-export type { OptionsAppMenuType, UrlQueryType, UseUrlQueryParamsReturnType };

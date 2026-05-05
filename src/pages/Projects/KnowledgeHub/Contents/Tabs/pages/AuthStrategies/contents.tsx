@@ -1,5 +1,10 @@
 import { PageContentI } from '../interfaces';
-import { AuthVsAuthorization, CommonAuthFlows, WhatIsAuth } from './01.Introduction/Examples';
+import {
+  AuthTaskMangerApp,
+  AuthVsAuthorization,
+  CommonAuthFlows,
+  WhatIsAuth,
+} from './01.Introduction/Examples';
 
 const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   {
@@ -19,4 +24,12 @@ const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
-export { INTRODUCTION_TO_AUTH_PAGE_CONTENTS };
+const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'introduction-auth-task-manager-app',
+    title: 'Introduction Auth Task Manager App',
+    children: <AuthTaskMangerApp />,
+  },
+];
+
+export { AUTH_TASK_MANAGER_APP_CONTENTS, INTRODUCTION_TO_AUTH_PAGE_CONTENTS };

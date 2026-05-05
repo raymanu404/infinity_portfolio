@@ -1,5 +1,5 @@
 import { FullModal } from '@/Shared/Components';
-import { OptionsAppMenuType } from '@/Shared/Hooks/useURLQueryParams';
+import { OptionsAppMenuType } from '@/Shared/interfaces';
 import { SpaceBetweenRowBox } from '@/Shared/Utils/Helpers/styled-components';
 import { theme } from '@/theme';
 import { IconButton, Typography } from '@mui/material';
@@ -27,6 +27,8 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
     setIsMenuOpened(prev => !prev);
   };
 
+  const fullMode = appsMenu.find(x => x.appValueName === 'fullMode');
+
   return (
     <SpaceBetweenRowBox>
       <Typography variant="h6">{title}</Typography>
@@ -34,13 +36,10 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
       <div style={{ display: 'flex' }}>
         <div
           style={{
-            borderBottom: '1px solid',
-            borderColor: theme.custom.specialPalette?.variantSecondaryLight,
+            borderBottom: `2px solid ${theme.custom.specialPalette?.variantSecondaryLight}`,
             display: 'flex',
-            backgroundColor: theme.custom.specialPalette?.variant[300],
           }}
         >
-          {/* TODO: FIX FULL DIALOG ISSUE */}
           {appsMenu.length > 0 &&
             appsMenu.map(
               (
@@ -56,12 +55,9 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
                 index,
               ) => {
                 const handleCloseLocal = () => {
-                  console.log('close local');
-
                   if (handleClose) {
                     handleClose();
                   }
-                  console.log('close local');
                 };
 
                 return (
@@ -73,13 +69,15 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
                     )}
 
                     {/* CONTENT */}
-                    <FullModal
-                      isOpen={!!isOpenDialog}
-                      handleClose={handleCloseLocal}
-                      title={description ?? 'App Modal'}
-                    >
-                      {children}
-                    </FullModal>
+                    {isOpenDialog && (
+                      <FullModal
+                        isOpen={!!isOpenDialog}
+                        handleClose={handleCloseLocal}
+                        title={description ?? 'App Modal'}
+                      >
+                        {children}
+                      </FullModal>
+                    )}
                   </div>
                 );
               },
@@ -96,10 +94,7 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
             </IconButton>
           )}
         </>
-        <IconButton
-          onClick={appsMenu.find(x => x.appValueName === 'fullMode')?.handleDialogOpen}
-          disabled={appsMenu.find(x => x.appValueName === 'fullMode')?.isOpenDialog}
-        >
+        <IconButton onClick={fullMode?.handleDialogOpen} disabled={fullMode?.isOpenDialog}>
           <Maximize />
         </IconButton>
       </div>
