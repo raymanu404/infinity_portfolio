@@ -1,5 +1,7 @@
-import { HOOKS_SUB_SECTION_ARRAY } from '@/pages/Projects/KnowledgeHub/constants';
-import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/contents';
+import {
+  ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY,
+  ALL_SUB_SECTION_ARRAY,
+} from '@/pages/Projects/KnowledgeHub/constants';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
 import { useCallback, useDebugValue, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
@@ -16,16 +18,24 @@ export const useUrlQueryParams = () => {
   useDebugValue(value);
 
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
-    const hooksCategoryTypeValues = Object.values(HOOKS_SUB_SECTION_ARRAY);
+    const allSubSectionsTypeValues = Object.values(ALL_SUB_SECTION_ARRAY);
+    const allLearningSectionsValues = Object.values(ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY);
+    console.log({ allSubSectionsTypeValues, allLearningSectionsValues });
 
-    let finalHashValue = hash;
-    if (hash) {
-      const hashValue = hooksCategoryTypeValues[hashValueIndex];
-      // const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0]; // UPDATE WHEN WE HAVE GENERIC METHOD FOR ALL SECTIONS
-      finalHashValue = 'hooks' + DASH_SPLIT_STRING + hashValue;
-    }
+    const finalHashValue = hash;
+    //TODO: fix for all sections
+    // if (hash) {
+    //   const getSectionKey = hash.substring(1);
+    //   const isTrulySection = allLearningSectionsValues.includes(getSectionKey);
+    //   const getSubSectionsArray = ALL_SECTIONS_ARRAY[getSectionKey];
+    //   const hashValue = allLearningSectionsValues[hashValueIndex];
 
-    console.log({ finalHashValue, hash });
+    //   console.log({ hashValue, hash, isTrulySection });
+    //   // const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0]; // UPDATE WHEN WE HAVE GENERIC METHOD FOR ALL SECTIONS
+    //   finalHashValue = getSectionKey + DASH_SPLIT_STRING + hashValue;
+    // }
+
+    console.log({ finalHashValue });
 
     if (typeof checked !== 'undefined') {
       navigate({

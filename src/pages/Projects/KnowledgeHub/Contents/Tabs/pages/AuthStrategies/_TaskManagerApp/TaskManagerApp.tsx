@@ -1,8 +1,10 @@
+import { useLocalStorage } from '@/Shared/Hooks';
 import { FlexWithGapBox } from '@/Shared/Utils/Helpers/styled-components';
 import { theme } from '@/theme';
-import { Box, IconButton, TextField } from '@mui/material';
+import { Box, IconButton, TextField, Typography } from '@mui/material';
 import { SendHorizontal, Trash } from 'lucide-react';
 import React, { startTransition, useOptimistic, useState } from 'react';
+import { TASK_MANAGER_APP_LOCAL_STORAGE_KEYS } from './interfaces';
 
 interface Todo {
   id: number;
@@ -66,11 +68,14 @@ const todosReducer = (state: Todo[], action: Action): Todo[] => {
 };
 
 const TaskManagerApp: React.FC = () => {
+  const { getItem, setItem, removeItem } = useLocalStorage();
   const [newTodoValue, setNewTodoValue] = useState('');
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, text: 'Buy milk', completed: false },
-    { id: 2, text: 'Walk the dog', completed: true },
-  ]);
+
+  const localTodos = getItem(TASK_MANAGER_APP_LOCAL_STORAGE_KEYS.taskManagerAppTodos) as
+    | Todo[]
+    | null;
+
+  const [todos, setTodos] = useState<Todo[]>(localTodos || []);
 
   const [error, setError] = useState<string | null>(null);
   const [optimisticTodos, optimisticDispatch] = useOptimistic(todos, todosReducer);
@@ -80,7 +85,12 @@ const TaskManagerApp: React.FC = () => {
       optimisticDispatch({ type: 'add', text }); // UI updates immediately
 
       const newTodo = await fakeAddTodo(text); // wait for server
+
       setTodos(prev => [...prev, newTodo]); // commit real state
+      setItem(TASK_MANAGER_APP_LOCAL_STORAGE_KEYS.taskManagerAppTodos, [
+        ...optimisticTodos,
+        newTodo,
+      ]);
     });
   };
 
@@ -90,6 +100,11 @@ const TaskManagerApp: React.FC = () => {
 
       await fakeToggleTodo(id);
       setTodos(prev => prev.map(t => (t.id === id ? { ...t, completed: !t.completed } : t)));
+
+      setItem(
+        TASK_MANAGER_APP_LOCAL_STORAGE_KEYS.taskManagerAppTodos,
+        optimisticTodos.map(t => (t.id === id ? { ...t, completed: !t.completed } : t)),
+      );
     });
   };
 
@@ -101,6 +116,12 @@ const TaskManagerApp: React.FC = () => {
       try {
         await fakeDeleteTodo(id);
         setTodos(prev => prev.filter(x => x.id !== id));
+
+        const result = todos.filter(x => x.id !== id);
+
+        if (result.length === 0)
+          removeItem(TASK_MANAGER_APP_LOCAL_STORAGE_KEYS.taskManagerAppTodos);
+        else setItem(TASK_MANAGER_APP_LOCAL_STORAGE_KEYS.taskManagerAppTodos, result);
       } catch {
         setError('Cannot delete. Permission denied.');
       }
@@ -136,6 +157,7 @@ const TaskManagerApp: React.FC = () => {
         boxShadow: theme.custom.boxShadows?.tertiary,
       }}
     >
+      <Typography variant="h6">Let s add some todos!!!</Typography>
       <div style={{ minHeight: '400px', width: '100%', overflowY: 'auto', maxHeight: '400px' }}>
         <ul>
           {optimisticTodos.map(todo => (

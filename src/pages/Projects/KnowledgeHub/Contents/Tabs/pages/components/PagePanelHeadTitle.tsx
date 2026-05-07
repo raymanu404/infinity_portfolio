@@ -83,17 +83,19 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
               },
             )}
         </div>
-        <>
-          {isMenuOpened ? (
-            <IconButton onClick={handleMenuToggle}>
-              <ArrowLeft />
-            </IconButton>
-          ) : (
-            <IconButton onClick={handleMenuToggle}>
-              <ArrowRight />
-            </IconButton>
-          )}
-        </>
+        {appsMenu.length > 1 && (
+          <>
+            {isMenuOpened ? (
+              <IconButton onClick={handleMenuToggle}>
+                <ArrowLeft />
+              </IconButton>
+            ) : (
+              <IconButton onClick={handleMenuToggle}>
+                <ArrowRight />
+              </IconButton>
+            )}
+          </>
+        )}
         <IconButton onClick={fullMode?.handleDialogOpen} disabled={fullMode?.isOpenDialog}>
           <Maximize />
         </IconButton>

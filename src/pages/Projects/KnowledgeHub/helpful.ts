@@ -1,6 +1,6 @@
 import { theme } from '@/theme';
 import { SxProps, Theme } from '@mui/material';
-import { HOOKS_SUB_SECTION_ARRAY, HOOK_CATEGORY_TYPE } from './constants';
+import { ALL_SUB_SECTION_ARRAY, HOOK_CATEGORY_TYPE } from './constants';
 import { DASH_SPLIT_STRING } from './Contents/Tabs/pages/Hooks/contents';
 import { HookVariantCategoryType, TabContentI } from './interfaces';
 
@@ -67,7 +67,7 @@ const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
 
   const dividedHash = hash.split(DASH_SPLIT_STRING).slice(1).join(DASH_SPLIT_STRING);
 
-  const currentIndex = Object.values(HOOKS_SUB_SECTION_ARRAY).findIndex(x => {
+  const currentIndex = Object.values(ALL_SUB_SECTION_ARRAY).findIndex(x => {
     return x === dividedHash;
   });
 

@@ -1,5 +1,5 @@
 import { TabContentI } from '../../interfaces';
-import { IntroductionAuthContent } from '../Tabs/pages/AuthStrategies';
+import { IntroductionAuthContent, PasswordBasedAuthContent } from '../Tabs/pages/AuthStrategies';
 import { ReferenceValuesWithRefContent } from '../Tabs/pages/EscapeHatches';
 import {
   UseActionStateContent,
@@ -124,11 +124,16 @@ const AUTH_STRATEGIES_TABS_PAGES: TabContentI[] = [
     variant: 'AUTH_STRATEGIES',
     children: <IntroductionAuthContent />,
   },
+  {
+    title: '02 Password based Auth',
+    variant: 'AUTH_STRATEGIES',
+    children: <PasswordBasedAuthContent />,
+  },
 ];
 
 const ESCAPE_HATCHES_TABS_PAGES: TabContentI[] = [
   {
-    title: 'How to “remember” information without re-rendering ',
+    title: 'How to remember information without re-rendering ',
     variant: 'ESCAPE_HATCHES',
     children: <ReferenceValuesWithRefContent />,
   },

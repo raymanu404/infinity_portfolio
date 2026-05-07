@@ -5,6 +5,7 @@ import {
   CommonAuthFlows,
   WhatIsAuth,
 } from './01.Introduction/Examples';
+import { PasswordAndSalting } from './02.PasswordBasedAuth/Examples';
 
 const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   {
@@ -24,6 +25,14 @@ const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const PASSWORD_BASED_AUTH_PAGE_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'understanding-password-hashing-salting-example-id',
+    title: 'Password Hashing & Salting',
+    children: <PasswordAndSalting />,
+  },
+];
+
 const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
   {
     elementId: 'introduction-auth-task-manager-app',
@@ -32,4 +41,8 @@ const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
   },
 ];
 
-export { AUTH_TASK_MANAGER_APP_CONTENTS, INTRODUCTION_TO_AUTH_PAGE_CONTENTS };
+export {
+  AUTH_TASK_MANAGER_APP_CONTENTS,
+  INTRODUCTION_TO_AUTH_PAGE_CONTENTS,
+  PASSWORD_BASED_AUTH_PAGE_CONTENTS,
+};
