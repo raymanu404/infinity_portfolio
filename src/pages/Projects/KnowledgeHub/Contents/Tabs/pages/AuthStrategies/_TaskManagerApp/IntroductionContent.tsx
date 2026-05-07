@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import MultipleDefContent from '../Components/MultipleDefContent';
 
-const AuthTaskManagerApp: React.FC = () => {
+const IntroductionContent: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       <MultipleDefContent
@@ -153,6 +153,6 @@ const AuthTaskManagerApp: React.FC = () => {
   );
 };
 
-AuthTaskManagerApp.displayName = 'AuthTaskManagerApp';
+IntroductionContent.displayName = 'IntroductionContent';
 
-export default AuthTaskManagerApp;
+export default IntroductionContent;

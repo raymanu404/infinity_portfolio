@@ -3,15 +3,8 @@ import { useModal } from '@/Shared/Components/Modal/useModal';
 import { useLocalStorage } from '@/Shared/Hooks';
 import { BookCheck } from 'lucide-react';
 import { useCallback, useEffect, useEffectEvent, useMemo } from 'react';
-import { PageContentList } from '../../components';
 import { AppMenuProps } from '../../components/PagePanelHeadTitle';
-import { AUTH_TASK_MANAGER_APP_CONTENTS } from '../contents';
-
-const AUTH_TASK_MANAGER_APP_CONTENT = (
-  <>
-    <PageContentList pageContentList={AUTH_TASK_MANAGER_APP_CONTENTS} />
-  </>
-);
+import TaskManagerAppContent from './TaskManagerAppContent';
 
 const useAuthTaskManagerApp = () => {
   const {
@@ -55,7 +48,7 @@ const useAuthTaskManagerApp = () => {
       icon: <BookCheck />,
       description: 'Task Manager Auth Application',
       handleClose: closeAuthTaskManagerHandler,
-      children: AUTH_TASK_MANAGER_APP_CONTENT,
+      children: TaskManagerAppContent,
     }),
     [closeAuthTaskManagerHandler, isAuthTaskManagerOpen, openAuthTaskManagerHandler],
   );
