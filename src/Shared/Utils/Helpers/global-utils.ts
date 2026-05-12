@@ -9,3 +9,12 @@ export const convertToPathURI = (path: string | string[]): string => {
 
   return `/${result}`;
 };
+
+export const sanitizeSectionToURL = (title: string) =>
+  title.charAt(0).toLowerCase() +
+  title
+    .substring(1)
+    .replaceAll(/[A-Z]/g, '-$&')
+    .replaceAll(' ', '-')
+    .replaceAll('--', '-')
+    .toLocaleLowerCase();

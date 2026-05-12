@@ -1,13 +1,16 @@
 import {
   ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY,
+  ALL_SECTIONS_ARRAY,
   ALL_SUB_SECTION_ARRAY,
 } from '@/pages/Projects/KnowledgeHub/constants';
+import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/contents';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
+import { LearningSectionsType } from '@/pages/Projects/KnowledgeHub/interfaces';
 import { useCallback, useDebugValue, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { SearchQueryParamsT, SearchQueryParamsV, UrlQueryType } from '../interfaces';
+import { sanitizeSectionToURL } from '../Utils/Helpers/global-utils';
 
-// TODO: Refactor this hook to be more generic and reusable for other sections, not only hooks. Maybe we can pass the array of sub sections as a parameter and the main section hash as well.
 export const useUrlQueryParams = () => {
   // TODO: Fix toggle issue for openAll, also we have to open just the current section, not all the sections when we toggle the switcher, maybe we can pass the section
   const { hash } = useLocation();
@@ -22,18 +25,31 @@ export const useUrlQueryParams = () => {
     const allLearningSectionsValues = Object.values(ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY);
     console.log({ allSubSectionsTypeValues, allLearningSectionsValues });
 
-    const finalHashValue = hash;
-    //TODO: fix for all sections
-    // if (hash) {
-    //   const getSectionKey = hash.substring(1);
-    //   const isTrulySection = allLearningSectionsValues.includes(getSectionKey);
-    //   const getSubSectionsArray = ALL_SECTIONS_ARRAY[getSectionKey];
-    //   const hashValue = allLearningSectionsValues[hashValueIndex];
+    let finalHashValue = hash;
+    if (hash) {
+      const getSectionKey = hash.substring(1);
+      const getSectionKey2 = getSectionKey.split(DASH_SPLIT_STRING);
+      const validateSectionName = allLearningSectionsValues.find(x =>
+        x.includes(getSectionKey2.at(0) || ''),
+      );
 
-    //   console.log({ hashValue, hash, isTrulySection });
-    //   // const primarySectionHash = hash.split('#')[1].split(DASH_SPLIT_STRING)[0]; // UPDATE WHEN WE HAVE GENERIC METHOD FOR ALL SECTIONS
-    //   finalHashValue = getSectionKey + DASH_SPLIT_STRING + hashValue;
-    // }
+      console.log({ ALL_SECTIONS_ARRAY, validateSectionName, getSectionKey2 });
+      if (validateSectionName) {
+        const subSectionsArray = ALL_SECTIONS_ARRAY[validateSectionName as LearningSectionsType];
+        const getSubSection = subSectionsArray[hashValueIndex];
+        const hashValue = sanitizeSectionToURL(getSubSection.title);
+
+        console.log({
+          hashValue,
+          hash,
+          getSectionKey,
+          hashValueIndex,
+          subSectionsArray,
+          getSubSection,
+        });
+        finalHashValue = validateSectionName + DASH_SPLIT_STRING + hashValue;
+      }
+    }
 
     console.log({ finalHashValue });
 
@@ -48,6 +64,8 @@ export const useUrlQueryParams = () => {
         // search: `openAll=${DEFAULT_OPEN_ALL}`,
       });
     }
+
+    console.log({ hashValueIndex });
 
     setValue(+hashValueIndex);
   };

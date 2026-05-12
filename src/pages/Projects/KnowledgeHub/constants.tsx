@@ -1,3 +1,4 @@
+import { sanitizeSectionToURL } from '@/Shared/Utils/Helpers/global-utils';
 import { AuthStrategies, EscapeHatches, HooksSection, ReactRouterV7 } from './Contents/Sections';
 import {
   AUTH_STRATEGIES_TABS_PAGES,
@@ -5,11 +6,11 @@ import {
   HOOKS_TABS_PAGES,
   REACT_ROUTER_TABS_PAGES,
 } from './Contents/Sections/sections';
-import { ContentI, TabContentI } from './interfaces';
+import { ContentI, LearningSectionsType, TabContentI } from './interfaces';
 
 //TODO: Add lazy loading + Routing for each section and content to be opened whenever user has the link
 // + also lazy load contents because performance stuff
-const LEARNING_SECTIONS: ContentI[] = [
+const LEARNING_SECTIONS = [
   {
     title: 'Hooks',
     elementId: 'hooks',
@@ -34,7 +35,7 @@ const LEARNING_SECTIONS: ContentI[] = [
     children: <EscapeHatches />,
     subTitle: 'Escape Hatches',
   },
-];
+] as const satisfies ContentI[];
 
 const HOOK_CATEGORY_TYPE = {
   STATE: 'STATE',
@@ -63,22 +64,15 @@ const ALL_TABS_PAGES_ARRAY = [
   ESCAPE_HATCHES_TABS_PAGES,
 ].flat();
 
-const ALL_SUB_SECTION_ARRAY = Object.values(ALL_TABS_PAGES_ARRAY).map(
-  x =>
-    x.title.charAt(0).toLowerCase() +
-    x.title
-      .substring(1)
-      .replaceAll(/[A-Z]/g, '-$&')
-      .replaceAll(' ', '-')
-      .replaceAll('--', '-')
-      .toLocaleLowerCase(),
+const ALL_SUB_SECTION_ARRAY = Object.values(ALL_TABS_PAGES_ARRAY).map(x =>
+  sanitizeSectionToURL(x.title),
 ) as string[];
 
 const ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY = Object.values(LEARNING_SECTIONS).map(
   x => x.elementId,
 ) as string[];
 
-const ALL_SECTIONS_ARRAY: Record<string, TabContentI[]> = {
+const ALL_SECTIONS_ARRAY: Record<LearningSectionsType, TabContentI[]> = {
   hooks: HOOKS_TABS_PAGES,
   'react-router-v7': REACT_ROUTER_TABS_PAGES,
   'auth-strategies-roadmap': AUTH_STRATEGIES_TABS_PAGES,

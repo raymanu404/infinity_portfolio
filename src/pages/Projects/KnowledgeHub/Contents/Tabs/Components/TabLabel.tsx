@@ -8,7 +8,6 @@ interface TabLabelProps extends TabProps {
   showHeader: boolean;
   showBottom: boolean;
   index: number;
-  parentRef?: React.ForwardedRef<HTMLDivElement>;
 }
 
 const TabLabel = function TabLabel({

@@ -59,6 +59,7 @@ const tabGroupStyle = (showHeader: boolean, showBottom: boolean) => {
   } as SxProps<Theme>;
 };
 
+//TODO: Fix this to get from all sections
 const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
   if (!currentHash.includes('#')) return 0;
   if (!currentHash.includes(DASH_SPLIT_STRING)) return 0;
