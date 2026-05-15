@@ -1,6 +1,7 @@
+import { sanitizeSectionToURL } from '@/Shared/Utils/Helpers/global-utils';
 import { theme } from '@/theme';
 import { SxProps, Theme } from '@mui/material';
-import { ALL_SUB_SECTION_ARRAY, HOOK_CATEGORY_TYPE } from './constants';
+import { ALL_SECTIONS_ARRAY, HOOK_CATEGORY_TYPE } from './constants';
 import { DASH_SPLIT_STRING } from './Contents/Tabs/pages/Hooks/contents';
 import { HookVariantCategoryType, TabContentI } from './interfaces';
 
@@ -59,17 +60,22 @@ const tabGroupStyle = (showHeader: boolean, showBottom: boolean) => {
   } as SxProps<Theme>;
 };
 
-//TODO: Fix this to get from all sections
 const getDefaultSubTabSelectedIndex = (currentHash: string): number => {
   if (!currentHash.includes('#')) return 0;
   if (!currentHash.includes(DASH_SPLIT_STRING)) return 0;
 
   const hash = currentHash.split('#')[1];
+  const potentialSectionStarts = hash.split(DASH_SPLIT_STRING)[0];
 
-  const dividedHash = hash.split(DASH_SPLIT_STRING).slice(1).join(DASH_SPLIT_STRING);
+  const sectionStartsWith = Object.keys(ALL_SECTIONS_ARRAY).find(x =>
+    x.includes(potentialSectionStarts),
+  );
+  const currentArray = ALL_SECTIONS_ARRAY[sectionStartsWith!];
 
-  const currentIndex = Object.values(ALL_SUB_SECTION_ARRAY).findIndex(x => {
-    return x === dividedHash;
+  const subSectionString = hash.split(sectionStartsWith!)[1].slice(1);
+
+  const currentIndex = Object.values(currentArray).findIndex(x => {
+    return sanitizeSectionToURL(x.title) === subSectionString;
   });
 
   return currentIndex;

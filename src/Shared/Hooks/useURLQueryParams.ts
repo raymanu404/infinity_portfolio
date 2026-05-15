@@ -1,7 +1,6 @@
 import {
   ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY,
   ALL_SECTIONS_ARRAY,
-  ALL_SUB_SECTION_ARRAY,
 } from '@/pages/Projects/KnowledgeHub/constants';
 import { DASH_SPLIT_STRING } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/Hooks/contents';
 import { getDefaultSubTabSelectedIndex } from '@/pages/Projects/KnowledgeHub/helpful';
@@ -21,9 +20,7 @@ export const useUrlQueryParams = () => {
   useDebugValue(value);
 
   const handleURLQueryParams = (hashValueIndex: number, checked?: boolean) => {
-    const allSubSectionsTypeValues = Object.values(ALL_SUB_SECTION_ARRAY);
     const allLearningSectionsValues = Object.values(ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY);
-    console.log({ allSubSectionsTypeValues, allLearningSectionsValues });
 
     let finalHashValue = hash;
     if (hash) {
@@ -39,19 +36,9 @@ export const useUrlQueryParams = () => {
         const getSubSection = subSectionsArray[hashValueIndex];
         const hashValue = sanitizeSectionToURL(getSubSection.title);
 
-        console.log({
-          hashValue,
-          hash,
-          getSectionKey,
-          hashValueIndex,
-          subSectionsArray,
-          getSubSection,
-        });
         finalHashValue = validateSectionName + DASH_SPLIT_STRING + hashValue;
       }
     }
-
-    console.log({ finalHashValue });
 
     if (typeof checked !== 'undefined') {
       navigate({
@@ -64,8 +51,6 @@ export const useUrlQueryParams = () => {
         // search: `openAll=${DEFAULT_OPEN_ALL}`,
       });
     }
-
-    console.log({ hashValueIndex });
 
     setValue(+hashValueIndex);
   };

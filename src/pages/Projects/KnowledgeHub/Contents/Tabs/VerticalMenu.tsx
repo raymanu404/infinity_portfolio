@@ -20,10 +20,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
     setTabIndex(+hashValueIndex);
   });
 
-  //TODO: FIX THIS WHEN USER GETS INTO OTHER SECTION (OTHER THAN HOOKS) CHECK
-
   useEffect(() => {
-    console.log({ hashValueIndex });
     if (isNaN(hashValueIndex)) return;
     if (hashValueIndex < 0) return;
     if (hashValueIndex >= tabsPages.length) return;
@@ -44,8 +41,6 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
     (_: React.SyntheticEvent, newValue: number) => {
       handleURLQueryParams(+newValue);
       setTabIndex(newValue);
-
-      console.log({ newValue });
     },
     [handleURLQueryParams],
   );
