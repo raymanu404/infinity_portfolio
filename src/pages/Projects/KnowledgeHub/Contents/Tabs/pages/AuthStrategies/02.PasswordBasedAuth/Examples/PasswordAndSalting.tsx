@@ -8,15 +8,21 @@ const PasswordAndSalting: React.FC = () => {
       <MultipleDefContent
         contents={[
           {
-            title: 'What is Authentication?',
+            title: 'Understanding Hashing',
             content: (
               <Notes
                 notes={[
                   {
-                    note: 'Authentication is the process of verifying the identity of a user, device, or any other entity attempting to access a system or resource.',
+                    note: 'Hashing is a one-way cryptographic function, produces a fixed-size string of characters, called a has',
                     subNotes: [
                       {
-                        note: '"Are you who you say you are?',
+                        note: `you can't easily get the original password back from the hash`,
+                      },
+                      {
+                        note: `Imagine a hash function as a blender. You put ingredients (the password) into the blender, and it produces a smoothie (the hash). You can't easily take the smoothie and separate it back into the original ingredients`,
+                      },
+                      {
+                        note: `Password: "password123" Salt: "aBcDeFgHiJkLmNoP" Combined: "aBcDeFgHiJkLmNoPpassword123" Hash: (Result of hashing the combined string)`,
                       },
                     ],
                   },
