@@ -1,5 +1,4 @@
-import IntroductionContent from '@/pages/Apps/TaskManagerApp/IntroductionContent';
-import { PageContentI } from '../interfaces';
+import { PageContentI } from '@/pages/Projects/KnowledgeHub/interfaces';
 import { AuthVsAuthorization, CommonAuthFlows, WhatIsAuth } from './01.Introduction/Examples';
 import { PasswordAndSalting } from './02.PasswordBasedAuth/Examples';
 
@@ -29,16 +28,4 @@ const PASSWORD_BASED_AUTH_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
-const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
-  {
-    elementId: 'introduction-auth-task-manager-app',
-    title: 'Introduction Auth Task Manager App',
-    children: <IntroductionContent />,
-  },
-];
-
-export {
-  AUTH_TASK_MANAGER_APP_CONTENTS,
-  INTRODUCTION_TO_AUTH_PAGE_CONTENTS,
-  PASSWORD_BASED_AUTH_PAGE_CONTENTS,
-};
+export { INTRODUCTION_TO_AUTH_PAGE_CONTENTS, PASSWORD_BASED_AUTH_PAGE_CONTENTS };

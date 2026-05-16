@@ -1,3 +1,4 @@
+export * from './CodeBlocks/index';
 export { default as FullModal } from './Modal/FullModal';
 export { default as NoResult } from './NotFound/NoResult';
 export { default as NotFoundPage } from './NotFound/NotFoundPage';

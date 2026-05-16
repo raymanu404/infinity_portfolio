@@ -1,8 +1,8 @@
+import MultipleDefContent from '@/Shared/Components/CodeBlocks/MultipleDefContent';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { BoxCardContent } from '@/Shared/Utils/Helpers/styled-components';
 import { Typography } from '@mui/material';
 import React from 'react';
-import MultipleDefContent from '../../Components/MultipleDefContent';
 
 const AuthVsAuthorization: React.FC = () => {
   return (

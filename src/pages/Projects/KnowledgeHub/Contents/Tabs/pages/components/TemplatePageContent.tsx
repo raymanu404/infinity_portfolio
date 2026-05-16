@@ -1,10 +1,10 @@
+import { PageContentI } from '@/pages/Projects/KnowledgeHub/interfaces';
 import { FullModal } from '@/Shared/Components';
 import { useModal } from '@/Shared/Components/Modal/useModal';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { useUrlQueryParams } from '@/Shared/Hooks';
 import { Box } from '@mui/material';
 import React, { ComponentProps } from 'react';
-import { PageContentI } from '../interfaces';
 import PageContentList from './PageContentList';
 import PagePanelHeadTitle, { AppMenuProps } from './PagePanelHeadTitle';
 

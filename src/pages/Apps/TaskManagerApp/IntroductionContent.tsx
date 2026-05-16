@@ -1,4 +1,4 @@
-import MultipleDefContent from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/AuthStrategies/Components/MultipleDefContent';
+import MultipleDefContent from '@/Shared/Components/CodeBlocks/MultipleDefContent';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { Typography } from '@mui/material';
 import React from 'react';

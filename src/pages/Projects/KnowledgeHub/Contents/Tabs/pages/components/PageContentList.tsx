@@ -1,7 +1,7 @@
 import SectionContent from '@/pages/Projects/Components/SectionContent';
+import { PageContentI } from '@/pages/Projects/KnowledgeHub/interfaces';
 import { NoResult } from '@/Shared/Components';
 import React from 'react';
-import { PageContentI } from '../interfaces';
 import PagePanelContent from './PagePanelContent';
 
 interface PageContentListProps {

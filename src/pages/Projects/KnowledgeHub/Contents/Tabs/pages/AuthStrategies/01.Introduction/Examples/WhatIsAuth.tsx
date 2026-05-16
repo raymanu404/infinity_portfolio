@@ -1,6 +1,6 @@
+import MultipleDefContent from '@/Shared/Components/CodeBlocks/MultipleDefContent';
 import Notes from '@/Shared/Components/Notes/Notes';
 import React from 'react';
-import MultipleDefContent from '../../Components/MultipleDefContent';
 
 const WhatIsAuth: React.FC = () => {
   return (

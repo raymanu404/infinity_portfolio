@@ -11,6 +11,12 @@ interface ContentI extends PropsWithChildren {
   elementId: string;
 }
 
+interface PageContentI extends PropsWithChildren {
+  elementId: string;
+  title: string;
+  defaultOpen?: boolean;
+}
+
 type HookVariantCategoryType = (typeof HOOK_CATEGORY_TYPE)[keyof typeof HOOK_CATEGORY_TYPE];
 type SectionVariantType = (typeof SECTION_VARIANTS)[keyof typeof SECTION_VARIANTS];
 
@@ -25,6 +31,7 @@ export type {
   ContentI,
   HookVariantCategoryType,
   LearningSectionsType,
+  PageContentI,
   SectionVariantType,
   TabContentI,
 };

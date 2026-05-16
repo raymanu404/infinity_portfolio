@@ -1,8 +1,8 @@
 import socialAuthPath from '@/assets/app/social_auth.drawio.svg';
+import MultipleDefContent from '@/Shared/Components/CodeBlocks/MultipleDefContent';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { Typography } from '@mui/material';
 import React from 'react';
-import MultipleDefContent from '../../Components/MultipleDefContent';
 
 const CommonAuthFlows: React.FC = () => {
   return (

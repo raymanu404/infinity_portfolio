@@ -5,6 +5,18 @@ import { v4 } from 'uuid';
 //TODO: UPDATE THIS TO HAVE LINK REFERENCE
 export const APPLICATIONS_CONTENTS = [
   {
+    title: 'Tic Tac Toe',
+    route: PATH_ROUTES.TIC_TAC_TOE,
+    description: 'short description',
+    projectId: v4(),
+  },
+  {
+    title: 'Monsters',
+    route: PATH_ROUTES.MONSTERS,
+    description: 'short description',
+    projectId: v4(),
+  },
+  {
     title: 'Task Manager App',
     route: PATH_ROUTES.TASK_MANAGER_APP,
     description:
