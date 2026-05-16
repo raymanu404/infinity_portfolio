@@ -1,6 +1,6 @@
+import CustomTextField from '@/pages/Projects/Components/CustomTextField';
 import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
-import CustomTextField from '../../Components/CustomTextField';
 import { DEFAULT_USER_INPUT, MAXIMUM_PLAYERS_ALLOWED } from '../utils/constants';
 import { PlayerStartDataI } from '../utils/interfaces';
 

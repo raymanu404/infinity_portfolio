@@ -46,4 +46,4 @@ const Monsters = () => {
   );
 };
 
-export default Monsters;
+export { Monsters };

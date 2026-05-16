@@ -23,12 +23,12 @@ const Projects = lazy(() =>
   })),
 );
 const TicTacToe = lazy(() =>
-  import('@/pages/Projects/index.js').then(module => ({
+  import('@/pages/Apps/index.js').then(module => ({
     default: module.TicTacToe,
   })),
 );
 const Monsters = lazy(() =>
-  import('@/pages/Projects/index.js').then(module => ({
+  import('@/pages/Apps/index.js').then(module => ({
     default: module.Monsters,
   })),
 );
@@ -74,19 +74,22 @@ const CustomRouter = () => {
               <Routes>
                 <Route index element={<Home />} />
                 <Route path="*" element={<NotFoundPage />} />
+
+                {/* PROJECTS */}
                 <Route path={convertToPathURI(PATH_ROUTES.PROJECTS)} element={<Projects />} />
-                <Route
-                  path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])}
-                  element={<Monsters />}
-                />
                 <Route path={knowledgeHubPath} element={<KnowledgeHub />} />
 
+                {/* APPLICATIONS */}
                 <Route path={PATH_ROUTES.APPLICATIONS} element={<Applications />} />
+                <Route
+                  path={convertToPathURI([PATH_ROUTES.APPLICATIONS, PATH_ROUTES.MONSTERS])}
+                  element={<Monsters />}
+                />
                 <Route path={taskManagerPath} element={<TaskManagerApp />} />
 
                 {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
                 <Route
-                  path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.TIC_TAC_TOE])}
+                  path={convertToPathURI([PATH_ROUTES.APPLICATIONS, PATH_ROUTES.TIC_TAC_TOE])}
                   element={<TicTacToe />}
                 />
               </Routes>
