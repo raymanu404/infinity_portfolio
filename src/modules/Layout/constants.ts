@@ -4,11 +4,15 @@ import { SxProps, Theme } from '@mui/material';
 import { convertToPathURI } from '../../Shared/Utils/Helpers/global-utils';
 import { NavbarTabI } from './interfaces';
 
-const navbarTabsConst = [
+const NAVBAR_TABS_PAGES = [
   { path: '/', displayName: PATH_ROUTES.HOME },
   {
     path: convertToPathURI([PATH_ROUTES.PROJECTS]),
     displayName: PATH_ROUTES.PROJECTS,
+  },
+  {
+    path: convertToPathURI([PATH_ROUTES.APPLICATIONS]),
+    displayName: PATH_ROUTES.APPLICATIONS,
   },
 ] as NavbarTabI[];
 
@@ -35,9 +39,9 @@ const tabSx: SxProps<Theme> = {
   borderColor: theme.custom.specialPalette?.variant[100],
 };
 
-export { navbarTabsConst, tabsSx, tabSx };
+export { NAVBAR_TABS_PAGES, tabsSx, tabSx };
 
-// export const navbarTabsConst = [
+// export const NAVBAR_TABS_PAGES = [
 //   { path: '/', displayName: PATH_ROUTES.HOME },
 //   {
 //     path: '/monsters',

@@ -5,4 +5,6 @@ export enum PATH_ROUTES {
   PROJECTS = 'projects',
   NOT_FOUND = 'not-found',
   KNOWLEDGE_HUB = 'knowledge_hub',
+  APPLICATIONS = 'applications',
+  TASK_MANAGER_APP = 'task-manager-app',
 }

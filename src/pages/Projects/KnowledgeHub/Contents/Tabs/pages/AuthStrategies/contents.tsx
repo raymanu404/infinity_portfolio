@@ -1,10 +1,6 @@
+import IntroductionContent from '@/pages/Apps/TaskManagerApp/IntroductionContent';
 import { PageContentI } from '../interfaces';
-import {
-  AuthTaskMangerApp,
-  AuthVsAuthorization,
-  CommonAuthFlows,
-  WhatIsAuth,
-} from './01.Introduction/Examples';
+import { AuthVsAuthorization, CommonAuthFlows, WhatIsAuth } from './01.Introduction/Examples';
 import { PasswordAndSalting } from './02.PasswordBasedAuth/Examples';
 
 const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
@@ -37,7 +33,7 @@ const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
   {
     elementId: 'introduction-auth-task-manager-app',
     title: 'Introduction Auth Task Manager App',
-    children: <AuthTaskMangerApp />,
+    children: <IntroductionContent />,
   },
 ];
 

@@ -9,12 +9,14 @@ import { Layout } from '../Layout/Layout';
 import { RedirectRouter } from './Components/RedirectRouter';
 import { PATH_ROUTES } from './constants';
 
+// COMMON ROUTES
 const ErrorBoundary = lazy(() =>
   import('react-error-boundary').then(module => ({
     default: module.ErrorBoundary,
   })),
 );
 
+// PROJECTS ROUTES
 const Projects = lazy(() =>
   import('@/pages/Projects/index.js').then(module => ({
     default: module.ProjectsContainer,
@@ -36,7 +38,25 @@ const KnowledgeHub = lazy(() =>
   })),
 );
 
-const knowledgeHub = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
+//APPLICATIONS ROUTES
+const Applications = lazy(() =>
+  import('@/pages/Apps/Container/Applications.js').then(module => ({
+    default: module.Applications,
+  })),
+);
+
+const TaskManagerApp = lazy(() =>
+  import('@/pages/Apps/index.js').then(module => ({
+    default: module.TaskManagerAppContent,
+  })),
+);
+
+const knowledgeHubPath = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
+const taskManagerPath = convertToPathURI([
+  PATH_ROUTES.APPLICATIONS,
+  PATH_ROUTES.TASK_MANAGER_APP,
+  '*',
+]);
 
 const CustomRouter = () => {
   return (
@@ -59,7 +79,10 @@ const CustomRouter = () => {
                   path={convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.MONSTERS])}
                   element={<Monsters />}
                 />
-                <Route path={knowledgeHub} element={<KnowledgeHub />} />
+                <Route path={knowledgeHubPath} element={<KnowledgeHub />} />
+
+                <Route path={PATH_ROUTES.APPLICATIONS} element={<Applications />} />
+                <Route path={taskManagerPath} element={<TaskManagerApp />} />
 
                 {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
                 <Route

@@ -1,7 +1,7 @@
+import MultipleDefContent from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/AuthStrategies/Components/MultipleDefContent';
 import Notes from '@/Shared/Components/Notes/Notes';
 import { Typography } from '@mui/material';
 import React from 'react';
-import MultipleDefContent from '../Components/MultipleDefContent';
 
 const IntroductionContent: React.FC = () => {
   return (

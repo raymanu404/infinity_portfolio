@@ -1,3 +1,4 @@
+import { PATH_ROUTES } from '@/modules/Router/constants';
 import { OPTIONS_APP_MENU_TYPE, URL_QUERY_TYPE } from '@/pages/Projects/KnowledgeHub/constants';
 
 export type CustomColorI = Record<string, string>;
@@ -11,6 +12,13 @@ export const SearchQueryParamsV = {
 export interface UrlQueryType {
   openAll: boolean;
   fullMode: boolean;
+}
+
+export interface ProjectI {
+  title: string;
+  route: PATH_ROUTES;
+  description?: string;
+  projectId: string;
 }
 
 export type UseUrlQueryParamsReturnType = (typeof URL_QUERY_TYPE)[keyof typeof URL_QUERY_TYPE];
