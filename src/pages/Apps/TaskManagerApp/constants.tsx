@@ -1,5 +1,5 @@
 import { PageContentI } from '@/pages/Projects/KnowledgeHub/interfaces';
-import IntroductionContent from './IntroductionContent';
+import IntroductionContent from './Components/IntroductionContent';
 
 const AUTH_TASK_MANAGER_APP_CONTENTS: PageContentI[] = [
   {
