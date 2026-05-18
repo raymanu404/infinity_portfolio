@@ -7,4 +7,5 @@ export enum PATH_ROUTES {
   KNOWLEDGE_HUB = 'knowledge_hub',
   APPLICATIONS = 'applications',
   TASK_MANAGER_APP = 'task-manager-app',
+  FORGOT_PASSWORD = 'forgot-password',
 }

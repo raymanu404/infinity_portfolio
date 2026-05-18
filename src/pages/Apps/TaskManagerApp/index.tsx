@@ -10,13 +10,7 @@ const TaskManagerAppContent: React.FC = () => {
 
   return (
     <FlexWithGapBox sx={{ padding: '20px', gap: '4px', flexGrow: 1 }}>
-      {user || localUser ? (
-        <ApplicationContent />
-      ) : (
-        <>
-          <LoginForm />
-        </>
-      )}
+      {user || localUser ? <ApplicationContent /> : <LoginForm />}
     </FlexWithGapBox>
   );
 };

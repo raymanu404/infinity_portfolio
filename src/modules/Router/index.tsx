@@ -51,12 +51,20 @@ const TaskManagerApp = lazy(() =>
   })),
 );
 
+const ForgotPassword = lazy(() =>
+  import('@/pages/Apps/TaskManagerApp/Components/ForgotPassword.js').then(module => ({
+    default: module.ForgotPassword,
+  })),
+);
+
 const knowledgeHubPath = convertToPathURI([PATH_ROUTES.PROJECTS, PATH_ROUTES.KNOWLEDGE_HUB, '*']);
 const taskManagerPath = convertToPathURI([
   PATH_ROUTES.APPLICATIONS,
   PATH_ROUTES.TASK_MANAGER_APP,
   '*',
 ]);
+
+const forgotPassPath = taskManagerPath.replace('*', PATH_ROUTES.FORGOT_PASSWORD);
 
 const CustomRouter = () => {
   return (
@@ -86,6 +94,7 @@ const CustomRouter = () => {
                   element={<Monsters />}
                 />
                 <Route path={taskManagerPath} element={<TaskManagerApp />} />
+                <Route path={forgotPassPath} element={<ForgotPassword />} />
 
                 {/* In this block, we should wrap all components into our game context, and use State only in game scope*/}
                 <Route

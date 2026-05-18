@@ -10,17 +10,20 @@ export interface User {
 
 export interface AuthState {
   user: User | null;
+  validationCode?: string | null;
   getUser: () => User | null;
   setUser: (user: Partial<User>) => User;
   updateSession: (session: string | null) => void;
   clear: () => void;
   isAuthenticated: () => boolean;
+  updateValidationCode: (value: string) => void;
 }
 
 const useAuthStoreLocalStorage = create<AuthState>()(
   persist(
     (set, get) => ({
       user: null,
+      validationCode: null,
       getUser: () => get().user,
       setUser: (user: Partial<User>) => {
         const full: User = {
@@ -40,6 +43,9 @@ const useAuthStoreLocalStorage = create<AuthState>()(
       clear: () => set({ user: null }),
       clearLocalStorage: () => set({ user: null }),
       isAuthenticated: () => !!(get().user && get().user!.session),
+      updateValidationCode: (value: string) => {
+        set({ validationCode: value });
+      },
     }),
     {
       name: 'auth-store-task-manager-app',
@@ -51,6 +57,7 @@ const useAuthStoreLocalStorage = create<AuthState>()(
               session: state.user.session ?? null,
             }
           : null,
+        validationCode: state.validationCode,
       }),
     },
   ),
@@ -58,6 +65,7 @@ const useAuthStoreLocalStorage = create<AuthState>()(
 
 const useAuthStore = create<AuthState>()((set, get) => ({
   user: null,
+  validationCode: null,
   getUser: () => get().user,
   setUser: (user: Partial<User>) => {
     const full: User = {
@@ -77,6 +85,9 @@ const useAuthStore = create<AuthState>()((set, get) => ({
   clear: () => set({ user: null }),
   clearLocalStorage: () => set({ user: null }),
   isAuthenticated: () => !!(get().user && get().user!.session),
+  updateValidationCode: (value: string) => {
+    set({ validationCode: value });
+  },
 }));
 
 export { useAuthStore, useAuthStoreLocalStorage };
