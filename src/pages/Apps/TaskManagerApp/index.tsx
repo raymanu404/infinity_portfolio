@@ -1,21 +1,17 @@
-import { PageContentList } from '@/pages/Projects/KnowledgeHub/Contents/Tabs/pages/components';
 import { FlexWithGapBox } from '@/Shared/Utils/Helpers/styled-components';
 import React from 'react';
+import ApplicationContent from './Components/ApplicationContent';
 import LoginForm from './Components/LoginForm';
-import TaskManagerApp from './Components/TaskManagerApp';
-import { AUTH_TASK_MANAGER_APP_CONTENTS } from './constants';
-import { useAuthStore } from './store/authStore';
+import { useAuthStore, useAuthStoreLocalStorage } from './store/authStore';
 
 const TaskManagerAppContent: React.FC = () => {
-  const { user } = useAuthStore();
+  const { user } = useAuthStoreLocalStorage();
+  const { user: localUser } = useAuthStore();
 
   return (
     <FlexWithGapBox sx={{ padding: '20px', gap: '4px', flexGrow: 1 }}>
-      {user ? (
-        <>
-          <PageContentList pageContentList={AUTH_TASK_MANAGER_APP_CONTENTS} />
-          <TaskManagerApp />
-        </>
+      {user || localUser ? (
+        <ApplicationContent />
       ) : (
         <>
           <LoginForm />
