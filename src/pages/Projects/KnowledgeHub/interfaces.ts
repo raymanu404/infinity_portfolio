@@ -24,6 +24,7 @@ type LearningSectionsType = (typeof ALL_LEARNING_SECTIONS_ELEMENT_ID_ARRAY)[numb
 
 interface TabContentI extends PropsWithChildren {
   title: string;
+  description?: string;
   variant: HookVariantCategoryType | SectionVariantType;
 }
 

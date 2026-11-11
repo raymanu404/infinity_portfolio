@@ -1,6 +1,6 @@
 import { FullModal } from '@/Shared/Components';
 import { OptionsAppMenuType } from '@/Shared/interfaces';
-import { SpaceBetweenRowBox } from '@/Shared/Utils/Helpers/styled-components';
+import { FlexWithGapBox, SpaceBetweenRowBox } from '@/Shared/Utils/Helpers/styled-components';
 import { theme } from '@/theme';
 import { IconButton, Typography } from '@mui/material';
 import { ArrowLeft, ArrowRight, Maximize } from 'lucide-react';
@@ -9,6 +9,7 @@ import React, { PropsWithChildren } from 'react';
 interface PagePanelHeadTitleProps {
   title: string;
   appsMenu: AppMenuProps[];
+  description?: string;
 }
 
 export interface AppMenuProps extends PropsWithChildren {
@@ -20,7 +21,11 @@ export interface AppMenuProps extends PropsWithChildren {
   isOpenDialog?: boolean;
 }
 
-const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title }) => {
+const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({
+  appsMenu,
+  title,
+  description,
+}) => {
   const [isMenuOpened, setIsMenuOpened] = React.useState(false);
 
   const handleMenuToggle = () => {
@@ -31,8 +36,15 @@ const PagePanelHeadTitle: React.FC<PagePanelHeadTitleProps> = ({ appsMenu, title
 
   return (
     <SpaceBetweenRowBox>
-      <Typography variant="h6">{title}</Typography>
-
+      <FlexWithGapBox>
+        <Typography variant="h5">{title}</Typography>
+        <Typography
+          variant="subtitle2"
+          sx={{ color: theme.custom.specialPalette?.variantSecondary }}
+        >
+          {description}
+        </Typography>
+      </FlexWithGapBox>
       <div style={{ display: 'flex' }}>
         <div
           style={{

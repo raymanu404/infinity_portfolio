@@ -6,6 +6,7 @@ import {
   JWTSimulatedFromBE,
   JWTStructureAndClaims,
 } from './03.TokenBasedAuthWithJWT/Examples';
+import { PasskeysAndWebAuth } from './04.ModernAuthentication/Examples';
 
 const INTRODUCTION_TO_AUTH_PAGE_CONTENTS: PageContentI[] = [
   {
@@ -38,6 +39,14 @@ const PASSWORD_BASED_AUTH_PAGE_CONTENTS: PageContentI[] = [
   },
 ];
 
+const MODERN_AUTHENTICATION_CONTENTS: PageContentI[] = [
+  {
+    elementId: 'passkey-web-auth-example-id',
+    title: '01.Passkeys and WebAuth',
+    children: <PasskeysAndWebAuth />,
+  },
+];
+
 const TOKEN_BASED__AUTH_WITH_JWT_CONTENTS: PageContentI[] = [
   {
     elementId: 'introduction-to-jwt-example-id',
@@ -58,6 +67,7 @@ const TOKEN_BASED__AUTH_WITH_JWT_CONTENTS: PageContentI[] = [
 
 export {
   INTRODUCTION_TO_AUTH_PAGE_CONTENTS,
+  MODERN_AUTHENTICATION_CONTENTS,
   PASSWORD_BASED_AUTH_PAGE_CONTENTS,
   TOKEN_BASED__AUTH_WITH_JWT_CONTENTS,
 };

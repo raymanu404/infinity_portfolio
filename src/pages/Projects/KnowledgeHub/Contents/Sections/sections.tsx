@@ -1,6 +1,7 @@
 import { TabContentI } from '../../interfaces';
 import {
   IntroductionAuthContent,
+  ModernAuthenticationContent,
   PasswordBasedAuthContent,
   TokenBasedAuthWithJWTContent,
 } from '../Tabs/pages/AuthStrategies';
@@ -137,6 +138,11 @@ const AUTH_STRATEGIES_TABS_PAGES: TabContentI[] = [
     title: '03 Token Based Auth With Jwt',
     variant: 'AUTH_STRATEGIES',
     children: <TokenBasedAuthWithJWTContent />,
+  },
+  {
+    title: '04 Modern Authentication',
+    variant: 'AUTH_STRATEGIES',
+    children: <ModernAuthenticationContent />,
   },
 ];
 

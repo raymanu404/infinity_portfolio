@@ -13,12 +13,14 @@ interface TemplatePageContentProps {
   pageContentList: PageContentI[];
   appMenus?: AppMenuProps[];
   notes?: ComponentProps<typeof Notes>;
+  description?: string;
 }
 
 const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
   pageContentList,
   pageTitle,
   appMenus,
+  description,
   notes,
 }) => {
   const { handleClose, handleOpen, isOpen } = useModal({ fullModal: true });
@@ -42,7 +44,7 @@ const TemplatePageContent: React.FC<TemplatePageContentProps> = ({
       }}
     >
       {/* HEAD/TITLE */}
-      <PagePanelHeadTitle title={pageTitle} appsMenu={appMenuList} />
+      <PagePanelHeadTitle title={pageTitle} appsMenu={appMenuList} description={description} />
 
       {/* CONTENT */}
       <FullModal

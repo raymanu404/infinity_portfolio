@@ -103,7 +103,7 @@ const VerticalMenu: React.FC<VerticalMenuProps> = ({ tabsPages }) => {
         {/* <TabsPageList ref={parentRef} tabsPages={tabsPages} /> */}
       </Tabs>
       {tabsPages.map((page, index) => {
-        const { children, title } = page;
+        const { children, title, description } = page;
         const key = `${title}-${index}`;
 
         return (
